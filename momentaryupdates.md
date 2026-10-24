@@ -60,3 +60,9 @@
 
 - A photo per lesson, Nano Banana in Gemini in Chrome, one tab per account, started ~30 s apart; no references needed (text prompts only); into content/images/<n>.jpg. **Status:** in progress
 - Every lesson played end to end (Live and MixPad), every fault fixed. **Status:** waiting
+
+## 24.10.2026: quote the manual
+
+> all, all, all parts of the tutorials you learn from the manual of cq, you need to quote it so i know you quote from the manual
+
+**Status:** done, v5: 17 short quotes from the CQ User Guide (CONFIG, FADER, PROCESSING, HOME chapters, read in Chrome) as FROM THE CQ MANUAL cards, spoken "The manual says, in the … chapter: …"; every spoken sentence tagged MANUAL / MEASURED / SANTOSHI / MIXING KNOWLEDGE. Photos: 11 from Nano Banana (accounts u/0, u/1, u/3), one per lesson. **Status (images):** done.

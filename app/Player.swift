@@ -13,6 +13,8 @@ final class Player: NSObject, ObservableObject, AVAudioPlayerDelegate {
     @Published var paused = false
     @Published var diagram: String?
     @Published var image: String?          // a picture (content/images) shown instead of a diagram
+    @Published var quote: (q: String, from: String)?   // the manual's words on screen
+    @Published var source: String?          // where the sentence being said comes from
     @Published var lights: [String] = []
     @Published var subtitle = ""
     @Published var marks: [[Double]] = []   // the words of the subtitle and when each is said
@@ -35,9 +37,11 @@ final class Player: NSObject, ObservableObject, AVAudioPlayerDelegate {
     func prepare(_ l: Int, _ s: Int) {
         lesson = l; step = s
         let st = lessons[l].steps
-        diagram = nil; lights = []; subtitle = ""; image = nil; marks = []; speakTime = -1
+        diagram = nil; lights = []; subtitle = ""; image = nil; marks = []; speakTime = -1; quote = nil; source = nil
         for i in 0...min(s, max(0, st.count - 1)) where i < st.count {
-            if let d = st[i].show { diagram = d; lights = st[i].light; image = nil }
+            if let d = st[i].show { diagram = d; lights = st[i].light; image = nil; quote = nil }
+            if let m = st[i].manual { quote = m }
+            if i < s, st[i].say != nil { source = st[i].src }
             if let im = st[i].image { image = im }
             if i < s, let t = st[i].say { subtitle = t }
         }
@@ -90,8 +94,21 @@ final class Player: NSObject, ObservableObject, AVAudioPlayerDelegate {
         }
     }
 
+    // every step and every fault into ~/Library/Logs/cqtutorial.log, so a whole run can be checked afterwards
+    private func log(_ line: String) {
+        let f = NSHomeDirectory() + "/Library/Logs/cqtutorial.log"
+        let t = DateFormatter.localizedString(from: Date(), dateStyle: .none, timeStyle: .medium)
+        let d = Data("\(t)  L\(lesson + 1) S\(step + 1)  \(line)\n".utf8)
+        if let h = FileHandle(forWritingAtPath: f) { h.seekToEndOfFile(); h.write(d); h.closeFile() } else { FileManager.default.createFile(atPath: f, contents: d) }
+    }
+
     @MainActor private func doStep(_ s: Step, _ me: Int) async {
-        if let d = s.show { diagram = d; lights = s.light; image = nil }
+        log(s.line.prefix(70) + "")
+        problem = ""                       // a fault belongs to the step that had it
+        defer { if !problem.isEmpty { log("PROBLEM: " + problem) } }
+        if let d = s.show { diagram = d; lights = s.light; image = nil; quote = nil }
+        if let m = s.manual { quote = m }
+        if s.say != nil { source = s.src; if s.src != "manual" && quote != nil && s.manual == nil { quote = nil } }
         if let im = s.image { image = im }
         if let t = s.say {
             subtitle = t; marks = s.marks; speakTime = 0

@@ -1,6 +1,6 @@
 {
  "title": "Learn the CQ: the Santoshi concert as the case study",
- "note": "Steps: show (a diagram id, with ids to light), say (spoken from a pre-made mp3), point / click (the hand in CQ MixPad, 1600 x 900 picture of its window, by this app), live (orders to Ableton Live by OSC through the router of Ableton Live Actions (127.0.0.1:11002)), wait (seconds). Clicks only change pages, banks, and the USB listen key, which is switched back. Nothing in the mix is changed.",
+ "note": "Steps: show (a diagram id, with ids to light), say (spoken from a pre-made mp3), point / click (the hand in CQ MixPad, 1600 x 900 picture of its window, by this app), live (orders to Ableton Live by OSC through the router of Ableton Live Actions (127.0.0.1:11002)), wait (seconds). Clicks only change pages, banks, and the USB listen key, which is switched back. Nothing in the mix is changed. A step 'manual' shows a short quote from the Allen & Heath CQ User Guide with its chapter (Marko, 24.10.2026: 'all parts of the tutorials you learn from the manual of cq, you need to quote it'); every spoken step has 'src': manual, measured (on his CQ), santoshi (what was done in this project) or knowledge (general mixing knowledge).",
  "changes": [
   {
    "when": "23.10.2026 18:00",
@@ -51,7 +51,8 @@
      "show": "d-to-computer"
     },
     {
-     "say": "One USB cable joins the CQ and the Mac, and it carries sound both ways at once. First the way from the mixer to the computer. Sixteen channels."
+     "say": "One USB cable joins the CQ and the Mac, and it carries sound both ways at once. First the way from the mixer to the computer. Sixteen channels.",
+     "src": "santoshi"
     },
     {
      "show": "d-to-computer",
@@ -60,7 +61,8 @@
      ]
     },
     {
-     "say": "Channels one to ten are your ten inputs, each on its own channel. Whatever comes into input one, a microphone or a recording, goes to the computer on channel one. Ableton can record all ten at once, one track each."
+     "say": "Channels one to ten are your ten inputs, each on its own channel. Whatever comes into input one, a microphone or a recording, goes to the computer on channel one. Ableton can record all ten at once, one track each.",
+     "src": "santoshi"
     },
     {
      "show": "d-to-computer",
@@ -69,7 +71,8 @@
      ]
     },
     {
-     "say": "Channels eleven to sixteen are three stereo pairs, and you choose what they carry. Now they carry the ST IN channel, the outputs five and six, and the main mix. That choice is the page you did not understand: CONFIG, the USB tab, Channel Assignment. It only decides what is sent to the computer."
+     "say": "Channels eleven to sixteen are three stereo pairs, and you choose what they carry. Now they carry the ST IN channel, the outputs five and six, and the main mix. That choice is the page you did not understand: CONFIG, the USB tab, Channel Assignment. It only decides what is sent to the computer.",
+     "src": "santoshi"
     },
     {
      "click": [
@@ -93,9 +96,31 @@
      "label": "Channel Assignment"
     },
     {
-     "say": "Here it is. Eleven twelve, ST IN. Thirteen fourteen, outputs five and six. Fifteen sixteen, the main mix. Read these three boxes as: what do I want to record on the computer on these channels."
+     "say": "Here it is. Eleven twelve, ST IN. Thirteen fourteen, outputs five and six. Fifteen sixteen, the main mix. Read these three boxes as: what do I want to record on the computer on these channels.",
+     "src": "santoshi"
+    },
+    {
+     "manual": {
+      "q": "Mono input channels are permanently assigned to USB/SD outputs.",
+      "from": "CQ User Guide › CONFIG screens › USB/SD › Channel Assignment"
+     }
+    },
+    {
+     "say": "The manual says, in the CONFIG chapter: Mono input channels are permanently assigned to USB and SD outputs.",
+     "src": "manual"
+    },
+    {
+     "manual": {
+      "q": "the CQ-12T has 3 assignable stereo outputs",
+      "from": "CQ User Guide › CONFIG screens › USB/SD › Channel Assignment"
+     }
+    },
+    {
+     "say": "The manual says, in the CONFIG chapter: the CQ-12T has 3 assignable stereo outputs.",
+     "src": "manual"
     }
-   ]
+   ],
+   "image": "1.jpg"
   },
   {
    "title": "2. From the computer back to the mixer",
@@ -104,7 +129,8 @@
      "show": "d-to-mixer"
     },
     {
-     "say": "The other direction. The computer also sends sixteen channels back to the mixer. In Ableton they are called Ext. Out, one to sixteen."
+     "say": "The other direction. The computer also sends sixteen channels back to the mixer. In Ableton they are called Ext. Out, one to sixteen.",
+     "src": "santoshi"
     },
     {
      "show": "d-to-mixer",
@@ -113,7 +139,8 @@
      ]
     },
     {
-     "say": "Ext. Out one to ten play on inputs one to ten, but only when the input's source is set to SD and USB. With the source on analogue, the input listens to the socket on the back instead. For the Santoshi concert all ten are on SD and USB, so the ten recorded musicians play on your ten faders, exactly as if they were on stage."
+     "say": "Ext. Out one to ten play on inputs one to ten, but only when the input's source is set to SD and USB. With the source on analogue, the input listens to the socket on the back instead. For the Santoshi concert all ten are on SD and USB, so the ten recorded musicians play on your ten faders, exactly as if they were on stage.",
+     "src": "santoshi"
     },
     {
      "click": [
@@ -137,7 +164,28 @@
      "label": "input 1, source SD/USB"
     },
     {
-     "say": "You see it on every input: the small SD and USB picture."
+     "say": "You see it on every input: the small SD and USB picture.",
+     "src": "santoshi"
+    },
+    {
+     "manual": {
+      "q": "select USB/SD to source from USB drive and SD card.",
+      "from": "CQ User Guide › CONFIG screens › Inputs › Input Source"
+     }
+    },
+    {
+     "say": "The manual says, in the CONFIG chapter: select USB and SD to source from USB drive and SD card.",
+     "src": "manual"
+    },
+    {
+     "manual": {
+      "q": "the source will be the SD Card, otherwise it will be USB-B.",
+      "from": "CQ User Guide › CONFIG screens › Inputs › Input Source"
+     }
+    },
+    {
+     "say": "The manual says, in the CONFIG chapter: the source will be the SD Card, otherwise it will be USB B.",
+     "src": "manual"
     },
     {
      "show": "d-to-mixer",
@@ -146,9 +194,21 @@
      ]
     },
     {
-     "say": "Channels eleven to sixteen coming back are fixed, and I measured them by watching the meters. Ext. Out eleven and twelve play on the ST IN channel. Thirteen and fourteen play on the channel called USB. Fifteen and sixteen did not show on any channel. So for a stereo sound from the computer you have two places: ST IN, or USB."
+     "say": "Channels eleven to sixteen coming back are fixed, and I measured them by watching the meters. Ext. Out eleven and twelve play on the ST IN channel. Thirteen and fourteen play on the channel called USB. Fifteen and sixteen did not show on any channel. So for a stereo sound from the computer you have two places: ST IN, or USB.",
+     "src": "measured"
+    },
+    {
+     "manual": {
+      "q": "Stereo USB playback signal will be sent to the dedicated stereo USB Input channel",
+      "from": "CQ User Guide › HOME screens › USB"
+     }
+    },
+    {
+     "say": "The manual says, in the HOME chapter: Stereo USB playback signal will be sent to the dedicated stereo USB Input channel.",
+     "src": "manual"
     }
-   ]
+   ],
+   "image": "2.jpg"
   },
   {
    "title": "3. How everything is routed right now",
@@ -157,7 +217,8 @@
      "show": "d-now"
     },
     {
-     "say": "The whole picture, as it is right now. On the left, Ableton plays the Santoshi concert. Ten tracks go out on Ext. Out one to ten, into the ten inputs of the CQ. They are shaped in processing, mixed with the faders, and summed into the main mix."
+     "say": "The whole picture, as it is right now. On the left, Ableton plays the Santoshi concert. Ten tracks go out on Ext. Out one to ten, into the ten inputs of the CQ. They are shaped in processing, mixed with the faders, and summed into the main mix.",
+     "src": "santoshi"
     },
     {
      "show": "d-now",
@@ -166,7 +227,8 @@
      ]
     },
     {
-     "say": "The main mix goes through the main compressor, to the speakers, and to the SD card when you record."
+     "say": "The main mix goes through the main compressor, to the speakers, and to the SD card when you record.",
+     "src": "santoshi"
     },
     {
      "show": "d-now",
@@ -175,7 +237,8 @@
      ]
     },
     {
-     "say": "At the bottom, the venue's own stereo mix, recorded at the concert. It is one stereo file, so I made two tracks of it in Live. Venue L, panned fully left, goes to Ext. Out thirteen. Venue R, panned fully right, goes to fourteen. Together they arrive in stereo on the USB channel. The two tracks play the same clip, so they are always in sync."
+     "say": "At the bottom, the venue's own stereo mix, recorded at the concert. It is one stereo file, so I made two tracks of it in Live. Venue L, panned fully left, goes to Ext. Out thirteen. Venue R, panned fully right, goes to fourteen. Together they arrive in stereo on the USB channel. The two tracks play the same clip, so they are always in sync.",
+     "src": "santoshi"
     },
     {
      "show": "d-now",
@@ -184,7 +247,28 @@
      ]
     },
     {
-     "say": "The USB fader stays down at off. So the venue sound never enters your main mix and never reaches the SD recording. You hear it only through the listen key, in the headphones."
+     "say": "The USB fader stays down at off. So the venue sound never enters your main mix and never reaches the SD recording. You hear it only through the listen key, in the headphones.",
+     "src": "santoshi"
+    },
+    {
+     "manual": {
+      "q": "Touch the listen button to hear only that channel in the headphone output",
+      "from": "CQ User Guide › FADER screens › Listen"
+     }
+    },
+    {
+     "say": "The manual says, in the FADER chapter: Touch the listen button to hear only that channel in the headphone output.",
+     "src": "manual"
+    },
+    {
+     "manual": {
+      "q": "when no Listen button is pressed, the headphone output will be sourced from Main LR.",
+      "from": "CQ User Guide › CONFIG screens › Outputs › Headphone Output"
+     }
+    },
+    {
+     "say": "The manual says, in the CONFIG chapter: when no Listen button is pressed, the headphone output will be sourced from Main LR.",
+     "src": "manual"
     },
     {
      "live": "venue_stereo"
@@ -211,9 +295,11 @@
      "label": "the USB meter"
     },
     {
-     "say": "Here is the USB channel, with its meter moving. That is the venue mix arriving."
+     "say": "Here is the USB channel, with its meter moving. That is the venue mix arriving.",
+     "src": "measured"
     }
-   ]
+   ],
+   "image": "3.jpg"
   },
   {
    "title": "4. The USB preview while you record",
@@ -222,7 +308,8 @@
      "show": "d-compare"
     },
     {
-     "say": "Lesson four, the first project. You record your mix to the SD card, and at the same time you compare it with the mix the venue made. The recording takes the main mix. The headphones take whatever listen key is pressed. Those are two separate roads, so pressing listen never changes the recording."
+     "say": "Lesson four, the first project. You record your mix to the SD card, and at the same time you compare it with the mix the venue made. The recording takes the main mix. The headphones take whatever listen key is pressed. Those are two separate roads, so pressing listen never changes the recording.",
+     "src": "santoshi"
     },
     {
      "click": [
@@ -246,7 +333,18 @@
      "label": "USB listen"
     },
     {
-     "say": "This is the listen key of the USB channel. Pressed, your headphones play the venue mix. Released, they play your main mix. Go back and forth during a whole song. Where is your voice clearer, where is theirs? Where is your bass bigger? Listening like this teaches more than any book."
+     "say": "This is the listen key of the USB channel. Pressed, your headphones play the venue mix. Released, they play your main mix. Go back and forth during a whole song. Where is your voice clearer, where is theirs? Where is your bass bigger? Listening like this teaches more than any book.",
+     "src": "santoshi"
+    },
+    {
+     "manual": {
+      "q": "Touch the listen button to hear only that channel in the headphone output",
+      "from": "CQ User Guide › FADER screens › Listen"
+     }
+    },
+    {
+     "say": "The manual says, in the FADER chapter: Touch the listen button to hear only that channel in the headphone output.",
+     "src": "manual"
     },
     {
      "click": [
@@ -263,9 +361,11 @@
      "label": "RECORD"
     },
     {
-     "say": "Recording is on the HOME page, RECORD. Start it at the first song and stop it after the last. The listen key does not touch what is recorded."
+     "say": "Recording is on the HOME page, RECORD. Start it at the first song and stop it after the last. The listen key does not touch what is recorded.",
+     "src": "santoshi"
     }
-   ]
+   ],
+   "image": "4.jpg"
   },
   {
    "title": "5. Preparing the concert in Live: names, markers, -12 dB",
@@ -274,7 +374,8 @@
      "show": "d-prep"
     },
     {
-     "say": "Before any mixing, the recording is prepared in Live. Three things: names, markers, and the level of every channel. This preparation comes before every mix you will ever do."
+     "say": "Before any mixing, the recording is prepared in Live. Three things: names, markers, and the level of every channel. This preparation comes before every mix you will ever do.",
+     "src": "santoshi"
     },
     {
      "front": "live"
@@ -294,7 +395,8 @@
      ]
     },
     {
-     "say": "Names. The concert came from the Windows computer with tracks called one audio, two audio, and so on. The recording mixer at the concert, the Behringer, had a label on every input, like svemir VOC or tajana. I read which input each track recorded, and gave each track that name. Live can be told the names over a small network door called OSC, so I did not type them by hand. The three percussion channels had unclear labels, so I listened to them with a sound analysis, and you named them: mridangam, mridangam low and djembe."
+     "say": "Names. The concert came from the Windows computer with tracks called one audio, two audio, and so on. The recording mixer at the concert, the Behringer, had a label on every input, like svemir VOC or tajana. I read which input each track recorded, and gave each track that name. Live can be told the names over a small network door called OSC, so I did not type them by hand. The three percussion channels had unclear labels, so I listened to them with a sound analysis, and you named them: mridangam, mridangam low and djembe.",
+     "src": "santoshi"
     },
     {
      "point": [
@@ -311,7 +413,8 @@
      ]
     },
     {
-     "say": "Markers. Up here are eight locators, one at the start of each song, from Jai Ganesha to Asatoma. To find them, I measured the venue mix for the quiet gaps between songs, and then let the speech recogniser listen to the first words after each gap, to confirm which song begins there. Then the eight locators were written into the Live set at those times. Now one click jumps to any song."
+     "say": "Markers. Up here are eight locators, one at the start of each song, from Jai Ganesha to Asatoma. To find them, I measured the venue mix for the quiet gaps between songs, and then let the speech recogniser listen to the first words after each gap, to confirm which song begins there. Then the eight locators were written into the Live set at those times. Now one click jumps to any song.",
+     "src": "measured"
     },
     {
      "show": "d-gain",
@@ -320,7 +423,8 @@
      ]
     },
     {
-     "say": "And the most important: the level. Most channels of this recording touched the very top, zero decibels. So I measured every clip: I cut it into tenths of a second, took the peak of each, and found the level that ninety nine percent of those peaks stay under. That is the typical peak. Then I set each clip's gain so that its typical peak sits at minus twelve decibels. Every track fader in Live stays at zero."
+     "say": "And the most important: the level. Most channels of this recording touched the very top, zero decibels. So I measured every clip: I cut it into tenths of a second, took the peak of each, and found the level that ninety nine percent of those peaks stay under. That is the typical peak. Then I set each clip's gain so that its typical peak sits at minus twelve decibels. Every track fader in Live stays at zero.",
+     "src": "measured"
     },
     {
      "show": "d-gain",
@@ -329,9 +433,11 @@
      ]
     },
     {
-     "say": "The result: every channel reaches the mixer at the same level, with twelve decibels of room above it for the loud moments. Every fader on the CQ now starts from the same place. Do this first, every time you bring in a new multitrack. Then mix."
+     "say": "The result: every channel reaches the mixer at the same level, with twelve decibels of room above it for the loud moments. Every fader on the CQ now starts from the same place. Do this first, every time you bring in a new multitrack. Then mix.",
+     "src": "santoshi"
     }
-   ]
+   ],
+   "image": "5.jpg"
   },
   {
    "title": "6. Theory: gain staging, the level before the mix",
@@ -340,7 +446,8 @@
      "show": "d-gain"
     },
     {
-     "say": "Mixing theory begins before any fader: the level that arrives. Every channel should arrive at the same working level, with space above it for the loud moments. That space is called headroom."
+     "say": "Mixing theory begins before any fader: the level that arrives. Every channel should arrive at the same working level, with space above it for the loud moments. That space is called headroom.",
+     "src": "knowledge"
     },
     {
      "show": "d-gain",
@@ -349,7 +456,8 @@
      ]
     },
     {
-     "say": "In the Santoshi recordings most channels already hit the very top, zero decibels, and the two mridangam microphones even clipped at the concert. That distortion is in the files and cannot be removed. So in Live I set each clip so that its typical peak is at minus twelve. Every channel now reaches the CQ at the same level, with twelve decibels of headroom."
+     "say": "In the Santoshi recordings most channels already hit the very top, zero decibels, and the two mridangam microphones even clipped at the concert. That distortion is in the files and cannot be removed. So in Live I set each clip so that its typical peak is at minus twelve. Every channel now reaches the CQ at the same level, with twelve decibels of headroom.",
+     "src": "knowledge"
     },
     {
      "show": "d-gain",
@@ -358,9 +466,11 @@
      ]
     },
     {
-     "say": "Why peak and not loudness? A drum is short and spiky. Made as loud as a voice, its spikes would go over the top and distort again. Levelling by the typical peak keeps every spike under the ceiling. And because all channels start equal, every fader on the CQ starts from the same place, and the mix is only about balance."
+     "say": "Why peak and not loudness? A drum is short and spiky. Made as loud as a voice, its spikes would go over the top and distort again. Levelling by the typical peak keeps every spike under the ceiling. And because all channels start equal, every fader on the CQ starts from the same place, and the mix is only about balance.",
+     "src": "knowledge"
     }
-   ]
+   ],
+   "image": "6.jpg"
   },
   {
    "title": "7. Theory: equaliser and the high pass filter",
@@ -369,7 +479,8 @@
      "show": "d-eq"
     },
     {
-     "say": "The equaliser. Every instrument fills a part of the frequency range, from the deep bass on the left to the air on the right. A mix is clear when instruments do not fight for the same place."
+     "say": "The equaliser. Every instrument fills a part of the frequency range, from the deep bass on the left to the air on the right. A mix is clear when instruments do not fight for the same place.",
+     "src": "knowledge"
     },
     {
      "show": "d-eq",
@@ -378,7 +489,8 @@
      ]
     },
     {
-     "say": "The first tool is the high pass filter. It removes everything below a chosen frequency. A voice has nothing useful below about a hundred hertz, only stage rumble, breath and handling noise. Cutting it makes room for the bass and the low drum. That is why every vocal channel has its HPF on, the green badge on each strip."
+     "say": "The first tool is the high pass filter. It removes everything below a chosen frequency. A voice has nothing useful below about a hundred hertz, only stage rumble, breath and handling noise. Cutting it makes room for the bass and the low drum. That is why every vocal channel has its HPF on, the green badge on each strip.",
+     "src": "knowledge"
     },
     {
      "show": "d-eq",
@@ -387,7 +499,8 @@
      ]
     },
     {
-     "say": "Between two hundred and four hundred hertz lives the mud. When many voices and guitars add up there, the mix sounds thick and unclear. A small cut there on guitars often lets the voices through."
+     "say": "Between two hundred and four hundred hertz lives the mud. When many voices and guitars add up there, the mix sounds thick and unclear. A small cut there on guitars often lets the voices through.",
+     "src": "knowledge"
     },
     {
      "show": "d-eq",
@@ -396,7 +509,8 @@
      ]
     },
     {
-     "say": "Between two and five thousand hertz lives presence, where words become understandable. A voice that is lost in the mix often needs a little more here, not more fader."
+     "say": "Between two and five thousand hertz lives presence, where words become understandable. A voice that is lost in the mix often needs a little more here, not more fader.",
+     "src": "knowledge"
     },
     {
      "click": [
@@ -420,9 +534,31 @@
      "label": "SvmVOC processing"
     },
     {
-     "say": "For Santoshi I did not draw these curves by hand. I listened to each channel and chose the CQ's Quick preset that fits it: vocal low pitch for Svemir and Igor, vocal high pitch for Tajana, clean bass, acoustic guitar, and percussion presets for mridangam and djembe. A preset is a good start; your ears decide the rest."
+     "say": "For Santoshi I did not draw these curves by hand. I listened to each channel and chose the CQ's Quick preset that fits it: vocal low pitch for Svemir and Igor, vocal high pitch for Tajana, clean bass, acoustic guitar, and percussion presets for mridangam and djembe. A preset is a good start; your ears decide the rest.",
+     "src": "knowledge"
+    },
+    {
+     "manual": {
+      "q": "Quick Channels for a variety of common audio sources",
+      "from": "CQ User Guide › PROCESSING screens › Quick Channels"
+     }
+    },
+    {
+     "say": "The manual says, in the PROCESSING chapter: Quick Channels for a variety of common audio sources.",
+     "src": "manual"
+    },
+    {
+     "manual": {
+      "q": "HPF – Switch High Pass Filter In/Out",
+      "from": "CQ User Guide › PROCESSING screens"
+     }
+    },
+    {
+     "say": "The manual says, in the PROCESSING chapter: Switch High Pass Filter in or out.",
+     "src": "manual"
     }
-   ]
+   ],
+   "image": "7.jpg"
   },
   {
    "title": "8. Theory: the compressor on each channel",
@@ -431,7 +567,8 @@
      "show": "d-comp"
     },
     {
-     "say": "The compressor. A voice in a concert goes from a whisper to a shout. A compressor turns the loud moments down automatically, so the soft and the strong words come closer together, and the voice stays in front without riding the fader all night."
+     "say": "The compressor. A voice in a concert goes from a whisper to a shout. A compressor turns the loud moments down automatically, so the soft and the strong words come closer together, and the voice stays in front without riding the fader all night.",
+     "src": "knowledge"
     },
     {
      "show": "d-comp",
@@ -440,7 +577,18 @@
      ]
     },
     {
-     "say": "Four settings. The threshold is the level where it starts working. Below it, nothing happens."
+     "say": "Four settings. The threshold is the level where it starts working. Below it, nothing happens.",
+     "src": "knowledge"
+    },
+    {
+     "manual": {
+      "q": "Adjust the input level at which compression will be active.",
+      "from": "CQ User Guide › PROCESSING screens › Compressor › Threshold"
+     }
+    },
+    {
+     "say": "The manual says, in the PROCESSING chapter: Adjust the input level at which compression will be active.",
+     "src": "manual"
     },
     {
      "show": "d-comp",
@@ -449,7 +597,18 @@
      ]
     },
     {
-     "say": "The ratio is how strongly it turns down above the threshold. Two to one means: for every two decibels louder that come in, only one comes out."
+     "say": "The ratio is how strongly it turns down above the threshold. Two to one means: for every two decibels louder that come in, only one comes out.",
+     "src": "knowledge"
+    },
+    {
+     "manual": {
+      "q": "The ratio of the incoming signal to compressed signal when compression is active.",
+      "from": "CQ User Guide › PROCESSING screens › Compressor › Ratio"
+     }
+    },
+    {
+     "say": "The manual says, in the PROCESSING chapter: The ratio of the incoming signal to compressed signal when compression is active.",
+     "src": "manual"
     },
     {
      "show": "d-comp",
@@ -458,12 +617,35 @@
      ]
     },
     {
-     "say": "The attack is how fast it reacts, the release how fast it lets go. A slow attack lets the first hit of a drum or a consonant through, so the sound stays alive. A fast attack catches everything, and can make it flat."
+     "say": "The attack is how fast it reacts, the release how fast it lets go. A slow attack lets the first hit of a drum or a consonant through, so the sound stays alive. A fast attack catches everything, and can make it flat.",
+     "src": "knowledge"
     },
     {
-     "say": "Each Santoshi channel's preset carries a gentle compressor made for that instrument: steady for voices, quicker for percussion, so the mridangam's hits stay crisp but do not jump out."
+     "manual": {
+      "q": "the time it takes for compression to take effect",
+      "from": "CQ User Guide › PROCESSING screens › Compressor › Attack"
+     }
+    },
+    {
+     "say": "The manual says, in the PROCESSING chapter: the time it takes for compression to take effect.",
+     "src": "manual"
+    },
+    {
+     "manual": {
+      "q": "the time that it takes for the compressor to stop compressing",
+      "from": "CQ User Guide › PROCESSING screens › Compressor › Release"
+     }
+    },
+    {
+     "say": "The manual says, in the PROCESSING chapter: the time that it takes for the compressor to stop compressing.",
+     "src": "manual"
+    },
+    {
+     "say": "Each Santoshi channel's preset carries a gentle compressor made for that instrument: steady for voices, quicker for percussion, so the mridangam's hits stay crisp but do not jump out.",
+     "src": "knowledge"
     }
-   ]
+   ],
+   "image": "8.jpg"
   },
   {
    "title": "9. Theory: reverb on a send",
@@ -472,7 +654,8 @@
      "show": "d-send"
     },
     {
-     "say": "Reverb. A dry voice sounds close and small. A little reverb puts it in a room. On the CQ the reverb is a shared effect unit. Each channel sends a copy of itself into it, and the reverb comes back into the main mix."
+     "say": "Reverb. A dry voice sounds close and small. A little reverb puts it in a room. On the CQ the reverb is a shared effect unit. Each channel sends a copy of itself into it, and the reverb comes back into the main mix.",
+     "src": "knowledge"
     },
     {
      "show": "d-send",
@@ -481,7 +664,8 @@
      ]
     },
     {
-     "say": "That is better than putting the reverb on each channel, because all voices share the same room, and the reverb has one fader of its own."
+     "say": "That is better than putting the reverb on each channel, because all voices share the same room, and the reverb has one fader of its own.",
+     "src": "knowledge"
     },
     {
      "click": [
@@ -498,7 +682,8 @@
      "label": "easyVERB size"
     },
     {
-     "say": "For Santoshi, effect unit one is easy verb, type Vocal Classic. Only the three voices send to it, Svemir, Igor and Tajana, each at about minus thirteen. Drums and bass send nothing: reverb on them would blur the rhythm."
+     "say": "For Santoshi, effect unit one is easy verb, type Vocal Classic. Only the three voices send to it, Svemir, Igor and Tajana, each at about minus thirteen. Drums and bass send nothing: reverb on them would blur the rhythm.",
+     "src": "knowledge"
     },
     {
      "point": [
@@ -508,9 +693,21 @@
      "label": "Sends To"
     },
     {
-     "say": "To change a send: Sends To, FX one, and the faders become the amounts going into the reverb. Sends To, Main LR, to come back."
+     "say": "To change a send: Sends To, FX one, and the faders become the amounts going into the reverb. Sends To, Main LR, to come back.",
+     "src": "knowledge"
+    },
+    {
+     "manual": {
+      "q": "select an FX to show all send levels to that FX unit on the fader",
+      "from": "CQ User Guide › FADER screens › Sends to an FX"
+     }
+    },
+    {
+     "say": "The manual says, in the FADER chapter: select an FX to show all send levels to that FX unit on the fader.",
+     "src": "manual"
     }
-   ]
+   ],
+   "image": "9.jpg"
   },
   {
    "title": "10. Theory: the glue compressor on the main",
@@ -519,7 +716,8 @@
      "show": "d-glue"
     },
     {
-     "say": "The glue. One more compressor sits on the whole main mix. It is set very gently, so it never squashes, it only holds the parts together, like glue. When the whole band plays loud it pulls back a little, and the mix breathes as one."
+     "say": "The glue. One more compressor sits on the whole main mix. It is set very gently, so it never squashes, it only holds the parts together, like glue. When the whole band plays loud it pulls back a little, and the mix breathes as one.",
+     "src": "knowledge"
     },
     {
      "click": [
@@ -549,12 +747,15 @@
      ]
     },
     {
-     "say": "These are the Santoshi settings. RMS, so it follows the average loudness and not every spike. Soft knee, so it starts gradually. Ratio one point nine to one, gentle. Threshold minus fourteen point four, so it only works in the loud parts. Attack twenty five milliseconds, slow enough to let the hits of the drums through. Release about one hundred and eighty milliseconds, so it lets go in time with the music. Gain zero, nothing added."
+     "say": "These are the Santoshi settings. RMS, so it follows the average loudness and not every spike. Soft knee, so it starts gradually. Ratio one point nine to one, gentle. Threshold minus fourteen point four, so it only works in the loud parts. Attack twenty five milliseconds, slow enough to let the hits of the drums through. Release about one hundred and eighty milliseconds, so it lets go in time with the music. Gain zero, nothing added.",
+     "src": "knowledge"
     },
     {
-     "say": "Watch the main meter during the loudest song. If the compressor works all the time, raise the threshold. If it never moves, that is fine too: a glue you cannot hear is a good glue."
+     "say": "Watch the main meter during the loudest song. If the compressor works all the time, raise the threshold. If it never moves, that is fine too: a glue you cannot hear is a good glue.",
+     "src": "knowledge"
     }
-   ]
+   ],
+   "image": "10.jpg"
   },
   {
    "title": "11. Balancing the Santoshi mix",
@@ -563,7 +764,8 @@
      "show": "d-balance"
     },
     {
-     "say": "The balance, the real mixing. In devotional music the voices carry the meaning, so the order is: voices first, then rhythm, then colour."
+     "say": "The balance, the real mixing. In devotional music the voices carry the meaning, so the order is: voices first, then rhythm, then colour.",
+     "src": "knowledge"
     },
     {
      "live": "play_from_beats",
@@ -585,7 +787,8 @@
      "track": "svemir VOC"
     },
     {
-     "say": "I play Jai Ganesha and solo Svemir's voice in Live. Bring his fader to about zero. Listen: clear, no rumble, steady."
+     "say": "I play Jai Ganesha and solo Svemir's voice in Live. Bring his fader to about zero. Listen: clear, no rumble, steady.",
+     "src": "knowledge"
     },
     {
      "wait": 6
@@ -598,7 +801,8 @@
      "front": "mixpad"
     },
     {
-     "say": "Solo off. Now bring Igor and Tajana until the three voices sit together, none under and none over. Then the mridangam, the low mridangam and the djembe, until the rhythm carries the voices without covering them. Then bass and guitars, felt more than heard. If the voices turn muddy, the bass or the guitars are too loud."
+     "say": "Solo off. Now bring Igor and Tajana until the three voices sit together, none under and none over. Then the mridangam, the low mridangam and the djembe, until the rhythm carries the voices without covering them. Then bass and guitars, felt more than heard. If the voices turn muddy, the bass or the guitars are too loud.",
+     "src": "knowledge"
     },
     {
      "show": "d-balance",
@@ -607,12 +811,34 @@
      ]
     },
     {
-     "say": "Watch the main meter: the loudest moments near zero, never red. If everything is too loud, bring all faders down together, never the main above zero. Then compare with the venue mix on the USB listen key, and when you are happy, store it: HOME, SCENES, Santoshi Mix, Overwrite."
+     "say": "Watch the main meter: the loudest moments near zero, never red. If everything is too loud, bring all faders down together, never the main above zero. Then compare with the venue mix on the USB listen key, and when you are happy, store it: HOME, SCENES, Santoshi Mix, Overwrite.",
+     "src": "knowledge"
+    },
+    {
+     "manual": {
+      "q": "Scenes are used to store and recall the mix state of the CQ",
+      "from": "CQ User Guide › HOME screens › Scenes"
+     }
+    },
+    {
+     "say": "The manual says, in the HOME chapter: Scenes are used to store and recall the mix state of the CQ.",
+     "src": "manual"
+    },
+    {
+     "manual": {
+      "q": "Store the current state in the selected scene slot",
+      "from": "CQ User Guide › HOME screens › Scenes › Overwrite"
+     }
+    },
+    {
+     "say": "The manual says, in the HOME chapter: Store the current state in the selected scene slot.",
+     "src": "manual"
     },
     {
      "live": "stop"
     }
-   ]
+   ],
+   "image": "11.jpg"
   }
  ]
 }

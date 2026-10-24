@@ -29,9 +29,18 @@ struct Step {
     var live: String? { raw["live"] as? String }
     var wait: Double? { (raw["wait"] as? NSNumber)?.doubleValue }
     var label: String? { raw["label"] as? String }
+    // a short quote from the Allen & Heath CQ User Guide and its chapter (Marko, 24.10.2026: "all parts of the
+    // tutorials you learn from the manual of cq, you need to quote it so i know you quote from the manual")
+    var manual: (q: String, from: String)? {
+        guard let m = raw["manual"] as? [String: String], let q = m["q"] else { return nil }
+        return (q, m["from"] ?? "CQ User Guide")
+    }
+    // where a spoken sentence comes from: manual, measured, santoshi, knowledge
+    var src: String? { raw["src"] as? String }
 
     // one line for the step list
     var line: String {
+        if let m = manual { return "❝ MANUAL: " + m.q }
         if let s = say { return "🗣 " + s }
         if let s = show { return "▦ " + (DIAGRAMS[s]?.title ?? s) + (light.isEmpty ? "" : " · " + light.joined(separator: ", ")) }
         if let i = image { return "▣ picture " + i }

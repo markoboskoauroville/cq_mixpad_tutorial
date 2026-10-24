@@ -6,7 +6,7 @@
 import SwiftUI
 import AppKit
 
-let VERSION = 3
+let VERSION = 5
 let GREEN = Color(red: 0x33/255, green: 0xD1/255, blue: 0x7A/255)
 let GREY = Color(red: 0x7A/255, green: 0x80/255, blue: 0x87/255)
 let AMBER = Color(red: 0xE8/255, green: 0xA3/255, blue: 0x3D/255)
@@ -127,6 +127,28 @@ struct MainView: View {
                 }
             }
             .frame(maxHeight: .infinity)
+            .overlay(alignment: .bottom) {
+                // the manual's own words, marked as such
+                if let q = p.quote {
+                    VStack(alignment: .leading, spacing: 6) {
+                        Text("FROM THE CQ MANUAL").font(.system(size: 11, weight: .bold, design: .monospaced)).foregroundColor(Color(red: 0.55, green: 0.75, blue: 1.0))
+                        Text("“" + q.q + "”").font(.system(size: 20, weight: .medium, design: .serif)).foregroundColor(.white)
+                        Text(q.from).font(.system(size: 11, design: .monospaced)).foregroundColor(GREY)
+                    }
+                    .padding(16).frame(maxWidth: .infinity, alignment: .leading)
+                    .background(Color(red: 0.07, green: 0.10, blue: 0.16).opacity(0.96))
+                    .overlay(Rectangle().frame(width: 4).foregroundColor(Color(red: 0.55, green: 0.75, blue: 1.0)), alignment: .leading)
+                    .cornerRadius(8).padding(14)
+                }
+            }
+            if let s = p.source, !p.subtitle.isEmpty {
+                let tag: (String, Color) = s == "manual" ? ("FROM THE CQ MANUAL", Color(red: 0.55, green: 0.75, blue: 1.0))
+                    : s == "measured" ? ("MEASURED ON YOUR CQ", GREEN)
+                    : s == "santoshi" ? ("WHAT WAS DONE FOR SANTOSHI", AMBER)
+                    : ("MIXING KNOWLEDGE, NOT FROM THE MANUAL", GREY)
+                Text(tag.0).font(.system(size: 10, weight: .bold, design: .monospaced)).foregroundColor(tag.1)
+                    .padding(.horizontal, 8).padding(.vertical, 3).overlay(RoundedRectangle(cornerRadius: 4).stroke(tag.1, lineWidth: 1))
+            }
             ReadingText(text: p.subtitle, marks: p.marks, time: p.speakTime)
                 .frame(maxWidth: .infinity, minHeight: 120, alignment: .topLeading)
             if !p.problem.isEmpty {
