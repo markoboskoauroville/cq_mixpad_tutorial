@@ -1,0 +1,1648 @@
+{
+ "source": "Steve Savage, Mixing and Mastering in the Box (Oxford University Press, 2014)",
+ "notes": [
+  "Book: Setting levels, and the order of building — Chapter 4, 4.1 Starting Concepts and Setting Level (vertical and horizontal arranging, foreground and background, gain structure)",
+  "Book: Panning in detail — Chapter 4, 4.2 Panning; Chapter 6, 6.1 Drums and Percussion (hand drums), 6.3 Guitar and 6.5 Vocals (two lead vocalists)",
+  "Book: EQ in detail — Chapter 4, 4.3 Processing: EQ (choosing frequencies, choosing bandwidth, the smile EQ, notch idea not used)",
+  "Book: Compressor and gate, by source — Chapter 4, 4.4 Processing: Dynamics; Chapter 6, 6.2 Bass, 6.3 Guitar and 6.5 Vocals (settings by source)",
+  "Book: Reverb and delay in detail — Chapter 4, 4.5 Processing: Effects (reverb versus delay, short versus long, reverb time and pre-delay, timed delays, stop and listen)",
+  "Book: The stereo buss, the last stage — Chapter 4, 4.7 The Stereo Buss (with 4.1 for the meter targets)",
+  "Book: Mridangam and djembe — Chapter 6, 6.1 Drums and Percussion (drum EQ, kick and bass, drum compression, percussion reverb); 6.2 Bass for the kick/bass split",
+  "Book: Bass DI and the guitars — Chapter 6, 6.2 Bass and 6.3 Guitar (acoustic guitar, pickup versus microphone from 6.2 Acoustic Bass); quote from 6.1",
+  "Book: Three lead voices — Chapter 6, 6.5 Vocals (lead vocal, two lead vocalists, compression and riding, effects, harmonies); de-essers from 4.4",
+  "Not used: 4.6 What Else Is in the Box (analog simulation, pitch tools), all of Chapter 5 (automation and recall; only the live fader ride is kept), 6.4 Keyboards, 6.6 Horns, 6.7 Strings, parallel compression, multi-band compression, linear-phase and tube EQ types, radical/telephone EQ, chorus/flanger/doubling effects, reverse reverbs, drum replacement and loops."
+ ],
+ "lessons": [
+  {
+   "title": "Book: Setting levels, and the order of building",
+   "steps": [
+    {
+     "show": "d-book2-order"
+    },
+    {
+     "say": "The book says a mix depends on the arrangement. Parts that play in the same register fight each other. Parts in different registers are easy to mix. It calls this vertical arranging: everything that sounds at the same moment.",
+     "src": "book"
+    },
+    {
+     "say": "In Santoshi, Svemir and Igor are both low male voices, in the same register. And two guitars strum their chords right where the voices sing. That is where the work is. The bass, the mridangam and Tajana's high voice each have a floor of their own.",
+     "src": "santoshi"
+    },
+    {
+     "say": "Horizontal arranging is the song along time. Find its high points and its quiet parts. A climax should stand out, but not be far louder than the rest. A soft intro may need help to keep up.",
+     "src": "book"
+    },
+    {
+     "say": "Many kirtan songs begin slow and soft and end fast and loud. Watch the end of each song on the main meter. And the soft voice intro of Sarasvati Maha Lakshmi, until about fifty minutes fifty four, may need a little more fader.",
+     "src": "santoshi"
+    },
+    {
+     "show": "d-book2-order",
+     "light": [
+      "o-1",
+      "o-2",
+      "o-3",
+      "o-4"
+     ]
+    },
+    {
+     "say": "Build first the parts that are always there, then add the ones that come and go. The book brings the lead voice in early, because everything else is there to carry it.",
+     "src": "book"
+    },
+    {
+     "book": {
+      "q": "everything ultimately is there to support and balance the lead vocal",
+      "from": "Mixing and Mastering in the Box › Chapter 4: Building a Mix: The Concepts and Tools in Detail › 4.1 Starting Concepts and Setting Level"
+     }
+    },
+    {
+     "say": "The book says, in the chapter Building a Mix: everything ultimately is there to support and balance the lead vocal",
+     "src": "book"
+    },
+    {
+     "say": "For Santoshi: first the pulse that never stops, the mridangam with both heads and the bass. Straight after, the three voices. Then the guitars and the djembe, a step behind. Then the reverb. The earlier balance lesson started with the voices. The book puts the pulse first and the voices right after. Either way, the voices come in early.",
+     "src": "santoshi"
+    },
+    {
+     "show": "d-book2-order",
+     "light": [
+      "o-fg",
+      "o-bg"
+     ]
+    },
+    {
+     "say": "Decide what stands in front and what stays behind. When every part pushes forward, the mix has no focus. In the book's example, moving the rhythm guitar and the harmony voice back opened the whole mix.",
+     "src": "book"
+    },
+    {
+     "show": "d-book2-order",
+     "light": [
+      "o-meter"
+     ]
+    },
+    {
+     "say": "Watch the main meter while you build. With the main fader at zero, the book lets the drums alone peak around minus ten, to leave room for the rest. The finished mix should peak between minus six and minus three.",
+     "src": "book"
+    },
+    {
+     "say": "On the CQ: Main LR fader at zero. Bring up the mridangam and the bass until the main meter peaks near minus ten. When every channel is in, the loudest moment should sit between minus six and minus three. Too hot? Pull the channel faders down together, never the main above zero.",
+     "src": "santoshi"
+    }
+   ]
+  },
+  {
+   "title": "Book: Panning in detail",
+   "steps": [
+    {
+     "show": "d-book2-pan"
+    },
+    {
+     "book": {
+      "q": "Panning is the most neglected or underutilized element in many mixes.",
+      "from": "Mixing and Mastering in the Box › Chapter 4: Building a Mix: The Concepts and Tools in Detail › 4.2 Panning"
+     }
+    },
+    {
+     "say": "The book says, in the chapter Building a Mix: Panning is the most neglected or underutilized element in many mixes.",
+     "src": "book"
+    },
+    {
+     "say": "The book's first rule: use the whole width, from hard left to hard right, and do not fear the edges. A part far out at the side is easy to hear; near the middle it blends. And keep the two sides in balance: an important part on the left wants a partner on the right.",
+     "src": "book"
+    },
+    {
+     "say": "Parts in the same register should sit far apart. Parts in different registers can sit close together.",
+     "src": "book"
+    },
+    {
+     "say": "Pan early. On most mixers a sound changes level when you move its pan, by a few decibels between the middle and the edge. Change the pans late, and your balance falls apart.",
+     "src": "book"
+    },
+    {
+     "show": "d-book2-pan",
+     "light": [
+      "p-voc"
+     ]
+    },
+    {
+     "say": "For two lead singers the book suggests a small offset, about fifteen percent left and right, and the same level when they sing together or take turns.",
+     "src": "book"
+    },
+    {
+     "say": "That refines my earlier suggestion. Svemir fifteen percent left, Igor fifteen percent right, Tajana in the centre.",
+     "src": "santoshi"
+    },
+    {
+     "show": "d-book2-pan",
+     "light": [
+      "p-rhy"
+     ]
+    },
+    {
+     "say": "For hand drums with a low and a high drum, the book puts the low one just off centre and the high one a bit farther out, on the same side. Hand drums seldom need the very centre.",
+     "src": "book"
+    },
+    {
+     "say": "The mridangam is one drum with two heads, so keep the two channels close, on one side. The low head about ten percent left, the high head about twenty five percent left. The bass stays in the centre. The djembe goes to the other side, about forty percent right.",
+     "src": "santoshi"
+    },
+    {
+     "show": "d-book2-pan",
+     "light": [
+      "p-col"
+     ]
+    },
+    {
+     "say": "The two guitars play the same chords in the same register, so they go far apart. Snoopy about seventy percent left. Igor's guitar seventy percent right, on the side of Igor's voice. Igor DI and Igor MIC get that same place.",
+     "src": "santoshi"
+    },
+    {
+     "say": "Two rhythm guitars the book often pans fully hard left and right. When there are only a few parts in the mix, it pulls them in a little, to about eighty percent.",
+     "src": "book"
+    }
+   ]
+  },
+  {
+   "title": "Book: EQ in detail",
+   "steps": [
+    {
+     "show": "d-book2-eq"
+    },
+    {
+     "say": "The book's main way to choose a frequency is to exaggerate. Turn one band up a lot, make it narrow, and sweep it slowly through the range. The bad spot and the sweet spot jump out at you.",
+     "src": "book"
+    },
+    {
+     "show": "d-book2-eq",
+     "light": [
+      "q-s"
+     ]
+    },
+    {
+     "say": "On the CQ's PEQ: take a middle band, gain up to about plus twelve, width narrow, and turn the frequency slowly while the song plays. On Svemir, listen for the spot where the voice turns boomy or boxy. Remember that frequency.",
+     "src": "santoshi"
+    },
+    {
+     "show": "d-book2-eq",
+     "light": [
+      "q-f"
+     ]
+    },
+    {
+     "say": "Then the real move is small. Bring the gain back, and cut a few decibels at that spot, with a wider width. Wide curves and shelves sound gentler and more musical than narrow ones.",
+     "src": "book"
+    },
+    {
+     "show": "d-book2-eq",
+     "light": [
+      "q-b"
+     ]
+    },
+    {
+     "say": "The book says the default shapes usually work: the top and bottom bands as shelves, the middle bands as bells of moderate width. Change them only for a reason.",
+     "src": "book"
+    },
+    {
+     "say": "The CQ's four bands work the same way. The lowest and the highest can act as shelves; the two middle ones are bells with a width control. For a voice: the low middle band for mud, the high middle band for the words, the top band for air.",
+     "src": "santoshi"
+    },
+    {
+     "say": "A common shape is the smile: a little more low and a little more high. It makes up for our ears, which hear the middle best, most of all at low volume.",
+     "src": "book"
+    },
+    {
+     "say": "In Santoshi use a smile on one part at most. On every channel it would pile up the lowest notes and the sharpest highs, the two floors the earlier lessons keep clean.",
+     "src": "knowledge"
+    },
+    {
+     "book": {
+      "q": "Remember that there are no hard-and-fast rules (or presets!).",
+      "from": "Mixing and Mastering in the Box › Chapter 4: Building a Mix: The Concepts and Tools in Detail › 4.3 Processing: EQ"
+     }
+    },
+    {
+     "say": "The book says, in the chapter Building a Mix: Remember that there are no hard-and-fast rules (or presets!).",
+     "src": "book"
+    },
+    {
+     "say": "That includes the Quick presets. Vocal Lo Pitch and Vocal Hi Pitch are good starting points, made for an average voice. Svemir, Igor and Tajana are not average: open each PEQ and fit it to that voice.",
+     "src": "santoshi"
+    }
+   ]
+  },
+  {
+   "title": "Book: Compressor and gate, by source",
+   "steps": [
+    {
+     "show": "d-book2-dyn"
+    },
+    {
+     "say": "The book's usual starting point: a ratio between two and five to one, and a threshold where the loudest moments lose about six decibels. RMS detection follows the average and levels gently; peak detection catches every spike. A slow attack is gentle; a fast one tames spikes but can dull the sound.",
+     "src": "book"
+    },
+    {
+     "say": "Your Main LR glue uses RMS, the gentle way. On the channels the Quick presets chose the settings for you. Now you can read them with this in mind.",
+     "src": "santoshi"
+    },
+    {
+     "show": "d-book2-dyn",
+     "light": [
+      "y-voc"
+     ]
+    },
+    {
+     "say": "For a lead voice in a full band the book uses three or four to one, a fast attack, a soft knee, and up to seven to nine decibels at the loudest notes. Less when the music is sparse.",
+     "src": "book"
+    },
+    {
+     "say": "Santoshi is not crowded: three voices and a small band. Start lighter, around three to one, with three to five decibels on the loudest phrases. If a voice still jumps out, then more.",
+     "src": "santoshi"
+    },
+    {
+     "show": "d-book2-dyn",
+     "light": [
+      "y-bas",
+      "y-gtr"
+     ]
+    },
+    {
+     "say": "The bass wants a slow attack, fifty to seventy five milliseconds, so each note keeps its start. Its release follows the playing: long notes like a slow release, short notes a faster one. Acoustic guitars also want a slow attack, and when they are not the main part, a gentle ratio and only a couple of decibels.",
+     "src": "book"
+    },
+    {
+     "say": "So on Snoopy DI, Igor DI and Igor MIC: about two to one, two or three decibels, attack fifty milliseconds or more. The strum stays alive, and the guitars sit behind the voices.",
+     "src": "santoshi"
+    },
+    {
+     "show": "d-book2-dyn",
+     "light": [
+      "y-gate"
+     ]
+    },
+    {
+     "book": {
+      "q": "Expanders have a much more limited role in mixing",
+      "from": "Mixing and Mastering in the Box › Chapter 4: Building a Mix: The Concepts and Tools in Detail › 4.4 Processing: Dynamics"
+     }
+    },
+    {
+     "say": "The book says, in the chapter Building a Mix: Expanders have a much more limited role in mixing",
+     "src": "book"
+    },
+    {
+     "say": "A gate is the strong form of that: it turns the quiet moments down, or off. It is the opposite of a compressor, which turns the loud moments down.",
+     "src": "book"
+    },
+    {
+     "say": "So, a gate on the mridangam and the djembe? Mostly no. It would cut the soft ghost strokes and the ring of the drum, the life of a hand drum. Use one only where a channel is silent but noisy. Igor DI in the second half, after his guitar broke, is the clear case: if it carries hum there, a gate or simply its fader down removes it.",
+     "src": "santoshi"
+    }
+   ]
+  },
+  {
+   "title": "Book: Reverb and delay in detail",
+   "steps": [
+    {
+     "show": "d-book2-fx"
+    },
+    {
+     "say": "Reverb is a cloud of many reflections; a delay is one clear repeat. Reverb sounds natural and rich, but takes more space. A delay is a shortcut to space, but stark, and it can call attention to itself.",
+     "src": "book"
+    },
+    {
+     "book": {
+      "q": "Don’t use a long reverb when a short reverb will do",
+      "from": "Mixing and Mastering in the Box › Chapter 4: Building a Mix: The Concepts and Tools in Detail › 4.5 Processing: Effects"
+     }
+    },
+    {
+     "say": "The book says, in the chapter Building a Mix: Don’t use a long reverb when a short reverb will do",
+     "src": "book"
+    },
+    {
+     "say": "A short reverb is about one second or less, a long one one and a half or more. Parts in front can take a longer reverb; parts behind do better with a short one. Pick a preset that fits, rather than tweaking for hours. If it is wrong, try another preset.",
+     "src": "book"
+    },
+    {
+     "show": "d-book2-fx",
+     "light": [
+      "f-pre"
+     ]
+    },
+    {
+     "say": "Two settings deserve small moves. The time, until the tail breathes with the music. And pre delay: the short gap before the reverb starts. Twenty to forty milliseconds on a short reverb makes the room seem bigger without a longer tail.",
+     "src": "book"
+    },
+    {
+     "say": "On FX1, if its page offers pre delay, try about twenty to thirty milliseconds. The voice is heard first and its room just after, so the words stay clear.",
+     "src": "santoshi"
+    },
+    {
+     "show": "d-book2-fx",
+     "light": [
+      "f-fx2"
+     ]
+    },
+    {
+     "say": "Delays must be timed to the music, so each repeat lands on the beat. Two or three repeats are usually enough.",
+     "src": "book"
+    },
+    {
+     "say": "Here kirtan is special: the tempo rises through each song, often a lot. A delay timed to the start is off the beat by the end. So for FX2, echo verb, either leave it off, or use a short slap of about one hundred and twenty to one hundred and fifty milliseconds, very quietly, on the voices only. A slap that short does not need to follow the beat.",
+     "src": "knowledge"
+    },
+    {
+     "show": "d-book2-fx",
+     "light": [
+      "f-stop"
+     ]
+    },
+    {
+     "say": "To hear what an effect really does, stop the music and listen to the tail that is left. Then judge all the effects together the same way: the book calls this the delay pool.",
+     "src": "book"
+    },
+    {
+     "say": "In Live, solo Tajana with the S button and stop at the end of a phrase. On the CQ the reverb return keeps ringing her tail. That is her room.",
+     "src": "santoshi"
+    }
+   ]
+  },
+  {
+   "title": "Book: The stereo buss, the last stage",
+   "steps": [
+    {
+     "show": "d-book2-buss"
+    },
+    {
+     "say": "The stereo buss is the main mix, where every channel meets. The book calls it the border between mixing and mastering: whatever you do there touches every instrument at once.",
+     "src": "book"
+    },
+    {
+     "say": "On the CQ it is Main LR. Your glue compressor lives there, from the compression lesson. This lesson is about what else could go there, and what should not.",
+     "src": "santoshi"
+    },
+    {
+     "show": "d-book2-buss",
+     "light": [
+      "s-peq"
+     ]
+    },
+    {
+     "say": "EQ on the whole mix is allowed, says the book, when it does something the channels cannot. A very gentle smile can be the finishing touch, or it can make the mix thin or boomy. Channel EQ is always the finer tool.",
+     "src": "book"
+    },
+    {
+     "say": "If you try it on the Main LR PEQ: one or two decibels at most, a low shelf and a high shelf. Switch it in and out at the same loudness. If you cannot hear a clear improvement, leave it out.",
+     "src": "santoshi"
+    },
+    {
+     "show": "d-book2-buss",
+     "light": [
+      "s-no"
+     ]
+    },
+    {
+     "say": "Reverb on the whole mix usually just muddies it. The book allows it only for a solo instrument or a very small group. It likes a touch of tube or tape colour on the buss, but not on a mix that is already warm.",
+     "src": "book"
+    },
+    {
+     "say": "Santoshi has ten channels, so no reverb on the main: the room comes from FX1, on the voices. And this warm, acoustic music needs no extra colour.",
+     "src": "santoshi"
+    },
+    {
+     "show": "d-book2-buss",
+     "light": [
+      "s-out"
+     ]
+    },
+    {
+     "book": {
+      "q": "“Better” is the goal of the mix engineer",
+      "from": "Mixing and Mastering in the Box › Chapter 4: Building a Mix: The Concepts and Tools in Detail › 4.7 The Stereo Buss"
+     }
+    },
+    {
+     "say": "The book says, in the chapter Building a Mix: “Better” is the goal of the mix engineer",
+     "src": "book"
+    },
+    {
+     "say": "For Santoshi there is no mastering after the SD card. What you hear on Main LR is the final sound. So make it right there, and keep the loudest peaks between minus six and minus three.",
+     "src": "santoshi"
+    }
+   ]
+  },
+  {
+   "title": "Book: Mridangam and djembe",
+   "steps": [
+    {
+     "show": "d-book2-drums"
+    },
+    {
+     "say": "The book says a drum set is many instruments in one. Work on each piece alone first, then make them play as one. Every drum has two parts: the attack, when the hand or stick hits, and the resonance, the ring of the body.",
+     "src": "book"
+    },
+    {
+     "say": "In Santoshi the drums are the mridangam, with one microphone on each head, and the djembe. The high head gives the sharp strokes, the low head the deep boom. Two sounds first, then one drum.",
+     "src": "santoshi"
+    },
+    {
+     "show": "d-book2-drums",
+     "light": [
+      "m-hi"
+     ]
+    },
+    {
+     "say": "For hand drums the book lifts the very top, around eight to ten thousand hertz, to bring out the fingers, and the low middle to give the drum weight.",
+     "src": "book"
+    },
+    {
+     "say": "On the mridangam high head that top is where the strokes speak. But this channel clipped at the concert, and lifting its top lifts the distortion too. If you want more stroke, try a very small lift a little lower, around three to five thousand, and stop at the first harshness.",
+     "src": "santoshi"
+    },
+    {
+     "show": "d-book2-drums",
+     "light": [
+      "m-lo",
+      "m-bass"
+     ]
+    },
+    {
+     "say": "The deepest notes must be shared by the kick drum and the bass. The book gives the kick the very lowest area, around sixty to eighty hertz, and takes a little away from the bass there. Never boost both at the same frequency.",
+     "src": "book"
+    },
+    {
+     "say": "In a kirtan the low head of the mridangam plays the kick drum's role, and the djembe's bass tone joins it. Decide who owns sixty to eighty hertz: the mridangam low or the bass DI. Give it to one, and cut a little on the other with the PEQ.",
+     "src": "santoshi"
+    },
+    {
+     "show": "d-book2-drums",
+     "light": [
+      "m-comp"
+     ]
+    },
+    {
+     "book": {
+      "q": "Fast attack times will significantly dull the sound of drums and cymbals.",
+      "from": "Mixing and Mastering in the Box › Chapter 6: Mixing Piece by Piece: How to Approach Individual Elements › 6.1 Drums and Percussion"
+     }
+    },
+    {
+     "say": "The book says, in the chapter Mixing Piece by Piece: Fast attack times will significantly dull the sound of drums and cymbals.",
+     "src": "book"
+    },
+    {
+     "say": "So on the compressors of all three drum channels, the attack should be slow: the first crack of each stroke passes before the compressor acts. If a stroke sounds dull, the attack is too fast.",
+     "src": "santoshi"
+    },
+    {
+     "say": "Reverb on hand drums can work well, says the book. But pan the reverb with the drum, so it does not smear across the stage, and time it so it breathes with the rhythm.",
+     "src": "book"
+    },
+    {
+     "say": "On the CQ the reverb return is one stereo room for everyone; it cannot follow the drum's pan. That is one reason Santoshi sends no drums to FX1. If the drums sound too dry next to the voices, try a very small send from the mridangam high head only.",
+     "src": "knowledge"
+    }
+   ]
+  },
+  {
+   "title": "Book: Bass DI and the guitars",
+   "steps": [
+    {
+     "show": "d-book2-strings"
+    },
+    {
+     "say": "The book calls the bass perhaps the hardest part of a mix. It nearly always compresses it, because the bass is the floor the music stands on, and it should be felt all the time.",
+     "src": "book"
+    },
+    {
+     "say": "We hear the bass through its upper tones, around nine hundred to twelve hundred hertz. A lift there may sound odd alone and right in the band. The bass usually gets no reverb or delay.",
+     "src": "book"
+    },
+    {
+     "show": "d-book2-strings",
+     "light": [
+      "g-bass"
+     ]
+    },
+    {
+     "say": "Bass DI: centre, with its Quick preset Bass Clean and Comp. Attack fifty to seventy five milliseconds, so every note starts cleanly. Listen to how he plays: long held notes like a slow release, short notes a faster one. Ratio two and a half to four to one. On its PEQ, try a small bell near one thousand hertz: that narrows what the low end lesson suggested.",
+     "src": "santoshi"
+    },
+    {
+     "show": "d-book2-strings",
+     "light": [
+      "g-snp"
+     ]
+    },
+    {
+     "say": "The acoustic guitar is where fits best is farthest from sounds best. In a full band it often needs a lot of low taken away and some top added to be heard. In a small group or a gentle style, much less of both.",
+     "src": "book"
+    },
+    {
+     "say": "Santoshi sits in between: two guitars, three voices, gentle music. So go halfway. A clear cut in the low middle, so the voices and the bass have room, and only a little top. The DI pickups are already bright; their top may need nothing.",
+     "src": "santoshi"
+    },
+    {
+     "show": "d-book2-strings",
+     "light": [
+      "g-ig"
+     ]
+    },
+    {
+     "say": "The book notes that a pickup sounds thinner and brighter than a microphone on the same instrument. The microphone sounds fuller and more real.",
+     "src": "book"
+    },
+    {
+     "say": "That matters here. Igor played through his DI in the first half. After his guitar broke, a microphone on the new guitar, Igor MIC, took over. The two halves will sound different. Give Igor MIC more low cut than Igor DI, so his guitar sounds alike before and after the break, and the same pan for both.",
+     "src": "santoshi"
+    },
+    {
+     "book": {
+      "q": "Just because it was recorded doesn’t mean you have to use it.",
+      "from": "Mixing and Mastering in the Box › Chapter 6: Mixing Piece by Piece: How to Approach Individual Elements › 6.1 Drums and Percussion"
+     }
+    },
+    {
+     "say": "The book says, in the chapter Mixing Piece by Piece: Just because it was recorded doesn’t mean you have to use it.",
+     "src": "book"
+    },
+    {
+     "say": "Igor DI is silent in the second half. Bring its fader down for those songs, or gate it, so any hum on it does not add up. A recorded channel plays only when it helps.",
+     "src": "santoshi"
+    }
+   ]
+  },
+  {
+   "title": "Book: Three lead voices",
+   "steps": [
+    {
+     "show": "d-book2-voc"
+    },
+    {
+     "say": "The voice is where every listener's ear goes first. The book keeps the lead in front and centred, but warns about the opposite danger too: a voice so loud that it seems to stand apart from the band.",
+     "src": "book"
+    },
+    {
+     "show": "d-book2-voc",
+     "light": [
+      "v-pair"
+     ]
+    },
+    {
+     "say": "When two lead singers sing in unison or take turns, the book sets them to the same level. When one sings the melody and the other a harmony, the melody sits slightly higher.",
+     "src": "book"
+    },
+    {
+     "say": "A high female voice and a low male voice are hard to balance, the book admits: they never sound equal. Its tools: soften the woman's presence a little, or lift the man's, and listen at very low and at fairly loud volume.",
+     "src": "book"
+    },
+    {
+     "say": "For Tajana against Svemir and Igor: try one or two decibels less around three thousand hertz on Tajana, or a little more on the men. Check at a whisper and at a fairly loud level, as in the listening lesson.",
+     "src": "santoshi"
+    },
+    {
+     "show": "d-book2-voc",
+     "light": [
+      "v-comp"
+     ]
+    },
+    {
+     "book": {
+      "q": "Compression is our friend but not our savior",
+      "from": "Mixing and Mastering in the Box › Chapter 6: Mixing Piece by Piece: How to Approach Individual Elements › 6.5 Vocals"
+     }
+    },
+    {
+     "say": "The book says, in the chapter Mixing Piece by Piece: Compression is our friend but not our savior",
+     "src": "book"
+    },
+    {
+     "say": "Even well compressed, some words come out too soft or too loud. The book fixes them one by one, with automation.",
+     "src": "book"
+    },
+    {
+     "say": "On the CQ that is your hand. Ride the fader of whoever sings: a little up on a soft line, a little down on a shout. Compressor plus hand, the book's combination, played live.",
+     "src": "santoshi"
+    },
+    {
+     "show": "d-book2-voc",
+     "light": [
+      "v-fx"
+     ]
+    },
+    {
+     "say": "A bright voice often sits well in a warm reverb, a warm voice in a brighter one. Harmony voices get simpler effects than the lead, often one small or medium room.",
+     "src": "book"
+    },
+    {
+     "say": "One FX1 serves all three voices. If Tajana's tail sounds sharp or hissy, lower her send a little. If Svemir and Igor sound too dry next to her, give them a little more send, not more fader.",
+     "src": "santoshi"
+    },
+    {
+     "say": "Sharp s sounds are usually tamed with a de-esser, a compressor that listens only to the very top. The CQ channel has none. If Tajana's s sounds sting, take a small, narrow cut with the top PEQ band, around six to eight thousand hertz, only as much as needed.",
+     "src": "knowledge"
+    }
+   ]
+  }
+ ],
+ "diagrams": {
+  "d-book2-order": {
+   "title": "BUILDING THE MIX · order, front and back, the meter",
+   "els": [
+    {
+     "node": "o-1",
+     "x": 30,
+     "y": 60,
+     "w": 310,
+     "h": 90,
+     "text": "1 · The pulse",
+     "sub": "mridangam high + low · bass"
+    },
+    {
+     "node": "o-2",
+     "x": 30,
+     "y": 170,
+     "w": 310,
+     "h": 90,
+     "text": "2 · The voices, early",
+     "sub": "Tajana · Svemir · Igor"
+    },
+    {
+     "node": "o-3",
+     "x": 30,
+     "y": 280,
+     "w": 310,
+     "h": 90,
+     "text": "3 · The colour",
+     "sub": "Snoopy DI · Igor DI / MIC · djembe"
+    },
+    {
+     "node": "o-4",
+     "x": 30,
+     "y": 390,
+     "w": 310,
+     "h": 90,
+     "text": "4 · The room, then the glue",
+     "sub": "FX1 sends · Main LR compressor"
+    },
+    {
+     "edge": "o-1e",
+     "from": [
+      185,
+      150
+     ],
+     "to": [
+      185,
+      170
+     ]
+    },
+    {
+     "edge": "o-2e",
+     "from": [
+      185,
+      260
+     ],
+     "to": [
+      185,
+      280
+     ]
+    },
+    {
+     "edge": "o-3e",
+     "from": [
+      185,
+      370
+     ],
+     "to": [
+      185,
+      390
+     ]
+    },
+    {
+     "area": "o-meter-a",
+     "x": 400,
+     "y": 60,
+     "w": 210,
+     "h": 50,
+     "label": "0 dB · never"
+    },
+    {
+     "area": "o-meter-b",
+     "x": 400,
+     "y": 110,
+     "w": 210,
+     "h": 70,
+     "label": "−3 to −6\nthe whole mix peaks"
+    },
+    {
+     "area": "o-meter-c",
+     "x": 400,
+     "y": 180,
+     "w": 210,
+     "h": 70,
+     "label": "about −10\nthe pulse alone"
+    },
+    {
+     "area": "o-meter-d",
+     "x": 400,
+     "y": 250,
+     "w": 210,
+     "h": 230,
+     "label": "Main LR meter\nmain fader at 0"
+    },
+    {
+     "area": "o-fg",
+     "x": 660,
+     "y": 60,
+     "w": 310,
+     "h": 200,
+     "label": "FOREGROUND\nthe voices\nthe pulse"
+    },
+    {
+     "area": "o-bg",
+     "x": 660,
+     "y": 280,
+     "w": 310,
+     "h": 200,
+     "label": "BACKGROUND\nguitars · djembe\nthe room"
+    },
+    {
+     "note": "o-n",
+     "x": 500,
+     "y": 520,
+     "text": "Everything is there to carry the voices"
+    }
+   ]
+  },
+  "d-book2-pan": {
+   "title": "PANNING · a refined start for Santoshi (as heard by the listener)",
+   "els": [
+    {
+     "node": "p-voc-svm",
+     "x": 285,
+     "y": 90,
+     "w": 130,
+     "h": 56,
+     "text": "Svemir",
+     "sub": "15 % L"
+    },
+    {
+     "node": "p-voc-taj",
+     "x": 435,
+     "y": 90,
+     "w": 130,
+     "h": 56,
+     "text": "Tajana",
+     "sub": "centre"
+    },
+    {
+     "node": "p-voc-igv",
+     "x": 585,
+     "y": 90,
+     "w": 130,
+     "h": 56,
+     "text": "Igor",
+     "sub": "15 % R"
+    },
+    {
+     "node": "p-rhy-mrl",
+     "x": 395,
+     "y": 220,
+     "w": 130,
+     "h": 56,
+     "text": "Mridangam low",
+     "sub": "10 % L"
+    },
+    {
+     "node": "p-rhy-mrh",
+     "x": 295,
+     "y": 290,
+     "w": 130,
+     "h": 56,
+     "text": "Mridangam high",
+     "sub": "25 % L"
+    },
+    {
+     "node": "p-rhy-bas",
+     "x": 435,
+     "y": 290,
+     "w": 130,
+     "h": 56,
+     "text": "Bass",
+     "sub": "centre"
+    },
+    {
+     "node": "p-rhy-djb",
+     "x": 595,
+     "y": 220,
+     "w": 130,
+     "h": 56,
+     "text": "Djembe",
+     "sub": "40 % R"
+    },
+    {
+     "node": "p-col-snp",
+     "x": 155,
+     "y": 370,
+     "w": 130,
+     "h": 56,
+     "text": "Snoopy guitar",
+     "sub": "70 % L"
+    },
+    {
+     "node": "p-col-igg",
+     "x": 715,
+     "y": 370,
+     "w": 130,
+     "h": 56,
+     "text": "Igor guitar",
+     "sub": "DI + MIC · 70 % R"
+    },
+    {
+     "edge": "p-axis",
+     "from": [
+      100,
+      470
+     ],
+     "to": [
+      900,
+      470
+     ],
+     "label": "pan"
+    },
+    {
+     "note": "p-l",
+     "x": 100,
+     "y": 495,
+     "text": "L 100"
+    },
+    {
+     "note": "p-c",
+     "x": 500,
+     "y": 495,
+     "text": "C"
+    },
+    {
+     "note": "p-r",
+     "x": 900,
+     "y": 495,
+     "text": "R 100"
+    },
+    {
+     "note": "p-n",
+     "x": 500,
+     "y": 530,
+     "text": "Pan first: moving a pan changes the level too"
+    }
+   ]
+  },
+  "d-book2-eq": {
+   "title": "EQ · search big, fix small",
+   "els": [
+    {
+     "note": "q-s-note",
+     "x": 340,
+     "y": 60,
+     "text": "1 · SEARCH: +12 dB, narrow, sweep slowly"
+    },
+    {
+     "curve": "q-s-curve",
+     "points": [
+      [
+       40,
+       210
+      ],
+      [
+       380,
+       210
+      ],
+      [
+       410,
+       195
+      ],
+      [
+       430,
+       90
+      ],
+      [
+       450,
+       195
+      ],
+      [
+       480,
+       210
+      ],
+      [
+       640,
+       210
+      ]
+     ]
+    },
+    {
+     "edge": "q-s-sweep",
+     "from": [
+      300,
+      120
+     ],
+     "to": [
+      560,
+      120
+     ],
+     "label": "sweep"
+    },
+    {
+     "note": "q-f-note",
+     "x": 340,
+     "y": 290,
+     "text": "2 · FIX: gain back, cut a few dB, wider"
+    },
+    {
+     "curve": "q-f-curve",
+     "points": [
+      [
+       40,
+       380
+      ],
+      [
+       330,
+       380
+      ],
+      [
+       380,
+       395
+      ],
+      [
+       430,
+       425
+      ],
+      [
+       480,
+       395
+      ],
+      [
+       530,
+       380
+      ],
+      [
+       640,
+       380
+      ]
+     ]
+    },
+    {
+     "node": "q-b-lf",
+     "x": 690,
+     "y": 60,
+     "w": 280,
+     "h": 80,
+     "text": "LF band",
+     "sub": "shelf (or bell)"
+    },
+    {
+     "node": "q-b-lm",
+     "x": 690,
+     "y": 155,
+     "w": 280,
+     "h": 80,
+     "text": "LM band · bell",
+     "sub": "width · voices: the mud"
+    },
+    {
+     "node": "q-b-hm",
+     "x": 690,
+     "y": 250,
+     "w": 280,
+     "h": 80,
+     "text": "HM band · bell",
+     "sub": "width · voices: the words"
+    },
+    {
+     "node": "q-b-hf",
+     "x": 690,
+     "y": 345,
+     "w": 280,
+     "h": 80,
+     "text": "HF band",
+     "sub": "shelf (or bell) · air"
+    },
+    {
+     "note": "q-n",
+     "x": 500,
+     "y": 510,
+     "text": "No rules, no presets: the Quick preset is a start, your ear decides"
+    }
+   ]
+  },
+  "d-book2-dyn": {
+   "title": "COMPRESSOR AND GATE · starting points by source",
+   "els": [
+    {
+     "node": "y-voc",
+     "x": 30,
+     "y": 60,
+     "w": 460,
+     "h": 110,
+     "text": "Voices · Svemir · Igor · Tajana",
+     "sub": "about 3 : 1 · fast attack · soft knee\n3–5 dB on the loudest phrases (more in a crowded mix)"
+    },
+    {
+     "node": "y-bas",
+     "x": 30,
+     "y": 190,
+     "w": 460,
+     "h": 110,
+     "text": "Bass DI",
+     "sub": "2.5–4 : 1 · attack 50–75 ms\nrelease follows the notes"
+    },
+    {
+     "node": "y-gtr",
+     "x": 30,
+     "y": 320,
+     "w": 460,
+     "h": 110,
+     "text": "Guitars · Snoopy DI · Igor DI / MIC",
+     "sub": "about 2 : 1 · 2–3 dB\nattack 50 ms or more"
+    },
+    {
+     "node": "y-perc",
+     "x": 520,
+     "y": 60,
+     "w": 450,
+     "h": 110,
+     "text": "Mridangam · djembe",
+     "sub": "slow attack: the strokes pass first"
+    },
+    {
+     "node": "y-gate",
+     "x": 520,
+     "y": 190,
+     "w": 450,
+     "h": 240,
+     "text": "Gate",
+     "sub": "mostly OFF on hand drums:\nit would cut the soft strokes and the ring\n\nonly for a silent, noisy channel:\nIgor DI in the second half"
+    },
+    {
+     "note": "y-n",
+     "x": 500,
+     "y": 500,
+     "text": "Start: 2–5 : 1, the loudest moments lose about 6 dB · RMS levels gently, peak catches spikes"
+    }
+   ]
+  },
+  "d-book2-fx": {
+   "title": "REVERB AND DELAY · pre delay, tail, and FX2",
+   "els": [
+    {
+     "area": "f-direct",
+     "x": 60,
+     "y": 110,
+     "w": 14,
+     "h": 340,
+     "label": ""
+    },
+    {
+     "note": "f-direct-n",
+     "x": 67,
+     "y": 95,
+     "text": "the voice"
+    },
+    {
+     "area": "f-pre",
+     "x": 74,
+     "y": 370,
+     "w": 60,
+     "h": 80,
+     "label": "pre\ndelay"
+    },
+    {
+     "curve": "f-tail",
+     "points": [
+      [
+       134,
+       450
+      ],
+      [
+       140,
+       230
+      ],
+      [
+       150,
+       450
+      ],
+      [
+       162,
+       260
+      ],
+      [
+       172,
+       450
+      ],
+      [
+       186,
+       285
+      ],
+      [
+       200,
+       305
+      ],
+      [
+       250,
+       330
+      ],
+      [
+       320,
+       365
+      ],
+      [
+       420,
+       405
+      ],
+      [
+       540,
+       440
+      ],
+      [
+       600,
+       450
+      ]
+     ]
+    },
+    {
+     "note": "f-tail-n",
+     "x": 400,
+     "y": 300,
+     "text": "the tail: the reverb time"
+    },
+    {
+     "edge": "f-time",
+     "from": [
+      60,
+      480
+     ],
+     "to": [
+      600,
+      480
+     ],
+     "label": "time"
+    },
+    {
+     "node": "f-fx1",
+     "x": 650,
+     "y": 60,
+     "w": 320,
+     "h": 120,
+     "text": "FX1 · easyVERB",
+     "sub": "Vocal Classic · the voices\nshort before long\npre delay about 20–30 ms"
+    },
+    {
+     "node": "f-fx2",
+     "x": 650,
+     "y": 200,
+     "w": 320,
+     "h": 140,
+     "text": "FX2 · echoVERB",
+     "sub": "optional, very quiet\nkirtan speeds up: a timed echo drifts\na short slap (120–150 ms) does not"
+    },
+    {
+     "node": "f-stop",
+     "x": 650,
+     "y": 360,
+     "w": 320,
+     "h": 100,
+     "text": "Stop and listen",
+     "sub": "solo in Live, stop playback:\nthe tail that rings is the effect"
+    }
+   ]
+  },
+  "d-book2-buss": {
+   "title": "THE STEREO BUSS · Main LR is the final sound",
+   "els": [
+    {
+     "node": "s-in",
+     "x": 30,
+     "y": 130,
+     "w": 190,
+     "h": 160,
+     "text": "10 channels",
+     "sub": "each with its own\nHPF · PEQ · compressor\nFX1 on the voices"
+    },
+    {
+     "node": "s-peq",
+     "x": 280,
+     "y": 130,
+     "w": 190,
+     "h": 160,
+     "text": "Main LR PEQ",
+     "sub": "optional · 1–2 dB\na very gentle smile\nin/out at equal loudness"
+    },
+    {
+     "node": "s-comp",
+     "x": 530,
+     "y": 130,
+     "w": 190,
+     "h": 160,
+     "text": "Main LR compressor",
+     "sub": "the glue\n1.9 : 1 · RMS · soft knee"
+    },
+    {
+     "node": "s-out",
+     "x": 780,
+     "y": 130,
+     "w": 190,
+     "h": 160,
+     "text": "SD card",
+     "sub": "the final sound\nno mastering after\npeaks −6 to −3"
+    },
+    {
+     "edge": "s-e1",
+     "from": [
+      220,
+      210
+     ],
+     "to": [
+      280,
+      210
+     ]
+    },
+    {
+     "edge": "s-e2",
+     "from": [
+      470,
+      210
+     ],
+     "to": [
+      530,
+      210
+     ]
+    },
+    {
+     "edge": "s-e3",
+     "from": [
+      720,
+      210
+     ],
+     "to": [
+      780,
+      210
+     ]
+    },
+    {
+     "area": "s-no",
+     "x": 280,
+     "y": 330,
+     "w": 440,
+     "h": 70,
+     "label": "NOT here: reverb (ten channels would turn to mud)"
+    },
+    {
+     "curve": "s-peq-smile",
+     "points": [
+      [
+       300,
+       455
+      ],
+      [
+       330,
+       440
+      ],
+      [
+       380,
+       450
+      ],
+      [
+       450,
+       458
+      ],
+      [
+       520,
+       458
+      ],
+      [
+       590,
+       450
+      ],
+      [
+       640,
+       440
+      ],
+      [
+       670,
+       432
+      ]
+     ]
+    },
+    {
+     "note": "s-peq-n",
+     "x": 485,
+     "y": 485,
+     "text": "a smile: a touch more low and high"
+    }
+   ]
+  },
+  "d-book2-drums": {
+   "title": "THE HAND DRUMS · attack, body, and who owns the bottom",
+   "els": [
+    {
+     "area": "m-lo-own",
+     "x": 355,
+     "y": 60,
+     "w": 29,
+     "h": 280,
+     "label": ""
+    },
+    {
+     "node": "m-hi-name",
+     "x": 20,
+     "y": 70,
+     "w": 200,
+     "h": 50,
+     "text": "Mridangam high",
+     "sub": ""
+    },
+    {
+     "area": "m-hi-body",
+     "x": 480,
+     "y": 75,
+     "w": 72,
+     "h": 40,
+     "label": "body"
+    },
+    {
+     "area": "m-hi-stroke",
+     "x": 762,
+     "y": 75,
+     "w": 54,
+     "h": 40,
+     "label": "stroke"
+    },
+    {
+     "area": "m-hi-fing",
+     "x": 864,
+     "y": 75,
+     "w": 24,
+     "h": 40,
+     "label": "clipped!"
+    },
+    {
+     "node": "m-lo-name",
+     "x": 20,
+     "y": 140,
+     "w": 200,
+     "h": 50,
+     "text": "Mridangam low",
+     "sub": ""
+    },
+    {
+     "area": "m-lo-boom",
+     "x": 345,
+     "y": 145,
+     "w": 158,
+     "h": 40,
+     "label": "the boom · owns 60–80?"
+    },
+    {
+     "node": "m-dj-name",
+     "x": 20,
+     "y": 210,
+     "w": 200,
+     "h": 50,
+     "text": "Djembe",
+     "sub": ""
+    },
+    {
+     "area": "m-dj-tone",
+     "x": 355,
+     "y": 215,
+     "w": 102,
+     "h": 40,
+     "label": "tone"
+    },
+    {
+     "area": "m-dj-slap",
+     "x": 720,
+     "y": 215,
+     "w": 115,
+     "h": 40,
+     "label": "slap"
+    },
+    {
+     "node": "m-bass-name",
+     "x": 20,
+     "y": 280,
+     "w": 200,
+     "h": 50,
+     "text": "Bass DI",
+     "sub": ""
+    },
+    {
+     "area": "m-bass-notes",
+     "x": 384,
+     "y": 285,
+     "w": 138,
+     "h": 40,
+     "label": "notes"
+    },
+    {
+     "area": "m-bass-line",
+     "x": 637,
+     "y": 285,
+     "w": 30,
+     "h": 40,
+     "label": "heard"
+    },
+    {
+     "note": "m-f20",
+     "x": 240,
+     "y": 365,
+     "text": "20 Hz"
+    },
+    {
+     "note": "m-f60",
+     "x": 355,
+     "y": 365,
+     "text": "60"
+    },
+    {
+     "note": "m-f100",
+     "x": 408,
+     "y": 365,
+     "text": "100"
+    },
+    {
+     "note": "m-f300",
+     "x": 522,
+     "y": 365,
+     "text": "300"
+    },
+    {
+     "note": "m-f1000",
+     "x": 648,
+     "y": 365,
+     "text": "1 kHz"
+    },
+    {
+     "note": "m-f3000",
+     "x": 762,
+     "y": 365,
+     "text": "3 k"
+    },
+    {
+     "note": "m-f10000",
+     "x": 888,
+     "y": 365,
+     "text": "10 k"
+    },
+    {
+     "note": "m-f20000",
+     "x": 960,
+     "y": 365,
+     "text": "20 kHz"
+    },
+    {
+     "node": "m-comp",
+     "x": 240,
+     "y": 400,
+     "w": 720,
+     "h": 70,
+     "text": "Compressor on all three: SLOW attack",
+     "sub": "the first crack of each stroke passes, then it acts"
+    },
+    {
+     "note": "m-n",
+     "x": 500,
+     "y": 520,
+     "text": "Give 60–80 Hz to one: the low drum or the bass, and cut a little on the other"
+    }
+   ]
+  },
+  "d-book2-strings": {
+   "title": "BASS AND GUITARS · floor, room, and the two halves of Igor",
+   "els": [
+    {
+     "node": "g-bass",
+     "x": 30,
+     "y": 60,
+     "w": 450,
+     "h": 150,
+     "text": "Bass DI · centre",
+     "sub": "attack 50–75 ms · 2.5–4 : 1\nrelease follows the notes\nsmall bell near 1 kHz · no reverb"
+    },
+    {
+     "node": "g-snp",
+     "x": 520,
+     "y": 60,
+     "w": 450,
+     "h": 150,
+     "text": "Snoopy DI · 70 % L",
+     "sub": "fits best, halfway:\na clear low-middle cut, little top\nthe pickup is already bright"
+    },
+    {
+     "node": "g-ig-di",
+     "x": 30,
+     "y": 260,
+     "w": 380,
+     "h": 140,
+     "text": "Igor DI · first half",
+     "sub": "pickup: thinner, brighter\nsilent in the second half: fader down"
+    },
+    {
+     "node": "g-ig-mic",
+     "x": 590,
+     "y": 260,
+     "w": 380,
+     "h": 140,
+     "text": "Igor MIC · second half",
+     "sub": "microphone: fuller\nmore low cut, to match the DI"
+    },
+    {
+     "edge": "g-ig-e",
+     "from": [
+      410,
+      330
+     ],
+     "to": [
+      590,
+      330
+     ],
+     "label": "guitar broke · same role, same pan"
+    },
+    {
+     "note": "g-n",
+     "x": 500,
+     "y": 470,
+     "text": "Just because it was recorded doesn't mean you have to use it"
+    }
+   ]
+  },
+  "d-book2-voc": {
+   "title": "THREE LEAD VOICES · level, hand, room",
+   "els": [
+    {
+     "node": "v-pair-svm",
+     "x": 90,
+     "y": 60,
+     "w": 240,
+     "h": 90,
+     "text": "Svemir",
+     "sub": "low · 15 % L"
+    },
+    {
+     "node": "v-pair-taj",
+     "x": 380,
+     "y": 60,
+     "w": 240,
+     "h": 90,
+     "text": "Tajana",
+     "sub": "high, bright · centre\n1–2 dB less near 3 kHz?"
+    },
+    {
+     "node": "v-pair-igv",
+     "x": 670,
+     "y": 60,
+     "w": 240,
+     "h": 90,
+     "text": "Igor",
+     "sub": "low · 15 % R"
+    },
+    {
+     "note": "v-pair-n",
+     "x": 500,
+     "y": 175,
+     "text": "together or taking turns: the same level · melody slightly above harmony"
+    },
+    {
+     "node": "v-comp",
+     "x": 30,
+     "y": 220,
+     "w": 450,
+     "h": 130,
+     "text": "Compressor + your hand",
+     "sub": "about 3 : 1 · fast attack · soft knee\nthen ride the fader of whoever sings"
+    },
+    {
+     "node": "v-fx",
+     "x": 520,
+     "y": 220,
+     "w": 450,
+     "h": 130,
+     "text": "FX1 · one room for three",
+     "sub": "a warm room suits a bright voice\nTajana sharp? less send · men dry? more send"
+    },
+    {
+     "node": "v-ess",
+     "x": 270,
+     "y": 380,
+     "w": 460,
+     "h": 100,
+     "text": "Sharp s sounds",
+     "sub": "no de-esser on the CQ channel\nsmall narrow cut, 6–8 kHz, only if needed"
+    },
+    {
+     "note": "v-n",
+     "x": 500,
+     "y": 520,
+     "text": "In front, but still part of the music"
+    }
+   ]
+  }
+ }
+}
