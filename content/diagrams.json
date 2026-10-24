@@ -106,7 +106,7 @@
      "note": "tc-11-16n",
      "x": 500,
      "y": 515,
-     "text": "11–16: CONFIG › USB/SD › Channel Assignment chooses what is RECORDED on the computer"
+     "text": "11–16 going TO the computer are chosen in CONFIG › USB/SD › Channel Assignment (recording only)"
     }
    ]
   },
@@ -147,7 +147,7 @@
      "w": 340,
      "h": 60,
      "text": "11 / 12  →  ST IN channel",
-     "sub": "measured on the meters"
+     "sub": "fixed · measured: the house mix"
     },
     {
      "node": "tm-11-16b",
@@ -156,7 +156,7 @@
      "w": 340,
      "h": 60,
      "text": "13 / 14  →  USB channel",
-     "sub": "measured: the venue mix is here"
+     "sub": "fixed · measured"
     },
     {
      "node": "tm-11-16c",
@@ -164,8 +164,8 @@
      "y": 410,
      "w": 340,
      "h": 60,
-     "text": "15 / 16  →  no channel",
-     "sub": "no meter moved"
+     "text": "15 / 16  →  BT channel",
+     "sub": "fixed (A&H table) · no meter moved"
     },
     {
      "edge": "tm-1-10e",
@@ -215,7 +215,7 @@
      "note": "tm-n",
      "x": 500,
      "y": 515,
-     "text": "A stereo sound from the computer can go to ST IN (11/12) or to USB (13/14)"
+     "text": "Coming back from the computer 11–16 are FIXED: you choose them in Live (Audio To), not on the CQ"
     }
    ]
   },
@@ -234,20 +234,11 @@
     {
      "node": "n-venue-a",
      "x": 20,
-     "y": 300,
+     "y": 320,
      "w": 250,
-     "h": 70,
-     "text": "Venue L  ·  pan −100 %",
-     "sub": "Ext. Out 13"
-    },
-    {
-     "node": "n-venue-b",
-     "x": 20,
-     "y": 385,
-     "w": 250,
-     "h": 70,
-     "text": "Venue R  ·  pan +100 %",
-     "sub": "Ext. Out 14"
+     "h": 110,
+     "text": "Venue Mix · stereo",
+     "sub": "Ext. Out 11/12"
     },
     {
      "node": "n-inputs",
@@ -264,8 +255,8 @@
      "y": 320,
      "w": 250,
      "h": 110,
-     "text": "CQ USB channel",
-     "sub": "stereo 13/14\nfader OFF: not in the mix"
+     "text": "CQ House (ST IN)",
+     "sub": "stereo 11/12 · source SD/USB\nfader OFF: not in the mix"
     },
     {
      "node": "n-main-a",
@@ -318,22 +309,11 @@
      "edge": "n-venue-e1",
      "from": [
       270,
-      335
+      375
      ],
      "to": [
       350,
-      360
-     ]
-    },
-    {
-     "edge": "n-venue-e2",
-     "from": [
-      270,
-      420
-     ],
-     "to": [
-      350,
-      395
+      375
      ]
     },
     {
@@ -379,7 +359,7 @@
       790,
       375
      ],
-     "label": "USB Listen"
+     "label": "House Listen"
     },
     {
      "edge": "n-listen-e2",
@@ -398,7 +378,7 @@
      "note": "n-note",
      "x": 500,
      "y": 510,
-     "text": "Venue L and Venue R play the same clip in Live: always in sync, together a stereo pair"
+     "text": "Ext. Out 11/12 is fixed to ST IN on the CQ-12T; with its source on SD/USB it plays the house mix"
     }
    ]
   },
@@ -421,7 +401,7 @@
      "w": 260,
      "h": 140,
      "text": "The venue's mix",
-     "sub": "USB channel, fader OFF"
+     "sub": "House (ST IN), fader OFF"
     },
     {
      "node": "c-sd",
@@ -439,7 +419,7 @@
      "w": 260,
      "h": 140,
      "text": "Headphones",
-     "sub": "USB Listen on: the venue\nUSB Listen off: your mix"
+     "sub": "House Listen on: the venue\nHouse Listen off: your mix"
     },
     {
      "edge": "c-e1",

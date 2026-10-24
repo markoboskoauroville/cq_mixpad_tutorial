@@ -38,9 +38,19 @@
    "what": "Venue Mix duplicated: Venue L (pan -100%) -> Ext. Out 13, Venue R (pan +100%) -> Ext. Out 14: stereo on the CQ's USB channel"
   },
   {
-   "when": "24.10.2026",
+   "when": "24.10.2026 08:39",
+   "where": "the CQ / Live",
+   "what": "The CQ dropped off USB for 5 s; Live lost its output device; Marko chose CQ12T again and set Ext. Out 11/12, 13/14, 15/16 as stereo pairs"
+  },
+  {
+   "when": "24.10.2026 09:00",
+   "where": "Ableton Live",
+   "what": "Venue Mix back to one stereo track (the duplicate removed), every track's output set again"
+  },
+  {
+   "when": "24.10.2026 09:10",
    "where": "CQ MixPad",
-   "what": "Nothing changed by Claude: only pages were looked at; the USB listen key is pressed by Marko"
+   "what": "ST IN: Input Source SD/USB (was Analogue), renamed House. Venue Mix -> Ext. Out 11/12 -> House: the new default for the house mix (Marko)"
   }
  ],
  "lessons": [
@@ -140,15 +150,31 @@
      "audio": "audio/steps/db6323081c7d8084.mp3"
     },
     {
+     "front": "live"
+    },
+    {
+     "point": [
+      821,
+      629
+     ],
+     "app": "live",
+     "label": "Audio To of Venue Mix"
+    },
+    {
+     "say": "Here in Live, under Audio To, each track chooses its Ext. Out. This is where you decide what travels back to the mixer, and on which channel.",
+     "src": "santoshi",
+     "audio": "audio/steps/ef58e06907359121.mp3"
+    },
+    {
      "show": "d-to-mixer",
      "light": [
       "tm-1-10"
      ]
     },
     {
-     "say": "Ext. Out one to ten play on inputs one to ten, but only when the input's source is set to SD and USB. With the source on analogue, the input listens to the socket on the back instead. For the Santoshi concert all ten are on SD and USB, so the ten recorded musicians play on your ten faders, exactly as if they were on stage.",
-     "src": "santoshi",
-     "audio": "audio/steps/a4180b946d8e26c3.mp3"
+     "say": "Ext. Out one to ten play on inputs one to ten, but only when the input's source is set to SD and USB. With the source on analogue, the input listens to the socket on the back instead.",
+     "src": "manual",
+     "audio": "audio/steps/b58f02fad9c94a6f.mp3"
     },
     {
      "click": [
@@ -177,48 +203,88 @@
      "audio": "audio/steps/725d79d0c366be5e.mp3"
     },
     {
-     "manual": {
-      "q": "select USB/SD to source from USB drive and SD card.",
-      "from": "CQ User Guide › CONFIG screens › Inputs › Input Source"
-     }
-    },
-    {
-     "say": "The manual says, in the CONFIG chapter: select USB and SD to source from USB drive and SD card.",
-     "src": "manual",
-     "audio": "audio/steps/6b3ca5db8495e3dc.mp3"
-    },
-    {
-     "manual": {
-      "q": "the source will be the SD Card, otherwise it will be USB-B.",
-      "from": "CQ User Guide › CONFIG screens › Inputs › Input Source"
-     }
-    },
-    {
-     "say": "The manual says, in the CONFIG chapter: the source will be the SD Card, otherwise it will be USB B.",
-     "src": "manual",
-     "audio": "audio/steps/e07528f9ffd10273.mp3"
-    },
-    {
      "show": "d-to-mixer",
      "light": [
       "tm-11-16"
      ]
     },
     {
-     "say": "Channels eleven to sixteen coming back are fixed, and I measured them by watching the meters. Ext. Out eleven and twelve play on the ST IN channel. Thirteen and fourteen play on the channel called USB. Fifteen and sixteen did not show on any channel. So for a stereo sound from the computer you have two places: ST IN, or USB.",
-     "src": "measured",
-     "audio": "audio/steps/e6bfdbfd7dabf0ee.mp3"
+     "say": "Now your question. Are the channels after ten fixed, or can you choose what comes in on them? Coming back from the computer, they are fixed. You cannot change them on the mixer.",
+     "src": "manual",
+     "audio": "audio/steps/0055acd025093362.mp3"
     },
     {
      "manual": {
-      "q": "Stereo USB playback signal will be sent to the dedicated stereo USB Input channel",
-      "from": "CQ User Guide › HOME screens › USB"
+      "q": "USB 11 ST1 L · USB 13 USB L · USB 15 BT L (USB)",
+      "from": "Allen & Heath support article › CQ. USB-B Routing › Downstream (From computer)"
      }
     },
     {
-     "say": "The manual says, in the HOME chapter: Stereo USB playback signal will be sent to the dedicated stereo USB Input channel.",
+     "say": "Allen and Heath's own routing table for the CQ twelve T says it: eleven and twelve go to the ST IN channel, thirteen and fourteen to the USB channel, and fifteen and sixteen to the Bluetooth channel.",
      "src": "manual",
-     "audio": "audio/steps/7670783d84d2f727.mp3"
+     "audio": "audio/steps/c361f8254670c354.mp3"
+    },
+    {
+     "click": [
+      450,
+      49
+     ],
+     "label": "PROCESSING"
+    },
+    {
+     "click": [
+      67,
+      690
+     ],
+     "label": "ST IN / FX bank"
+    },
+    {
+     "point": [
+      214,
+      108
+     ],
+     "label": "ST IN  ←  Ext. Out 11/12"
+    },
+    {
+     "point": [
+      377,
+      108
+     ],
+     "label": "USB  ←  Ext. Out 13/14"
+    },
+    {
+     "point": [
+      540,
+      108
+     ],
+     "label": "BT  ←  Ext. Out 15/16"
+    },
+    {
+     "say": "So these three stereo channels are the three stereo doors from the computer. ST IN, USB and BT. What you can choose is in Live: which track goes out on eleven twelve, thirteen fourteen or fifteen sixteen.",
+     "src": "manual",
+     "audio": "audio/steps/01b8658cf0e74bce.mp3"
+    },
+    {
+     "show": "d-to-computer",
+     "light": [
+      "tc-11-16"
+     ]
+    },
+    {
+     "say": "The Channel Assignment page you saw in lesson one works only the other way, from the mixer to the computer. There you choose what is recorded on eleven to sixteen. It does not change what comes back.",
+     "src": "manual",
+     "audio": "audio/steps/8c9a9c22869e6e74.mp3"
+    },
+    {
+     "show": "d-to-mixer",
+     "light": [
+      "tm-11-16b"
+     ]
+    },
+    {
+     "say": "For Santoshi the venue's house mix now comes back on eleven and twelve, into ST IN, which you named House. I set its source to SD and USB and measured it on the meters: eleven twelve lights House, thirteen fourteen lights the USB channel. Fifteen and sixteen lit nothing on BT, even though the routing table lists it, so that one is still open.",
+     "src": "measured",
+     "audio": "audio/steps/ba824c4c70c9adf1.mp3"
     }
    ],
    "image": "2.jpg"
@@ -252,9 +318,9 @@
      ]
     },
     {
-     "say": "At the bottom, the venue's own stereo mix, recorded at the concert. It is one stereo file, so I made two tracks of it in Live. Venue L, panned fully left, goes to Ext. Out thirteen. Venue R, panned fully right, goes to fourteen. Together they arrive in stereo on the USB channel. The two tracks play the same clip, so they are always in sync.",
+     "say": "At the bottom, the venue's own stereo mix, the house mix, recorded at the concert. Since you made eleven and twelve a stereo pair in Live, it is one stereo track, Venue Mix, going out on Ext. Out eleven twelve. It arrives in stereo on ST IN, now called House, whose source is set to SD and USB.",
      "src": "santoshi",
-     "audio": "audio/steps/d414d6ebe4fcc74e.mp3"
+     "audio": "audio/steps/e914461f98b38451.mp3"
     },
     {
      "show": "d-now",
@@ -290,7 +356,7 @@
      "audio": "audio/steps/e624ed70394561aa.mp3"
     },
     {
-     "live": "venue_stereo"
+     "live": "venue_house"
     },
     {
      "click": [
@@ -308,15 +374,15 @@
     },
     {
      "point": [
-      449,
+      282,
       220
      ],
-     "label": "the USB meter"
+     "label": "the House meter"
     },
     {
-     "say": "Here is the USB channel, with its meter moving. That is the venue mix arriving.",
+     "say": "Here is the House channel, with its meter moving. That is the venue's house mix arriving.",
      "src": "measured",
-     "audio": "audio/steps/a4f231ac1fdb6540.mp3"
+     "audio": "audio/steps/af8fc161fceeec2d.mp3"
     }
    ],
    "image": "3.jpg"
@@ -348,15 +414,15 @@
     },
     {
      "point": [
-      377,
+      214,
       145
      ],
-     "label": "USB listen"
+     "label": "House listen"
     },
     {
-     "say": "This is the listen key of the USB channel. Pressed, your headphones play the venue mix. Released, they play your main mix. Go back and forth during a whole song. Where is your voice clearer, where is theirs? Where is your bass bigger? Listening like this teaches more than any book.",
+     "say": "This is the listen key of the House channel. Pressed, your headphones play the venue's house mix. Released, they play your main mix. Go back and forth during a whole song. Where is your voice clearer, where is theirs? Where is your bass bigger? Listening like this teaches more than any book.",
      "src": "santoshi",
-     "audio": "audio/steps/0360ae3bb3e81478.mp3"
+     "audio": "audio/steps/1b71abca0dc292fa.mp3"
     },
     {
      "manual": {
@@ -870,9 +936,9 @@
      ]
     },
     {
-     "say": "Watch the main meter: the loudest moments near zero, never red. If everything is too loud, bring all faders down together, never the main above zero. Then compare with the venue mix on the USB listen key, and when you are happy, store it: HOME, SCENES, Santoshi Mix, Overwrite.",
+     "say": "Watch the main meter: the loudest moments near zero, never red. If everything is too loud, bring all faders down together, never the main above zero. Then compare with the venue mix on the House listen key, and when you are happy, store it: HOME, SCENES, Santoshi Mix, Overwrite.",
      "src": "knowledge",
-     "audio": "audio/steps/a24baaf97fe698d9.mp3"
+     "audio": "audio/steps/566ffc6a0b355498.mp3"
     },
     {
      "manual": {
@@ -1364,10 +1430,10 @@
     },
     {
      "point": [
-      377,
+      214,
       145
      ],
-     "label": "USB listen"
+     "label": "House listen"
     },
     {
      "click": [
@@ -1445,9 +1511,9 @@
      "audio": "audio/steps/1567b6c0b96111a0.mp3"
     },
     {
-     "say": "For Santoshi the best reference is the venue's own mix, on the USB channel. Press its listen key to hear it, release it to hear yours, in the same headphones, so the comparison is fair. If one is clearly louder, be careful: the louder one will always seem better.",
+     "say": "For Santoshi the best reference is the venue's own mix, on the House channel. Press its listen key to hear it, release it to hear yours, in the same headphones, so the comparison is fair. If one is clearly louder, be careful: the louder one will always seem better.",
      "src": "santoshi",
-     "audio": "audio/steps/b63ccbe178eca4c9.mp3"
+     "audio": "audio/steps/1b56b64e5c775c48.mp3"
     }
    ]
   },

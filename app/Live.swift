@@ -7,7 +7,7 @@ import Darwin
 
 enum Live {
     static let knownTracks = ["svemir VOC": 0, "bas": 1, "Mridangam": 2, "Mridangam Low": 3, "Djembe": 4, "Igor VOC": 5,
-                              "Igor DI": 6, "tajana": 7, "snoopy DI": 8, "Igor MIC": 9, "Venue L": 10, "Venue R": 11]
+                              "Igor DI": 6, "tajana": 7, "snoopy DI": 8, "Igor MIC": 9, "Venue Mix": 10]
 
     static func message(_ addr: String, _ args: [Any]) -> Data {
         func pad(_ d: inout Data) { repeat { d.append(0) } while d.count % 4 != 0 }
@@ -92,12 +92,12 @@ enum Live {
     // the lessons' orders; returns nil or why it could not
     static func run(_ cmd: String, _ step: [String: Any]) -> String? {
         switch cmd {
-        case "venue_stereo":
-            for (name, pan, ch) in [("Venue L", -1.0, "13"), ("Venue R", 1.0, "14")] {
-                guard let t = track(name) else { return "no track \(name) in Live" }
-                send("/live/track/set/panning", [t, pan]); send("/live/track/set/output_routing_type", [t, "Ext. Out"])
-                usleep(150_000); send("/live/track/set/output_routing_channel", [t, ch])
-            }
+        case "venue_house", "venue_stereo":
+            // the venue's house mix in stereo on Ext. Out 11/12 -> the CQ's ST IN, named House, source SD/USB (Marko,
+            // 24.10.2026: "leave it as a new default stereo in Eleven Twelve. Let that be the house mix")
+            guard let t = track("Venue Mix") else { return "no track Venue Mix in Live" }
+            send("/live/track/set/output_routing_type", [t, "Ext. Out"]); usleep(150_000)
+            send("/live/track/set/output_routing_channel", [t, "11/12"])
         case "play_from_beats":
             // start first, then move: Live's start_playing begins at the start marker, so a time set before it is lost
             // (measured 24.10.2026: Jai Ganesha at beat 948 played from beat 0)
