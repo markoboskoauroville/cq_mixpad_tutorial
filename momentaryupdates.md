@@ -12,3 +12,27 @@
 - CQ MixPad Tutorial (Mantra).app, Swift: lessons in `lessons.json` (voice + mouse in CQ MixPad + the Santoshi song in Live through the OSC router), lesson 1 USB, then the map of the mixer, routing, and making the Santoshi mix good. **Status:** in progress
 - A new folder "Audio Mixing" in the Swift star with CQ MixPad Tutorial (and CQ MixPad Actions when it exists). **Status:** in progress
 - CQ MixPad Actions: a later app, its own repository. **Status:** waiting
+
+## 24.10.2026: no sound drops; Speechify API with fallback; diagrams; two screens; one fixed local web server
+
+> Stop. The voice sound is dropping. It's not smooth.
+> Please, as the default engine for voice, use Speechify, which is already installed here on my computer. For the tutorial, also record the sound. Then we can replay it later. For this, record the sound and save it on the computer.
+> Avoid sound drops on any cost.
+> In the API folders, there are many APIs from Speechify. Use that first. We work with APIs. It's faster to generate and easier to control. But there are free accounts, so you need to work with fallback.
+
+> Explanation needs to have some diagrams. Please use Claude in Chrome to generate diagrams to explain:
+> - How many channels are going from the mixer to the computer.
+> - How many channels are going from the computer to the mixer.
+> - How everything is routed now, right now.
+> - How to use these channels after 10.
+> I don't understand this assignment and what you did. I want a stereo signal on my USB return. For now, I'm listening only in one ear. I want stereo, so the idea is to have synchronized output. I have two screens, right? On one screen I have a live CQ Mix Pad. On another screen, I want to have a web page that you are controlling with a Chrome browser and your plugin, and at the same time they are both synchronized.
+> You show me diagrams, and you show me inside my CQ Mix Pad what you changed and when you changed that. When you are showing demonstrations, you need to put a circle around the mouse pointer so I understand where the mouse is, and enlarge it also to fit the user interface of the CQ Mix Pad, which is huge.
+> Please make a nice interactive tutorial using two displays to teach me the mixer.
+
+> Also, through this web page, I can reply to the tutorial as much as I want. It should play this web page through the local web server address. So this local web server will be running every time I open my Mac OS. We need to now make one fixed web server for all of our needs of web pages, so I can open my local web pages just by bookmarking them, and it will work from any browser inside my computer.
+> The first project is the tutorial for USB preview while recording, listening to the venue mix, comparing it with a full mix, which I did in the mixer.
+
+- Voice: every sentence made into an mp3 BEFORE playing (tools/render.py, tools/build_audio.py), Speechify API (beatrice_32, simba-3.2) over his 21 keys with fallback, the voice server last; the narration of each lesson saved as audio/lessons/<n>.mp3. **Status:** done, 44 sentences, 0 gaps
+- Stereo venue mix on the USB channel: Venue L (pan −100%) → Ext. Out 13, Venue R (pan +100%) → Ext. Out 14, the same clip duplicated in Live so both play in sync. **Status:** done 24.10.2026, read back over OSC; the USB meter moves
+- One fixed local web server, MANTRA_PAGES, http://127.0.0.1:8800/, a LaunchAgent (starts at login, restarts on crash), a folder per project. **Status:** in progress
+- The two-screen tutorial: the page (MacBook) with diagrams and the made voice, synchronized with CQ MixPad (BenQ), the mouse with a big ring; first lesson: the USB preview of the venue mix while recording. **Status:** in progress
