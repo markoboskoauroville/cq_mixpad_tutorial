@@ -6,7 +6,7 @@
 import SwiftUI
 import AppKit
 
-let VERSION = 7
+let VERSION = 8
 let GREEN = Color(red: 0x33/255, green: 0xD1/255, blue: 0x7A/255)
 let GREY = Color(red: 0x7A/255, green: 0x80/255, blue: 0x87/255)
 let AMBER = Color(red: 0xE8/255, green: 0xA3/255, blue: 0x3D/255)
@@ -208,6 +208,15 @@ let PLAYER = Player()
 
 final class Delegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ n: Notification) {
+        // started from outside, without the mouse (Marko, 24.10.2026: "When it comes to zero, the tutorial starts as a
+        // demonstration"): the distributed notification community.auroville.cqtutorial.play starts lesson 1, or the
+        // lesson number given as its object; tools/start.swift sends it
+        DistributedNotificationCenter.default().addObserver(forName: Notification.Name("community.auroville.cqtutorial.play"), object: nil, queue: .main) { n in
+            let l = max(0, (Int(n.object as? String ?? "1") ?? 1) - 1)
+            NSApp.activate(ignoringOtherApps: true)
+            PLAYER.autoNext = true
+            PLAYER.play(from: min(l, PLAYER.lessons.count - 1), 0)
+        }
         // macOS asks once for the hand; Marko answers it (never answered for him)
         _ = AXIsProcessTrustedWithOptions([kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String: true] as CFDictionary)
         // the window on the MacBook's own screen (not the BenQ, where MixPad and Live are), filling it
