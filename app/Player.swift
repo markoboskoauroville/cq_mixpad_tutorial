@@ -13,7 +13,7 @@ final class Player: NSObject, ObservableObject, AVAudioPlayerDelegate {
     @Published var paused = false
     @Published var diagram: String?
     @Published var image: String?          // a picture (content/images) shown instead of a diagram
-    @Published var quote: (q: String, from: String)?   // the manual's words on screen
+    @Published var quote: (q: String, from: String, kind: String)?   // the manual's or the book's words on screen
     @Published var source: String?          // where the sentence being said comes from
     @Published var lights: [String] = []
     @Published var subtitle = ""
@@ -54,7 +54,10 @@ final class Player: NSObject, ObservableObject, AVAudioPlayerDelegate {
         playing = true; paused = false; problem = ""
         Task { @MainActor in await self.loop(me) }
     }
-    func stop() { run += 1; stopAudio(); playing = false; paused = false; Ring.shared.hide() }
+    func stop() {
+        run += 1; stopAudio(); playing = false; paused = false; Ring.shared.hide()
+        if Live.saved != nil || !Live.soloed.isEmpty { DispatchQueue.global().async { Live.cleanup() } }
+    }
     func pauseResume() {
         guard playing else { play(); return }
         paused.toggle()
@@ -108,7 +111,7 @@ final class Player: NSObject, ObservableObject, AVAudioPlayerDelegate {
         defer { if !problem.isEmpty { log("PROBLEM: " + problem) } }
         if let d = s.show { diagram = d; lights = s.light; image = nil; quote = nil }
         if let m = s.manual { quote = m }
-        if s.say != nil { source = s.src; if s.src != "manual" && quote != nil && s.manual == nil { quote = nil } }
+        if s.say != nil { source = s.src; if s.src != "manual" && s.src != "book" && quote != nil && s.manual == nil { quote = nil } }
         if let im = s.image { image = im }
         if let t = s.say {
             subtitle = t; marks = s.marks; speakTime = 0

@@ -6,7 +6,7 @@
 import SwiftUI
 import AppKit
 
-let VERSION = 5
+let VERSION = 6
 let GREEN = Color(red: 0x33/255, green: 0xD1/255, blue: 0x7A/255)
 let GREY = Color(red: 0x7A/255, green: 0x80/255, blue: 0x87/255)
 let AMBER = Color(red: 0xE8/255, green: 0xA3/255, blue: 0x3D/255)
@@ -131,7 +131,7 @@ struct MainView: View {
                 // the manual's own words, marked as such
                 if let q = p.quote {
                     VStack(alignment: .leading, spacing: 6) {
-                        Text("FROM THE CQ MANUAL").font(.system(size: 11, weight: .bold, design: .monospaced)).foregroundColor(Color(red: 0.55, green: 0.75, blue: 1.0))
+                        Text(q.kind == "book" ? "FROM THE BOOK" : "FROM THE CQ MANUAL").font(.system(size: 11, weight: .bold, design: .monospaced)).foregroundColor(Color(red: 0.55, green: 0.75, blue: 1.0))
                         Text("“" + q.q + "”").font(.system(size: 20, weight: .medium, design: .serif)).foregroundColor(.white)
                         Text(q.from).font(.system(size: 11, design: .monospaced)).foregroundColor(GREY)
                     }
@@ -143,6 +143,7 @@ struct MainView: View {
             }
             if let s = p.source, !p.subtitle.isEmpty {
                 let tag: (String, Color) = s == "manual" ? ("FROM THE CQ MANUAL", Color(red: 0.55, green: 0.75, blue: 1.0))
+                    : s == "book" ? ("FROM THE BOOK: STEVE SAVAGE, MIXING AND MASTERING IN THE BOX", Color(red: 0.80, green: 0.60, blue: 1.0))
                     : s == "measured" ? ("MEASURED ON YOUR CQ", GREEN)
                     : s == "santoshi" ? ("WHAT WAS DONE FOR SANTOSHI", AMBER)
                     : ("MIXING KNOWLEDGE, NOT FROM THE MANUAL", GREY)

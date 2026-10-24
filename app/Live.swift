@@ -56,6 +56,39 @@ enum Live {
     }
     static func track(_ name: String) -> Int? { trackNames()?.firstIndex(of: name) ?? knownTracks[name] }
 
+    // one number from Live (a float or an int answer), through the router; nil without an answer
+    static func number(_ addr: String) -> Double? {
+        guard routerUp else { return nil }
+        let s = udp(message(addr, []), port: 11002); defer { close(s) }
+        var tv = timeval(tv_sec: 1, tv_usec: 500_000); setsockopt(s, SOL_SOCKET, SO_RCVTIMEO, &tv, socklen_t(MemoryLayout<timeval>.size))
+        var buf = [UInt8](repeating: 0, count: 4096)
+        for _ in 0..<20 {
+            let n = recv(s, &buf, buf.count, 0); if n <= 0 { return nil }
+            let d = Array(buf[0..<n])
+            var j = 0; while j < d.count && d[j] != 0 { j += 1 }
+            guard String(decoding: d[0..<j], as: UTF8.self) == addr else { continue }
+            let t = (j / 4 + 1) * 4; let tag = d[t + 1]; let v = ((t + 4) / 4) * 4
+            if tag == UInt8(ascii: "T") { return 1 }        // a true or false carries no bytes after the tags
+            if tag == UInt8(ascii: "F") { return 0 }
+            guard v + 4 <= d.count else { return nil }
+            let raw = UInt32(d[v]) << 24 | UInt32(d[v + 1]) << 16 | UInt32(d[v + 2]) << 8 | UInt32(d[v + 3])
+            if tag == UInt8(ascii: "f") { return Double(Float(bitPattern: raw)) }
+            if tag == UInt8(ascii: "i") || tag == UInt8(ascii: "T") || tag == UInt8(ascii: "F") { return tag == UInt8(ascii: "T") ? 1 : tag == UInt8(ascii: "F") ? 0 : Double(Int32(bitPattern: raw)) }
+            return nil
+        }
+        return nil
+    }
+    // where Live was before a lesson moved it (Marko listens while he works: his place is given back)
+    static var saved: (beat: Double, playing: Bool)?
+    static var soloed = Set<Int>()        // tracks a lesson soloed and has not unsoloed yet
+
+    // STOP, a skip or quitting in the middle of a lesson: no solo left behind, his place given back
+    static func cleanup() {
+        for t in soloed { send("/live/track/set/solo", [t, false]) }
+        soloed.removeAll()
+        if saved != nil { _ = run("stop", [:]) }
+    }
+
     // the lessons' orders; returns nil or why it could not
     static func run(_ cmd: String, _ step: [String: Any]) -> String? {
         switch cmd {
@@ -66,14 +99,26 @@ enum Live {
                 usleep(150_000); send("/live/track/set/output_routing_channel", [t, ch])
             }
         case "play_from_beats":
-            send("/live/song/set/current_song_time", [(step["beats"] as? Double) ?? Double(step["beats"] as? Int ?? 0)])
+            // start first, then move: Live's start_playing begins at the start marker, so a time set before it is lost
+            // (measured 24.10.2026: Jai Ganesha at beat 948 played from beat 0)
+            if saved == nil, let b = number("/live/song/get/current_song_time") {
+                saved = (b, (number("/live/song/get/is_playing") ?? 0) != 0)
+            }
             send("/live/song/start_playing")
+            usleep(250_000)
+            send("/live/song/set/current_song_time", [(step["beats"] as? Double) ?? Double(step["beats"] as? Int ?? 0)])
         case "solo", "unsolo":
             let name = step["track"] as? String ?? ""
             guard let t = track(name) else { return "no track \(name) in Live" }
             send("/live/track/set/solo", [t, cmd == "solo"])
+            if cmd == "solo" { soloed.insert(t) } else { soloed.remove(t) }
         case "stop":
-            send("/live/song/stop_playing")
+            // back to where he was: the same beat, and playing if he was playing
+            if let s = saved {
+                send("/live/song/set/current_song_time", [s.beat])
+                if !s.playing { send("/live/song/stop_playing") }
+                saved = nil
+            } else { send("/live/song/stop_playing") }
         default:
             return "unknown order \(cmd)"
         }

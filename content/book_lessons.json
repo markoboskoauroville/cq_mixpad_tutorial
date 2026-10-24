@@ -1,0 +1,1378 @@
+{
+ "source": "Steve Savage, Mixing and Mastering in the Box (Oxford University Press, 2014)",
+ "notes": [
+  "Book: Know the sound before you start — Chapter 2, 2.1 Have a Concept (genre practices, natural versus synthetic, the cinema model)",
+  "Book: Height, width and depth — Chapter 2, 2.1 Have a Concept (the visual three-dimensional model); Chapter 1, 1.3 The Tools of Mixing and Mastering (level, panning, send and return)",
+  "Book: Control the low end — Chapter 3, 3.1 Poor Control of the Low End; Chapter 3, 3.4 Trusting Inadequate Monitoring",
+  "Book: Bright, but not too bright — Chapter 3, 3.2 Overly Bright Mixes and Masters (subtractive versus additive EQ); Chapter 3, 3.1 (best alone versus fits best)",
+  "Book: Compression that keeps the music alive — Chapter 3, 3.3 Overly Compressed Mixes and Masters (individual and buss compression)",
+  "Book: How loud you listen, and how you compare — Chapter 2, 2.2 Monitor Level and 2.3 Monitoring Options; Chapter 2, 2.1 and Chapter 3, 3.2 (referencing other mixes, A/B)",
+  "Book: Revise, rest, and know when it is done — Chapter 2, 2.4 Revise, Revise, Revise and 2.5 Live with Your Mix or Master",
+  "Read through the Google Drive connector on 24.10.2026: it returned the book only up to the start of Chapter 4 (page 63), so Chapters 4 to 12 (panning, EQ, dynamics and effects in detail, automation, the individual instruments, mastering) are not drawn on here."
+ ],
+ "lessons": [
+  {
+   "title": "Book: Know the sound before you start",
+   "steps": [
+    {
+     "show": "d-book-concept"
+    },
+    {
+     "say": "Before you touch a fader, the book asks you to know what the mix should sound like. A few words are enough to start: warm, open, close. The idea may change on the way, but without one you wander.",
+     "src": "book"
+    },
+    {
+     "say": "For Santoshi, try three words: warm, natural, and the words clear. It is devotional music. The listener should feel inside the kirtan, not in a pop studio.",
+     "src": "santoshi"
+    },
+    {
+     "show": "d-book-concept",
+     "light": [
+      "c-genre"
+     ]
+    },
+    {
+     "say": "The book also says every style of music has its own habits, and they are there for a reason. Acoustic music wants warmth. And it wants natural spaces, like a room or a hall, not strange effects.",
+     "src": "book"
+    },
+    {
+     "say": "That is why effect one is easy verb, type Vocal Classic: a natural room around the voices. And no special effects on the drums.",
+     "src": "santoshi"
+    },
+    {
+     "show": "d-book-concept",
+     "light": [
+      "c-lead"
+     ]
+    },
+    {
+     "say": "Another picture from the book: the mix is a film. Some parts play the leading role and get the close-ups. Others support them, some appear now and then, and some fill the background.",
+     "src": "book"
+    },
+    {
+     "say": "In Santoshi the leading roles are the three voices: Tajana, Svemir and Igor. They stay near the middle and in front. In a kirtan the voices answer each other, so the lead passes from one to the next.",
+     "src": "santoshi"
+    },
+    {
+     "show": "d-book-concept",
+     "light": [
+      "c-support",
+      "c-colour",
+      "c-back"
+     ]
+    },
+    {
+     "say": "The mridangam, both heads, and the bass carry the pulse: the supporting roles. The guitars and the djembe are colour around the voices. Igor's guitar moves from the DI to the microphone in the second half, but it is the same role, so it keeps the same place. The reverb is the background: you hardly notice it, but without it the voices sound small.",
+     "src": "santoshi"
+    },
+    {
+     "book": {
+      "q": "Your mix tells a story, just like a movie",
+      "from": "Mixing and Mastering in the Box › Chapter 2: Quick Guide to Great Mixes and Masters: Five Best Practices › 2.1 Have a Concept"
+     }
+    },
+    {
+     "say": "The book says, in the chapter Five Best Practices: Your mix tells a story, just like a movie",
+     "src": "book"
+    }
+   ]
+  },
+  {
+   "title": "Book: Height, width and depth",
+   "steps": [
+    {
+     "show": "d-book-3d"
+    },
+    {
+     "say": "The book gives a picture of a mix: a space with three directions. Height, width and depth.",
+     "src": "book"
+    },
+    {
+     "show": "d-book-3d",
+     "light": [
+      "h-"
+     ]
+    },
+    {
+     "say": "Height is loudness: the louder part stands higher. Height is also pitch, from the deep bass at the bottom to the bright air at the top. A good mix fills every floor, and crowds none.",
+     "src": "book"
+    },
+    {
+     "say": "To check those floors, the book trusts your ears more than a picture of the frequencies on a screen. A screen can show a bump that is simply part of the music.",
+     "src": "book"
+    },
+    {
+     "show": "d-book-3d",
+     "light": [
+      "w-"
+     ]
+    },
+    {
+     "say": "Width is panning, from far left to far right. The book counts panning among the strongest tools you have, and asks you to use the whole width.",
+     "src": "book"
+    },
+    {
+     "say": "Every CQ channel has a pan control. A start for Santoshi: Tajana, the bass and the mridangam in the middle. Svemir a little left, Igor a little right, so the two low male voices do not sit on top of each other. Snoopy's guitar to one side, Igor's guitar, DI and microphone, to the other. The djembe a little to the side, away from the mridangam.",
+     "src": "santoshi"
+    },
+    {
+     "say": "Keep the two mridangam channels at the same pan. They are one drum with two microphones, the high head and the low head. Pan them apart and the drum breaks in two.",
+     "src": "knowledge"
+    },
+    {
+     "book": {
+      "q": "Small variations in panning can dramatically alter the sense of space within a mix.",
+      "from": "Mixing and Mastering in the Box › Chapter 2: Quick Guide to Great Mixes and Masters: Five Best Practices › 2.1 Have a Concept"
+     }
+    },
+    {
+     "say": "The book says, in the chapter Five Best Practices: Small variations in panning can dramatically alter the sense of space within a mix.",
+     "src": "book"
+    },
+    {
+     "show": "d-book-3d",
+     "light": [
+      "d-"
+     ]
+    },
+    {
+     "say": "Depth is front and back. Two things make it: loudness, and how much room sound a part carries. A loud, dry part is close to you. A quieter part with more reverb steps back.",
+     "src": "book"
+    },
+    {
+     "say": "In Santoshi the three voices send about minus thirteen into the reverb, and the drums send nothing. So the voices have a soft room around them, and the rhythm stays dry and near. If a voice feels far away, try less reverb send before more fader.",
+     "src": "santoshi"
+    }
+   ]
+  },
+  {
+   "title": "Book: Control the low end",
+   "steps": [
+    {
+     "show": "d-book-low"
+    },
+    {
+     "say": "The book names the low end as the most common problem in mixes. There are two causes. Too much low on the bass instruments themselves. And too many instruments sharing the same low notes.",
+     "src": "book"
+    },
+    {
+     "show": "d-book-low",
+     "light": [
+      "l-bass"
+     ]
+    },
+    {
+     "say": "A surprise: adding low to a bass often makes it muddier, not bigger. What makes a bass clear are its overtones, the higher tones above each note. Our ears catch those easily, because they are close to the range of speech.",
+     "src": "book"
+    },
+    {
+     "book": {
+      "q": "more bass doesn’t necessarily mean more apparent low-frequency information",
+      "from": "Mixing and Mastering in the Box › Chapter 3: Quick Guide to Great Mixes and Masters: Four Common Mistakes › 3.1 Poor Control of the Low End"
+     }
+    },
+    {
+     "say": "The book says, in the chapter Four Common Mistakes: more bass doesn’t necessarily mean more apparent low-frequency information",
+     "src": "book"
+    },
+    {
+     "show": "d-book-low",
+     "light": [
+      "l-bass",
+      "l-drum"
+     ]
+    },
+    {
+     "say": "In Santoshi the low floor is shared by three: the bass DI, the low head of the mridangam, and the djembe. Listen to the three together. If they blur into one boom, take a little low away from one of them in its parametric EQ, the PEQ, instead of adding low to another.",
+     "src": "santoshi"
+    },
+    {
+     "say": "To give the bass shape instead of weight, try a small lift in its overtones, somewhere around seven hundred to fifteen hundred hertz. Small moves, two or three decibels.",
+     "src": "knowledge"
+    },
+    {
+     "show": "d-book-low",
+     "light": [
+      "l-hpf",
+      "l-gtr",
+      "l-voc"
+     ]
+    },
+    {
+     "say": "The book also says almost every instrument carries some low end, even the bright ones. Clearing the lows from many channels keeps the bottom clean. But not too much, or the whole mix turns thin.",
+     "src": "book"
+    },
+    {
+     "say": "On the CQ that is the high pass filter on each channel. The three voices already use it. Check the guitars next: a DI pickup often has a boom low down that adds nothing. Raise the guitar's HPF slowly until the guitar starts to lose its body, then go back a little.",
+     "src": "santoshi"
+    },
+    {
+     "say": "The book warns that you can only judge the deep notes if your speakers and your room can play them. So learn how your own speakers sound in the low end, and judge the bass there.",
+     "src": "book"
+    }
+   ]
+  },
+  {
+   "title": "Book: Bright, but not too bright",
+   "steps": [
+    {
+     "show": "d-book-bright"
+    },
+    {
+     "say": "High frequencies are tempting. They make words clear and a sound present. A brighter sound is also louder, and louder always seems better. That is the trap.",
+     "src": "book"
+    },
+    {
+     "book": {
+      "q": "High frequencies are seductive.",
+      "from": "Mixing and Mastering in the Box › Chapter 3: Quick Guide to Great Mixes and Masters: Four Common Mistakes › 3.2 Overly Bright Mixes and Masters"
+     }
+    },
+    {
+     "say": "The book says, in the chapter Four Common Mistakes: High frequencies are seductive.",
+     "src": "book"
+    },
+    {
+     "show": "d-book-bright",
+     "light": [
+      "b-sub"
+     ]
+    },
+    {
+     "say": "The book describes two ways to use EQ. Cut what is too much, which sounds natural. Or boost what you want, which has more impact. Most engineers use both, but cutting is less likely to make a mix harsh.",
+     "src": "book"
+    },
+    {
+     "show": "d-book-bright",
+     "light": [
+      "b-voice"
+     ]
+    },
+    {
+     "say": "Tajana's voice is high and already bright, so it needs little or no boost on top. Svemir and Igor are low voices. For them, first cut a little mud, around two to four hundred hertz, before you boost any presence.",
+     "src": "santoshi"
+    },
+    {
+     "show": "d-book-bright",
+     "light": [
+      "b-gtr"
+     ]
+    },
+    {
+     "say": "The guitar pickups, the DI channels, can sound sharp at the top. Do not boost the guitars at the same height where the voices get their words. A small cut there on the guitars lets the words through, without the voices getting louder.",
+     "src": "knowledge"
+    },
+    {
+     "say": "The mridangam's high head has a bright crack, and that is its character. But both mridangam microphones clipped at the concert. Boosting their top would make that distortion louder. Leave their highs alone, or cut a little.",
+     "src": "santoshi"
+    },
+    {
+     "show": "d-book-bright",
+     "light": [
+      "b-solo"
+     ]
+    },
+    {
+     "say": "One more point from the book. The sound that is best alone is not always the one that fits best in the mix. A guitar with a little less low and less presence may sound poorer alone, and better with the band.",
+     "src": "book"
+    },
+    {
+     "say": "So use solo to find a problem, with Live's S button, then turn solo off and decide with everyone playing. And when you compare before and after an EQ, remember a boost is also louder. Louder fools the ear.",
+     "src": "santoshi"
+    }
+   ]
+  },
+  {
+   "title": "Book: Compression that keeps the music alive",
+   "steps": [
+    {
+     "show": "d-book-comp"
+    },
+    {
+     "say": "The book treats compression as a real help, and as a danger. Used gently, it keeps the important parts present without pushing their faders up. Used too much, it squeezes the life out of the music.",
+     "src": "book"
+    },
+    {
+     "show": "d-book-comp",
+     "light": [
+      "k-voice"
+     ]
+    },
+    {
+     "say": "Voices and bass gain most from gentle compression. They carry the song, so they should not come and go. Done well, you hardly hear the compressor at all.",
+     "src": "book"
+    },
+    {
+     "say": "In Santoshi each voice has the Quick preset Vocal with Comp, and the bass has Bass Clean with Comp. Listen to a loud chorus: the voice should stay in front and still sound alive. If it sounds flat and pressed, the compression is too strong.",
+     "src": "santoshi"
+    },
+    {
+     "show": "d-book-comp",
+     "light": [
+      "k-drum"
+     ]
+    },
+    {
+     "say": "On drums compression can change the sound a lot. And a drum may pass through several compressors, one after another. Each adds a little, until the drums sound big at first and tiring after a while.",
+     "src": "book"
+    },
+    {
+     "say": "The mridangam and the djembe pass through two: their own preset compressor, and the glue on the main mix. That is enough. Over two hours of kirtan, the drumming should still breathe.",
+     "src": "santoshi"
+    },
+    {
+     "show": "d-book-comp",
+     "light": [
+      "k-glue"
+     ]
+    },
+    {
+     "say": "About the compressor on the whole mix, the book is clear. Keep the ratio low, and let it turn down only a few decibels, at the loudest moments.",
+     "src": "book"
+    },
+    {
+     "book": {
+      "q": "Generally, buss compression should be at a fairly low ratio",
+      "from": "Mixing and Mastering in the Box › Chapter 3: Quick Guide to Great Mixes and Masters: Four Common Mistakes › 3.3 Overly Compressed Mixes and Masters"
+     }
+    },
+    {
+     "say": "The book says, in the chapter Four Common Mistakes: Generally, buss compression should be at a fairly low ratio",
+     "src": "book"
+    },
+    {
+     "say": "The Santoshi glue is one point nine to one, well inside that. On the loudest song, it should take away no more than three to six decibels.",
+     "src": "santoshi"
+    },
+    {
+     "show": "d-book-comp",
+     "light": [
+      "k-late"
+     ]
+    },
+    {
+     "say": "And a tip on timing: switch the mix compressor in late. First make the balance right without it. If it is on from the start, you lean on it without noticing, and end up squashing. So next time, set the Main LR compressor out, balance, then switch it in for the last touch, and listen to what it adds.",
+     "src": "book"
+    }
+   ]
+  },
+  {
+   "title": "Book: How loud you listen, and how you compare",
+   "steps": [
+    {
+     "show": "d-book-listen"
+    },
+    {
+     "say": "The book says your listening level changes your decisions. Loud listening tires the ears quickly. And loud makes everything sound good, so you stop hearing what is wrong.",
+     "src": "book"
+    },
+    {
+     "book": {
+      "q": "everything sounds better when it’s louder",
+      "from": "Mixing and Mastering in the Box › Chapter 2: Quick Guide to Great Mixes and Masters: Five Best Practices › 2.2 Monitor Level"
+     }
+    },
+    {
+     "say": "The book says, in the chapter Five Best Practices: everything sounds better when it’s louder",
+     "src": "book"
+    },
+    {
+     "show": "d-book-listen",
+     "light": [
+      "v-low"
+     ]
+    },
+    {
+     "say": "Start the day as quietly as is comfortable, because the level creeps up by itself. And at a low level you hear clearly what stands in front and what sits behind.",
+     "src": "book"
+    },
+    {
+     "say": "Use that for the voices. Turn the level down low and play Jai Ganesha. If you still understand Tajana's words over the drums, the voices are in front. If they disappear, they are too low.",
+     "src": "santoshi"
+    },
+    {
+     "show": "d-book-listen",
+     "light": [
+      "v-mid",
+      "v-loud"
+     ]
+    },
+    {
+     "say": "Most of the work happens at a moderate level, because there the ear hears low and high most evenly. Loud listening is for the end of the day, for joy, not for decisions.",
+     "src": "book"
+    },
+    {
+     "show": "d-book-listen",
+     "light": [
+      "v-one"
+     ]
+    },
+    {
+     "say": "The book also says: choose one listening place and trust it. Other speakers, or the car, can wake you up to a problem. But the final decision is made on the system you know.",
+     "src": "book"
+    },
+    {
+     "show": "d-book-listen",
+     "light": [
+      "v-ab"
+     ]
+    },
+    {
+     "say": "Comparing with music you love is a good guide: how loud is the voice, how bright is the whole, how wide. But no two recordings are alike. Use it as a direction, not as something to copy.",
+     "src": "book"
+    },
+    {
+     "say": "For Santoshi the best reference is the venue's own mix, on the USB channel. Press its listen key to hear it, release it to hear yours, in the same headphones, so the comparison is fair. If one is clearly louder, be careful: the louder one will always seem better.",
+     "src": "santoshi"
+    }
+   ]
+  },
+  {
+   "title": "Book: Revise, rest, and know when it is done",
+   "steps": [
+    {
+     "show": "d-book-revise"
+    },
+    {
+     "say": "The book says that setting levels, pan, EQ, compression and reverb is only the beginning. Mixing is mostly revision: many small changes over time.",
+     "src": "book"
+    },
+    {
+     "show": "d-book-revise",
+     "light": [
+      "r-pass"
+     ]
+    },
+    {
+     "say": "Listen in different ways. The whole piece from start to end. One section at a time. A few bars for detail. And each time listen for something else: the levels, the tone, the width, the depth.",
+     "src": "book"
+    },
+    {
+     "say": "Santoshi is two hours, eight songs. Use the markers to jump. Hear Jai Ganesha whole. Then the long Kali Kali, and the soft voice intro of Sarasvati Maha Lakshmi. The loudest and the softest moments test a mix the most.",
+     "src": "santoshi"
+    },
+    {
+     "show": "d-book-revise",
+     "light": [
+      "r-break",
+      "r-scene"
+     ]
+    },
+    {
+     "say": "Take short breaks, often. Fresh ears hear more, and the mind judges better early in the day. So do the most careful listening at the start of a session, and come back another day to check.",
+     "src": "book"
+    },
+    {
+     "say": "The CQ scenes make this easy. When you like a version, store it in a new scene slot, so Santoshi Mix stays as it is. Next day, recall it and listen before you change anything. You can always go back.",
+     "src": "santoshi"
+    },
+    {
+     "say": "Play an unfinished mix only to the people who are part of it. The book's warning: others tend to love the first version they heard. Play it to everyone when it is done.",
+     "src": "book"
+    },
+    {
+     "show": "d-book-revise",
+     "light": [
+      "r-done"
+     ]
+    },
+    {
+     "say": "How do you know it is done? The book gives two signs. You only move faders by tiny amounts, a few tenths of a decibel. Or you listen with fresh ears and cannot decide whether it needs more work. And what bothers you today will be different tomorrow.",
+     "src": "book"
+    },
+    {
+     "book": {
+      "q": "don’t seek perfection (it’s not possible).",
+      "from": "Mixing and Mastering in the Box › Chapter 2: Quick Guide to Great Mixes and Masters: Five Best Practices › 2.5 Live with Your Mix or Master"
+     }
+    },
+    {
+     "say": "The book says, in the chapter Five Best Practices: don’t seek perfection (it’s not possible).",
+     "src": "book"
+    }
+   ]
+  }
+ ],
+ "diagrams": {
+  "d-book-concept": {
+   "title": "THE MIX AS A FILM · who plays which role in Santoshi",
+   "els": [
+    {
+     "node": "c-lead",
+     "x": 30,
+     "y": 60,
+     "w": 470,
+     "h": 115,
+     "text": "Leading roles · the close-ups",
+     "sub": "Tajana · Svemir · Igor\nnear the middle, in front"
+    },
+    {
+     "node": "c-support",
+     "x": 30,
+     "y": 190,
+     "w": 470,
+     "h": 105,
+     "text": "Supporting roles · the pulse",
+     "sub": "mridangam high + low · bass"
+    },
+    {
+     "node": "c-colour",
+     "x": 30,
+     "y": 310,
+     "w": 470,
+     "h": 105,
+     "text": "Colour · around the voices",
+     "sub": "Snoopy DI · Igor DI, then Igor MIC · djembe"
+    },
+    {
+     "node": "c-back",
+     "x": 30,
+     "y": 430,
+     "w": 470,
+     "h": 80,
+     "text": "Background · the room",
+     "sub": "FX1 easyVERB · Vocal Classic"
+    },
+    {
+     "node": "c-genre",
+     "x": 580,
+     "y": 60,
+     "w": 390,
+     "h": 235,
+     "text": "The idea first",
+     "sub": "warm · natural · the words clear\ndevotional, acoustic\nnatural room, no tricks"
+    },
+    {
+     "edge": "c-genre-e",
+     "from": [
+      580,
+      180
+     ],
+     "to": [
+      500,
+      180
+     ]
+    },
+    {
+     "note": "c-n",
+     "x": 775,
+     "y": 360,
+     "text": "Decide the sound"
+    },
+    {
+     "note": "c-n2",
+     "x": 775,
+     "y": 390,
+     "text": "before the first fader"
+    }
+   ]
+  },
+  "d-book-3d": {
+   "title": "A MIX IN THREE DIRECTIONS · height, width, depth",
+   "els": [
+    {
+     "area": "d-back",
+     "x": 120,
+     "y": 110,
+     "w": 760,
+     "h": 170,
+     "label": "BACK · quieter, more reverb"
+    },
+    {
+     "area": "d-front",
+     "x": 120,
+     "y": 290,
+     "w": 760,
+     "h": 180,
+     "label": "FRONT · louder, drier"
+    },
+    {
+     "area": "h-bar",
+     "x": 20,
+     "y": 110,
+     "w": 80,
+     "h": 360,
+     "label": "HEIGHT\nlevel\nand pitch"
+    },
+    {
+     "node": "w-svm",
+     "x": 270,
+     "y": 395,
+     "w": 135,
+     "h": 60,
+     "text": "Svemir",
+     "sub": "a little left"
+    },
+    {
+     "node": "w-taj",
+     "x": 435,
+     "y": 395,
+     "w": 135,
+     "h": 60,
+     "text": "Tajana",
+     "sub": "centre"
+    },
+    {
+     "node": "w-igv",
+     "x": 600,
+     "y": 395,
+     "w": 135,
+     "h": 60,
+     "text": "Igor",
+     "sub": "a little right"
+    },
+    {
+     "node": "w-bas",
+     "x": 355,
+     "y": 300,
+     "w": 135,
+     "h": 60,
+     "text": "Bass",
+     "sub": "centre"
+    },
+    {
+     "node": "w-mrd",
+     "x": 515,
+     "y": 300,
+     "w": 135,
+     "h": 60,
+     "text": "Mridangam",
+     "sub": "high + low, same pan"
+    },
+    {
+     "node": "w-snp",
+     "x": 140,
+     "y": 175,
+     "w": 135,
+     "h": 60,
+     "text": "Snoopy guitar",
+     "sub": "one side"
+    },
+    {
+     "node": "w-djb",
+     "x": 590,
+     "y": 175,
+     "w": 135,
+     "h": 60,
+     "text": "Djembe",
+     "sub": "a little aside"
+    },
+    {
+     "node": "w-igg",
+     "x": 730,
+     "y": 175,
+     "w": 135,
+     "h": 60,
+     "text": "Igor guitar",
+     "sub": "DI, then MIC"
+    },
+    {
+     "edge": "w-axis",
+     "from": [
+      120,
+      500
+     ],
+     "to": [
+      880,
+      500
+     ],
+     "label": "WIDTH · pan"
+    },
+    {
+     "note": "w-l",
+     "x": 105,
+     "y": 520,
+     "text": "L"
+    },
+    {
+     "note": "w-r",
+     "x": 895,
+     "y": 520,
+     "text": "R"
+    },
+    {
+     "note": "d-n",
+     "x": 500,
+     "y": 80,
+     "text": "The stage as the listener hears it: DEPTH runs from front to back"
+    }
+   ]
+  },
+  "d-book-low": {
+   "title": "THE LOW FLOOR · who shares the bass in Santoshi",
+   "els": [
+    {
+     "area": "l-hpf",
+     "x": 240,
+     "y": 225,
+     "w": 168,
+     "h": 175,
+     "label": "HPF\ncleared"
+    },
+    {
+     "area": "l-mud",
+     "x": 480,
+     "y": 60,
+     "w": 72,
+     "h": 345,
+     "label": "200–400\ncrowded"
+    },
+    {
+     "node": "l-bass-name",
+     "x": 20,
+     "y": 70,
+     "w": 200,
+     "h": 44,
+     "text": "Bass DI",
+     "sub": ""
+    },
+    {
+     "area": "l-bass-f",
+     "x": 312,
+     "y": 74,
+     "w": 191,
+     "h": 36,
+     "label": "notes"
+    },
+    {
+     "area": "l-bass-ov",
+     "x": 611,
+     "y": 74,
+     "w": 109,
+     "h": 36,
+     "label": "overtones"
+    },
+    {
+     "node": "l-drum-mrl-name",
+     "x": 20,
+     "y": 125,
+     "w": 200,
+     "h": 44,
+     "text": "Mridangam low",
+     "sub": ""
+    },
+    {
+     "area": "l-drum-mrl-b",
+     "x": 336,
+     "y": 129,
+     "w": 216,
+     "h": 36,
+     "label": ""
+    },
+    {
+     "node": "l-drum-djb-name",
+     "x": 20,
+     "y": 180,
+     "w": 200,
+     "h": 44,
+     "text": "Djembe",
+     "sub": ""
+    },
+    {
+     "area": "l-drum-djb-b",
+     "x": 355,
+     "y": 184,
+     "w": 461,
+     "h": 36,
+     "label": ""
+    },
+    {
+     "node": "l-gtr-name",
+     "x": 20,
+     "y": 235,
+     "w": 200,
+     "h": 44,
+     "text": "Guitars",
+     "sub": "Snoopy DI · Igor"
+    },
+    {
+     "area": "l-gtr-b",
+     "x": 408,
+     "y": 239,
+     "w": 408,
+     "h": 36,
+     "label": ""
+    },
+    {
+     "node": "l-voc-m-name",
+     "x": 20,
+     "y": 290,
+     "w": 200,
+     "h": 44,
+     "text": "Svemir · Igor",
+     "sub": ""
+    },
+    {
+     "area": "l-voc-m-b",
+     "x": 408,
+     "y": 294,
+     "w": 408,
+     "h": 36,
+     "label": ""
+    },
+    {
+     "node": "l-voc-t-name",
+     "x": 20,
+     "y": 345,
+     "w": 200,
+     "h": 44,
+     "text": "Tajana",
+     "sub": ""
+    },
+    {
+     "area": "l-voc-t-b",
+     "x": 480,
+     "y": 349,
+     "w": 384,
+     "h": 36,
+     "label": ""
+    },
+    {
+     "note": "l-f20",
+     "x": 240,
+     "y": 430,
+     "text": "20 Hz"
+    },
+    {
+     "note": "l-f50",
+     "x": 336,
+     "y": 430,
+     "text": "50"
+    },
+    {
+     "note": "l-f100",
+     "x": 408,
+     "y": 430,
+     "text": "100"
+    },
+    {
+     "note": "l-f200",
+     "x": 480,
+     "y": 430,
+     "text": "200"
+    },
+    {
+     "note": "l-f500",
+     "x": 576,
+     "y": 430,
+     "text": "500"
+    },
+    {
+     "note": "l-f1000",
+     "x": 648,
+     "y": 430,
+     "text": "1 kHz"
+    },
+    {
+     "note": "l-f2000",
+     "x": 720,
+     "y": 430,
+     "text": "2 k"
+    },
+    {
+     "note": "l-f5000",
+     "x": 816,
+     "y": 430,
+     "text": "5 k"
+    },
+    {
+     "note": "l-f20000",
+     "x": 960,
+     "y": 430,
+     "text": "20 kHz"
+    },
+    {
+     "note": "l-n",
+     "x": 500,
+     "y": 510,
+     "text": "Take a little low from many, rather than add low to one"
+    }
+   ]
+  },
+  "d-book-bright": {
+   "title": "BRIGHTNESS · cut first, and do not stack the presence",
+   "els": [
+    {
+     "node": "b-voice-name",
+     "x": 20,
+     "y": 85,
+     "w": 200,
+     "h": 120,
+     "text": "Svemir · Igor",
+     "sub": "a little less mud\npresence last"
+    },
+    {
+     "node": "b-gtr-name",
+     "x": 20,
+     "y": 285,
+     "w": 200,
+     "h": 120,
+     "text": "Guitars (DI)",
+     "sub": "make room\nwhere the words are"
+    },
+    {
+     "area": "b-sub",
+     "x": 480,
+     "y": 75,
+     "w": 72,
+     "h": 140,
+     "label": "small cut"
+    },
+    {
+     "area": "b-voice-p",
+     "x": 720,
+     "y": 75,
+     "w": 96,
+     "h": 140,
+     "label": "the words"
+    },
+    {
+     "curve": "b-voice-c",
+     "points": [
+      [
+       240,
+       215
+      ],
+      [
+       408,
+       150
+      ],
+      [
+       480,
+       152
+      ],
+      [
+       522,
+       162
+      ],
+      [
+       565,
+       152
+      ],
+      [
+       648,
+       150
+      ],
+      [
+       762,
+       132
+      ],
+      [
+       835,
+       145
+      ],
+      [
+       960,
+       150
+      ]
+     ]
+    },
+    {
+     "area": "b-gtr-p",
+     "x": 720,
+     "y": 275,
+     "w": 96,
+     "h": 140,
+     "label": "small cut"
+    },
+    {
+     "curve": "b-gtr-c",
+     "points": [
+      [
+       240,
+       410
+      ],
+      [
+       408,
+       345
+      ],
+      [
+       503,
+       352
+      ],
+      [
+       576,
+       345
+      ],
+      [
+       648,
+       345
+      ],
+      [
+       762,
+       362
+      ],
+      [
+       835,
+       348
+      ],
+      [
+       960,
+       345
+      ]
+     ]
+    },
+    {
+     "note": "b-f1",
+     "x": 408,
+     "y": 245,
+     "text": "100 Hz"
+    },
+    {
+     "note": "b-f2",
+     "x": 522,
+     "y": 245,
+     "text": "300 Hz"
+    },
+    {
+     "note": "b-f3",
+     "x": 648,
+     "y": 245,
+     "text": "1 kHz"
+    },
+    {
+     "note": "b-f4",
+     "x": 762,
+     "y": 245,
+     "text": "3 kHz"
+    },
+    {
+     "node": "b-solo-a",
+     "x": 240,
+     "y": 450,
+     "w": 320,
+     "h": 70,
+     "text": "Alone: richer",
+     "sub": "solo with S in Live, to find a problem"
+    },
+    {
+     "node": "b-solo-b",
+     "x": 640,
+     "y": 450,
+     "w": 320,
+     "h": 70,
+     "text": "With the band: fits better",
+     "sub": "decide here"
+    },
+    {
+     "edge": "b-solo-e",
+     "from": [
+      560,
+      485
+     ],
+     "to": [
+      640,
+      485
+     ]
+    }
+   ]
+  },
+  "d-book-comp": {
+   "title": "COMPRESSION IN STAGES · gentle, and the glue last",
+   "els": [
+    {
+     "node": "k-voice",
+     "x": 30,
+     "y": 60,
+     "w": 290,
+     "h": 130,
+     "text": "Voices · bass",
+     "sub": "channel compressor\nQuick preset with Comp\nsteady, hardly heard"
+    },
+    {
+     "node": "k-drum",
+     "x": 30,
+     "y": 220,
+     "w": 290,
+     "h": 130,
+     "text": "Mridangam · djembe",
+     "sub": "channel compressor\nquicker: the hits stay crisp"
+    },
+    {
+     "node": "k-glue",
+     "x": 400,
+     "y": 100,
+     "w": 270,
+     "h": 210,
+     "text": "Main LR · the glue",
+     "sub": "RMS · soft knee\nratio 1.9 : 1\nthreshold −14.4 dB\nat most 3–6 dB turned down"
+    },
+    {
+     "node": "k-out",
+     "x": 750,
+     "y": 145,
+     "w": 220,
+     "h": 120,
+     "text": "Speakers · SD card",
+     "sub": "nothing more after this"
+    },
+    {
+     "edge": "k-voice-e",
+     "from": [
+      320,
+      125
+     ],
+     "to": [
+      400,
+      170
+     ]
+    },
+    {
+     "edge": "k-drum-e",
+     "from": [
+      320,
+      285
+     ],
+     "to": [
+      400,
+      245
+     ]
+    },
+    {
+     "edge": "k-glue-e",
+     "from": [
+      670,
+      205
+     ],
+     "to": [
+      750,
+      205
+     ]
+    },
+    {
+     "area": "k-late",
+     "x": 400,
+     "y": 370,
+     "w": 570,
+     "h": 80,
+     "label": "switch the glue IN last: balance first without it"
+    },
+    {
+     "note": "k-drum-n",
+     "x": 500,
+     "y": 505,
+     "text": "Count the compressors a drum passes through: each one adds up"
+    }
+   ]
+  },
+  "d-book-listen": {
+   "title": "HOW LOUD YOU LISTEN · and how you compare",
+   "els": [
+    {
+     "area": "v-loud",
+     "x": 40,
+     "y": 60,
+     "w": 390,
+     "h": 110,
+     "label": "LOUD\nonly at the end, for joy\nthe ears tire, everything sounds good"
+    },
+    {
+     "area": "v-mid",
+     "x": 40,
+     "y": 185,
+     "w": 390,
+     "h": 150,
+     "label": "MODERATE · about 70–80 dB SPL\nmost of the work\nthe ear is most even here"
+    },
+    {
+     "area": "v-low",
+     "x": 40,
+     "y": 350,
+     "w": 390,
+     "h": 120,
+     "label": "LOW\nwho is in front?\nare Tajana's words still clear?"
+    },
+    {
+     "node": "v-one",
+     "x": 500,
+     "y": 60,
+     "w": 470,
+     "h": 100,
+     "text": "One trusted place",
+     "sub": "decide on the system you know"
+    },
+    {
+     "node": "v-ab-a",
+     "x": 500,
+     "y": 210,
+     "w": 210,
+     "h": 120,
+     "text": "Your mix",
+     "sub": "Main LR\nno Listen key"
+    },
+    {
+     "node": "v-ab-b",
+     "x": 760,
+     "y": 210,
+     "w": 210,
+     "h": 120,
+     "text": "Venue mix",
+     "sub": "USB channel\nListen key pressed"
+    },
+    {
+     "edge": "v-ab-e",
+     "from": [
+      710,
+      270
+     ],
+     "to": [
+      760,
+      270
+     ],
+     "label": "A / B"
+    },
+    {
+     "note": "v-ab-n",
+     "x": 735,
+     "y": 360,
+     "text": "same headphones · beware the louder one"
+    },
+    {
+     "note": "v-n",
+     "x": 500,
+     "y": 515,
+     "text": "Start the day quietly: the level creeps up by itself"
+    }
+   ]
+  },
+  "d-book-revise": {
+   "title": "REVISE, REST, AND STOP",
+   "els": [
+    {
+     "node": "r-pass-a",
+     "x": 40,
+     "y": 60,
+     "w": 260,
+     "h": 100,
+     "text": "Whole pass",
+     "sub": "a song from start to end"
+    },
+    {
+     "node": "r-pass-b",
+     "x": 370,
+     "y": 60,
+     "w": 260,
+     "h": 100,
+     "text": "Section",
+     "sub": "the loudest, the softest"
+    },
+    {
+     "node": "r-pass-c",
+     "x": 700,
+     "y": 60,
+     "w": 260,
+     "h": 100,
+     "text": "Detail",
+     "sub": "a few bars"
+    },
+    {
+     "edge": "r-pass-e1",
+     "from": [
+      300,
+      110
+     ],
+     "to": [
+      370,
+      110
+     ]
+    },
+    {
+     "edge": "r-pass-e2",
+     "from": [
+      630,
+      110
+     ],
+     "to": [
+      700,
+      110
+     ]
+    },
+    {
+     "node": "r-break",
+     "x": 700,
+     "y": 230,
+     "w": 260,
+     "h": 100,
+     "text": "Break",
+     "sub": "headphones off · fresh ears"
+    },
+    {
+     "edge": "r-break-e",
+     "from": [
+      830,
+      160
+     ],
+     "to": [
+      830,
+      230
+     ]
+    },
+    {
+     "node": "r-scene",
+     "x": 370,
+     "y": 230,
+     "w": 260,
+     "h": 100,
+     "text": "Store a new scene",
+     "sub": "next day: recall, listen first"
+    },
+    {
+     "edge": "r-scene-e",
+     "from": [
+      700,
+      280
+     ],
+     "to": [
+      630,
+      280
+     ]
+    },
+    {
+     "edge": "r-scene-e2",
+     "from": [
+      370,
+      280
+     ],
+     "to": [
+      170,
+      160
+     ],
+     "label": "again",
+     "dashed": true
+    },
+    {
+     "node": "r-done",
+     "x": 40,
+     "y": 390,
+     "w": 590,
+     "h": 120,
+     "text": "Done when…",
+     "sub": "faders move by tenths of a dB only\nwith fresh ears you cannot decide"
+    },
+    {
+     "edge": "r-done-e",
+     "from": [
+      500,
+      330
+     ],
+     "to": [
+      440,
+      390
+     ]
+    },
+    {
+     "note": "r-n",
+     "x": 820,
+     "y": 430,
+     "text": "Unfinished mixes:"
+    },
+    {
+     "note": "r-n2",
+     "x": 820,
+     "y": 460,
+     "text": "only for the people in it"
+    }
+   ]
+  }
+ }
+}

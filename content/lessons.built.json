@@ -901,6 +901,629 @@
     }
    ],
    "image": "11.jpg"
+  },
+  {
+   "title": "12. Book: Know the sound before you start",
+   "image": "10.jpg",
+   "steps": [
+    {
+     "show": "d-book-concept"
+    },
+    {
+     "say": "Before you touch a fader, the book asks you to know what the mix should sound like. A few words are enough to start: warm, open, close. The idea may change on the way, but without one you wander.",
+     "src": "book",
+     "audio": "audio/steps/240eb90b4141c83d.mp3"
+    },
+    {
+     "say": "For Santoshi, try three words: warm, natural, and the words clear. It is devotional music. The listener should feel inside the kirtan, not in a pop studio.",
+     "src": "santoshi",
+     "audio": "audio/steps/57af615ae02ad3f8.mp3"
+    },
+    {
+     "show": "d-book-concept",
+     "light": [
+      "c-genre"
+     ]
+    },
+    {
+     "say": "The book also says every style of music has its own habits, and they are there for a reason. Acoustic music wants warmth. And it wants natural spaces, like a room or a hall, not strange effects.",
+     "src": "book",
+     "audio": "audio/steps/f3293f7dfcc9dc30.mp3"
+    },
+    {
+     "say": "That is why effect one is easy verb, type Vocal Classic: a natural room around the voices. And no special effects on the drums.",
+     "src": "santoshi",
+     "audio": "audio/steps/85ca0babca11d984.mp3"
+    },
+    {
+     "show": "d-book-concept",
+     "light": [
+      "c-lead"
+     ]
+    },
+    {
+     "say": "Another picture from the book: the mix is a film. Some parts play the leading role and get the close-ups. Others support them, some appear now and then, and some fill the background.",
+     "src": "book",
+     "audio": "audio/steps/07fe858e0e1afb55.mp3"
+    },
+    {
+     "say": "In Santoshi the leading roles are the three voices: Tajana, Svemir and Igor. They stay near the middle and in front. In a kirtan the voices answer each other, so the lead passes from one to the next.",
+     "src": "santoshi",
+     "audio": "audio/steps/0648363f45c75113.mp3"
+    },
+    {
+     "show": "d-book-concept",
+     "light": [
+      "c-support",
+      "c-colour",
+      "c-back"
+     ]
+    },
+    {
+     "say": "The mridangam, both heads, and the bass carry the pulse: the supporting roles. The guitars and the djembe are colour around the voices. Igor's guitar moves from the DI to the microphone in the second half, but it is the same role, so it keeps the same place. The reverb is the background: you hardly notice it, but without it the voices sound small.",
+     "src": "santoshi",
+     "audio": "audio/steps/779a101ad845f145.mp3"
+    },
+    {
+     "book": {
+      "q": "Your mix tells a story, just like a movie",
+      "from": "Mixing and Mastering in the Box › Chapter 2: Quick Guide to Great Mixes and Masters: Five Best Practices › 2.1 Have a Concept"
+     }
+    },
+    {
+     "say": "The book says, in the chapter Five Best Practices: Your mix tells a story, just like a movie",
+     "src": "book",
+     "audio": "audio/steps/42e77862425f2b80.mp3"
+    }
+   ]
+  },
+  {
+   "title": "13. Book: Height, width and depth",
+   "image": "9.jpg",
+   "steps": [
+    {
+     "show": "d-book-3d"
+    },
+    {
+     "say": "The book gives a picture of a mix: a space with three directions. Height, width and depth.",
+     "src": "book",
+     "audio": "audio/steps/a824c1473403e72c.mp3"
+    },
+    {
+     "click": [
+      662,
+      49
+     ],
+     "label": "FADER"
+    },
+    {
+     "click": [
+      67,
+      525
+     ],
+     "label": "INPUT 1-5"
+    },
+    {
+     "point": [
+      214,
+      190
+     ],
+     "label": "the pan of SvmVOC"
+    },
+    {
+     "show": "d-book-3d",
+     "light": [
+      "h-"
+     ]
+    },
+    {
+     "say": "Height is loudness: the louder part stands higher. Height is also pitch, from the deep bass at the bottom to the bright air at the top. A good mix fills every floor, and crowds none.",
+     "src": "book",
+     "audio": "audio/steps/8693ecc2b292603f.mp3"
+    },
+    {
+     "say": "To check those floors, the book trusts your ears more than a picture of the frequencies on a screen. A screen can show a bump that is simply part of the music.",
+     "src": "book",
+     "audio": "audio/steps/c16463d9b07091ab.mp3"
+    },
+    {
+     "show": "d-book-3d",
+     "light": [
+      "w-"
+     ]
+    },
+    {
+     "say": "Width is panning, from far left to far right. The book counts panning among the strongest tools you have, and asks you to use the whole width.",
+     "src": "book",
+     "audio": "audio/steps/24e5fa3d003d8b86.mp3"
+    },
+    {
+     "say": "Every CQ channel has a pan control. A start for Santoshi: Tajana, the bass and the mridangam in the middle. Svemir a little left, Igor a little right, so the two low male voices do not sit on top of each other. Snoopy's guitar to one side, Igor's guitar, DI and microphone, to the other. The djembe a little to the side, away from the mridangam.",
+     "src": "santoshi",
+     "audio": "audio/steps/7f88fc3acdd03e47.mp3"
+    },
+    {
+     "say": "Keep the two mridangam channels at the same pan. They are one drum with two microphones, the high head and the low head. Pan them apart and the drum breaks in two.",
+     "src": "knowledge",
+     "audio": "audio/steps/99994c852a90771d.mp3"
+    },
+    {
+     "book": {
+      "q": "Small variations in panning can dramatically alter the sense of space within a mix.",
+      "from": "Mixing and Mastering in the Box › Chapter 2: Quick Guide to Great Mixes and Masters: Five Best Practices › 2.1 Have a Concept"
+     }
+    },
+    {
+     "say": "The book says, in the chapter Five Best Practices: Small variations in panning can dramatically alter the sense of space within a mix.",
+     "src": "book",
+     "audio": "audio/steps/dfddcdef78313940.mp3"
+    },
+    {
+     "show": "d-book-3d",
+     "light": [
+      "d-"
+     ]
+    },
+    {
+     "say": "Depth is front and back. Two things make it: loudness, and how much room sound a part carries. A loud, dry part is close to you. A quieter part with more reverb steps back.",
+     "src": "book",
+     "audio": "audio/steps/e68930842e73ec5c.mp3"
+    },
+    {
+     "say": "In Santoshi the three voices send about minus thirteen into the reverb, and the drums send nothing. So the voices have a soft room around them, and the rhythm stays dry and near. If a voice feels far away, try less reverb send before more fader.",
+     "src": "santoshi",
+     "audio": "audio/steps/c09c01a6025dcfc6.mp3"
+    }
+   ]
+  },
+  {
+   "title": "14. Book: Control the low end",
+   "image": "8.jpg",
+   "steps": [
+    {
+     "show": "d-book-low"
+    },
+    {
+     "say": "The book names the low end as the most common problem in mixes. There are two causes. Too much low on the bass instruments themselves. And too many instruments sharing the same low notes.",
+     "src": "book",
+     "audio": "audio/steps/5ce958ff02a98616.mp3"
+    },
+    {
+     "show": "d-book-low",
+     "light": [
+      "l-bass"
+     ]
+    },
+    {
+     "say": "A surprise: adding low to a bass often makes it muddier, not bigger. What makes a bass clear are its overtones, the higher tones above each note. Our ears catch those easily, because they are close to the range of speech.",
+     "src": "book",
+     "audio": "audio/steps/46dfe6b2483ebbbc.mp3"
+    },
+    {
+     "book": {
+      "q": "more bass doesn’t necessarily mean more apparent low-frequency information",
+      "from": "Mixing and Mastering in the Box › Chapter 3: Quick Guide to Great Mixes and Masters: Four Common Mistakes › 3.1 Poor Control of the Low End"
+     }
+    },
+    {
+     "say": "The book says, in the chapter Four Common Mistakes: more bass doesn’t necessarily mean more apparent low-frequency information",
+     "src": "book",
+     "audio": "audio/steps/7db4409924d1181e.mp3"
+    },
+    {
+     "show": "d-book-low",
+     "light": [
+      "l-bass",
+      "l-drum"
+     ]
+    },
+    {
+     "say": "In Santoshi the low floor is shared by three: the bass DI, the low head of the mridangam, and the djembe. Listen to the three together. If they blur into one boom, take a little low away from one of them in its parametric EQ, the PEQ, instead of adding low to another.",
+     "src": "santoshi",
+     "audio": "audio/steps/da16612b0169a165.mp3"
+    },
+    {
+     "say": "To give the bass shape instead of weight, try a small lift in its overtones, somewhere around seven hundred to fifteen hundred hertz. Small moves, two or three decibels.",
+     "src": "knowledge",
+     "audio": "audio/steps/807a58060186c2de.mp3"
+    },
+    {
+     "show": "d-book-low",
+     "light": [
+      "l-hpf",
+      "l-gtr",
+      "l-voc"
+     ]
+    },
+    {
+     "say": "The book also says almost every instrument carries some low end, even the bright ones. Clearing the lows from many channels keeps the bottom clean. But not too much, or the whole mix turns thin.",
+     "src": "book",
+     "audio": "audio/steps/ab03feecb993235f.mp3"
+    },
+    {
+     "say": "On the CQ that is the high pass filter on each channel. The three voices already use it. Check the guitars next: a DI pickup often has a boom low down that adds nothing. Raise the guitar's HPF slowly until the guitar starts to lose its body, then go back a little.",
+     "src": "santoshi",
+     "audio": "audio/steps/26d9e60224d36ebd.mp3"
+    },
+    {
+     "say": "The book warns that you can only judge the deep notes if your speakers and your room can play them. So learn how your own speakers sound in the low end, and judge the bass there.",
+     "src": "book",
+     "audio": "audio/steps/baf813bea984c2e3.mp3"
+    }
+   ]
+  },
+  {
+   "title": "15. Book: Bright, but not too bright",
+   "image": "7.jpg",
+   "steps": [
+    {
+     "show": "d-book-bright"
+    },
+    {
+     "say": "High frequencies are tempting. They make words clear and a sound present. A brighter sound is also louder, and louder always seems better. That is the trap.",
+     "src": "book",
+     "audio": "audio/steps/dee87922522f6b88.mp3"
+    },
+    {
+     "book": {
+      "q": "High frequencies are seductive.",
+      "from": "Mixing and Mastering in the Box › Chapter 3: Quick Guide to Great Mixes and Masters: Four Common Mistakes › 3.2 Overly Bright Mixes and Masters"
+     }
+    },
+    {
+     "say": "The book says, in the chapter Four Common Mistakes: High frequencies are seductive.",
+     "src": "book",
+     "audio": "audio/steps/b49e6f4008377050.mp3"
+    },
+    {
+     "show": "d-book-bright",
+     "light": [
+      "b-sub"
+     ]
+    },
+    {
+     "say": "The book describes two ways to use EQ. Cut what is too much, which sounds natural. Or boost what you want, which has more impact. Most engineers use both, but cutting is less likely to make a mix harsh.",
+     "src": "book",
+     "audio": "audio/steps/92a249781e2063f1.mp3"
+    },
+    {
+     "show": "d-book-bright",
+     "light": [
+      "b-voice"
+     ]
+    },
+    {
+     "say": "Tajana's voice is high and already bright, so it needs little or no boost on top. Svemir and Igor are low voices. For them, first cut a little mud, around two to four hundred hertz, before you boost any presence.",
+     "src": "santoshi",
+     "audio": "audio/steps/dc26ecb60b05c02c.mp3"
+    },
+    {
+     "show": "d-book-bright",
+     "light": [
+      "b-gtr"
+     ]
+    },
+    {
+     "say": "The guitar pickups, the DI channels, can sound sharp at the top. Do not boost the guitars at the same height where the voices get their words. A small cut there on the guitars lets the words through, without the voices getting louder.",
+     "src": "knowledge",
+     "audio": "audio/steps/0b2e7d91e452b8a0.mp3"
+    },
+    {
+     "say": "The mridangam's high head has a bright crack, and that is its character. But both mridangam microphones clipped at the concert. Boosting their top would make that distortion louder. Leave their highs alone, or cut a little.",
+     "src": "santoshi",
+     "audio": "audio/steps/f006baeee63768c3.mp3"
+    },
+    {
+     "show": "d-book-bright",
+     "light": [
+      "b-solo"
+     ]
+    },
+    {
+     "say": "One more point from the book. The sound that is best alone is not always the one that fits best in the mix. A guitar with a little less low and less presence may sound poorer alone, and better with the band.",
+     "src": "book",
+     "audio": "audio/steps/8ce7dc6f483d0621.mp3"
+    },
+    {
+     "say": "So use solo to find a problem, with Live's S button, then turn solo off and decide with everyone playing. And when you compare before and after an EQ, remember a boost is also louder. Louder fools the ear.",
+     "src": "santoshi",
+     "audio": "audio/steps/3018af2b68cf1e89.mp3"
+    }
+   ]
+  },
+  {
+   "title": "16. Book: Compression that keeps the music alive",
+   "image": "6.jpg",
+   "steps": [
+    {
+     "show": "d-book-comp"
+    },
+    {
+     "say": "The book treats compression as a real help, and as a danger. Used gently, it keeps the important parts present without pushing their faders up. Used too much, it squeezes the life out of the music.",
+     "src": "book",
+     "audio": "audio/steps/b5825662a935dca8.mp3"
+    },
+    {
+     "click": [
+      450,
+      49
+     ],
+     "label": "PROCESSING"
+    },
+    {
+     "click": [
+      67,
+      770
+     ],
+     "label": "OUTPUTS bank"
+    },
+    {
+     "point": [
+      1354,
+      426
+     ],
+     "label": "Main LR compressor"
+    },
+    {
+     "show": "d-book-comp",
+     "light": [
+      "k-voice"
+     ]
+    },
+    {
+     "say": "Voices and bass gain most from gentle compression. They carry the song, so they should not come and go. Done well, you hardly hear the compressor at all.",
+     "src": "book",
+     "audio": "audio/steps/f69a0655d81f60c8.mp3"
+    },
+    {
+     "say": "In Santoshi each voice has the Quick preset Vocal with Comp, and the bass has Bass Clean with Comp. Listen to a loud chorus: the voice should stay in front and still sound alive. If it sounds flat and pressed, the compression is too strong.",
+     "src": "santoshi",
+     "audio": "audio/steps/09bac504bbe43ec0.mp3"
+    },
+    {
+     "show": "d-book-comp",
+     "light": [
+      "k-drum"
+     ]
+    },
+    {
+     "say": "On drums compression can change the sound a lot. And a drum may pass through several compressors, one after another. Each adds a little, until the drums sound big at first and tiring after a while.",
+     "src": "book",
+     "audio": "audio/steps/e82fb92c3121a050.mp3"
+    },
+    {
+     "say": "The mridangam and the djembe pass through two: their own preset compressor, and the glue on the main mix. That is enough. Over two hours of kirtan, the drumming should still breathe.",
+     "src": "santoshi",
+     "audio": "audio/steps/bd113c6983991962.mp3"
+    },
+    {
+     "show": "d-book-comp",
+     "light": [
+      "k-glue"
+     ]
+    },
+    {
+     "say": "About the compressor on the whole mix, the book is clear. Keep the ratio low, and let it turn down only a few decibels, at the loudest moments.",
+     "src": "book",
+     "audio": "audio/steps/ad6883a407a69d9a.mp3"
+    },
+    {
+     "book": {
+      "q": "Generally, buss compression should be at a fairly low ratio",
+      "from": "Mixing and Mastering in the Box › Chapter 3: Quick Guide to Great Mixes and Masters: Four Common Mistakes › 3.3 Overly Compressed Mixes and Masters"
+     }
+    },
+    {
+     "say": "The book says, in the chapter Four Common Mistakes: Generally, buss compression should be at a fairly low ratio",
+     "src": "book",
+     "audio": "audio/steps/bfc1c1728161b059.mp3"
+    },
+    {
+     "say": "The Santoshi glue is one point nine to one, well inside that. On the loudest song, it should take away no more than three to six decibels.",
+     "src": "santoshi",
+     "audio": "audio/steps/68d72094e62587e9.mp3"
+    },
+    {
+     "show": "d-book-comp",
+     "light": [
+      "k-late"
+     ]
+    },
+    {
+     "say": "And a tip on timing: switch the mix compressor in late. First make the balance right without it. If it is on from the start, you lean on it without noticing, and end up squashing. So next time, set the Main LR compressor out, balance, then switch it in for the last touch, and listen to what it adds.",
+     "src": "book",
+     "audio": "audio/steps/85d23a3f548346bd.mp3"
+    }
+   ]
+  },
+  {
+   "title": "17. Book: How loud you listen, and how you compare",
+   "image": "4.jpg",
+   "steps": [
+    {
+     "show": "d-book-listen"
+    },
+    {
+     "say": "The book says your listening level changes your decisions. Loud listening tires the ears quickly. And loud makes everything sound good, so you stop hearing what is wrong.",
+     "src": "book",
+     "audio": "audio/steps/360967318ccc79f8.mp3"
+    },
+    {
+     "click": [
+      450,
+      49
+     ],
+     "label": "PROCESSING"
+    },
+    {
+     "click": [
+      67,
+      690
+     ],
+     "label": "ST IN / FX bank"
+    },
+    {
+     "point": [
+      377,
+      145
+     ],
+     "label": "USB listen"
+    },
+    {
+     "click": [
+      1086,
+      49
+     ],
+     "label": "HOME"
+    },
+    {
+     "point": [
+      1216,
+      780
+     ],
+     "label": "headphone level"
+    },
+    {
+     "book": {
+      "q": "everything sounds better when it’s louder",
+      "from": "Mixing and Mastering in the Box › Chapter 2: Quick Guide to Great Mixes and Masters: Five Best Practices › 2.2 Monitor Level"
+     }
+    },
+    {
+     "say": "The book says, in the chapter Five Best Practices: everything sounds better when it’s louder",
+     "src": "book",
+     "audio": "audio/steps/a1ab5936bff3db07.mp3"
+    },
+    {
+     "show": "d-book-listen",
+     "light": [
+      "v-low"
+     ]
+    },
+    {
+     "say": "Start the day as quietly as is comfortable, because the level creeps up by itself. And at a low level you hear clearly what stands in front and what sits behind.",
+     "src": "book",
+     "audio": "audio/steps/c1800b2bb6cc3352.mp3"
+    },
+    {
+     "say": "Use that for the voices. Turn the level down low and play Jai Ganesha. If you still understand Tajana's words over the drums, the voices are in front. If they disappear, they are too low.",
+     "src": "santoshi",
+     "audio": "audio/steps/9c715eb3314e1cb3.mp3"
+    },
+    {
+     "show": "d-book-listen",
+     "light": [
+      "v-mid",
+      "v-loud"
+     ]
+    },
+    {
+     "say": "Most of the work happens at a moderate level, because there the ear hears low and high most evenly. Loud listening is for the end of the day, for joy, not for decisions.",
+     "src": "book",
+     "audio": "audio/steps/bfe2902a516816e0.mp3"
+    },
+    {
+     "show": "d-book-listen",
+     "light": [
+      "v-one"
+     ]
+    },
+    {
+     "say": "The book also says: choose one listening place and trust it. Other speakers, or the car, can wake you up to a problem. But the final decision is made on the system you know.",
+     "src": "book",
+     "audio": "audio/steps/18122159ed162020.mp3"
+    },
+    {
+     "show": "d-book-listen",
+     "light": [
+      "v-ab"
+     ]
+    },
+    {
+     "say": "Comparing with music you love is a good guide: how loud is the voice, how bright is the whole, how wide. But no two recordings are alike. Use it as a direction, not as something to copy.",
+     "src": "book",
+     "audio": "audio/steps/1567b6c0b96111a0.mp3"
+    },
+    {
+     "say": "For Santoshi the best reference is the venue's own mix, on the USB channel. Press its listen key to hear it, release it to hear yours, in the same headphones, so the comparison is fair. If one is clearly louder, be careful: the louder one will always seem better.",
+     "src": "santoshi",
+     "audio": "audio/steps/b63ccbe178eca4c9.mp3"
+    }
+   ]
+  },
+  {
+   "title": "18. Book: Revise, rest, and know when it is done",
+   "image": "11.jpg",
+   "steps": [
+    {
+     "show": "d-book-revise"
+    },
+    {
+     "say": "The book says that setting levels, pan, EQ, compression and reverb is only the beginning. Mixing is mostly revision: many small changes over time.",
+     "src": "book",
+     "audio": "audio/steps/018fe6a42f26c292.mp3"
+    },
+    {
+     "show": "d-book-revise",
+     "light": [
+      "r-pass"
+     ]
+    },
+    {
+     "say": "Listen in different ways. The whole piece from start to end. One section at a time. A few bars for detail. And each time listen for something else: the levels, the tone, the width, the depth.",
+     "src": "book",
+     "audio": "audio/steps/70cc7a55e986d001.mp3"
+    },
+    {
+     "say": "Santoshi is two hours, eight songs. Use the markers to jump. Hear Jai Ganesha whole. Then the long Kali Kali, and the soft voice intro of Sarasvati Maha Lakshmi. The loudest and the softest moments test a mix the most.",
+     "src": "santoshi",
+     "audio": "audio/steps/957fc384014ad1a8.mp3"
+    },
+    {
+     "show": "d-book-revise",
+     "light": [
+      "r-break",
+      "r-scene"
+     ]
+    },
+    {
+     "say": "Take short breaks, often. Fresh ears hear more, and the mind judges better early in the day. So do the most careful listening at the start of a session, and come back another day to check.",
+     "src": "book",
+     "audio": "audio/steps/36884483bdc8688c.mp3"
+    },
+    {
+     "say": "The CQ scenes make this easy. When you like a version, store it in a new scene slot, so Santoshi Mix stays as it is. Next day, recall it and listen before you change anything. You can always go back.",
+     "src": "santoshi",
+     "audio": "audio/steps/3d6a61198065bedf.mp3"
+    },
+    {
+     "say": "Play an unfinished mix only to the people who are part of it. The book's warning: others tend to love the first version they heard. Play it to everyone when it is done.",
+     "src": "book",
+     "audio": "audio/steps/91d88ebf90452ab4.mp3"
+    },
+    {
+     "show": "d-book-revise",
+     "light": [
+      "r-done"
+     ]
+    },
+    {
+     "say": "How do you know it is done? The book gives two signs. You only move faders by tiny amounts, a few tenths of a decibel. Or you listen with fresh ears and cannot decide whether it needs more work. And what bothers you today will be different tomorrow.",
+     "src": "book",
+     "audio": "audio/steps/7c03c0027e94b6b5.mp3"
+    },
+    {
+     "book": {
+      "q": "don’t seek perfection (it’s not possible).",
+      "from": "Mixing and Mastering in the Box › Chapter 2: Quick Guide to Great Mixes and Masters: Five Best Practices › 2.5 Live with Your Mix or Master"
+     }
+    },
+    {
+     "say": "The book says, in the chapter Five Best Practices: don’t seek perfection (it’s not possible).",
+     "src": "book",
+     "audio": "audio/steps/abca6e84669d613e.mp3"
+    }
+   ]
   }
  ]
 }
