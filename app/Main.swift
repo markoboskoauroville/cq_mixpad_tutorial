@@ -6,7 +6,7 @@
 import SwiftUI
 import AppKit
 
-let VERSION = 8
+let VERSION = 9
 let GREEN = Color(red: 0x33/255, green: 0xD1/255, blue: 0x7A/255)
 let GREY = Color(red: 0x7A/255, green: 0x80/255, blue: 0x87/255)
 let AMBER = Color(red: 0xE8/255, green: 0xA3/255, blue: 0x3D/255)
@@ -59,6 +59,16 @@ struct MainView: View {
                 Word(text: "ON", on: true) {}
                 Word(text: "OFF", on: false) { NSApp.terminate(nil) }
                 Spacer()
+                // the speed of the voice, at the top (Marko, 24.10.2026)
+                HStack(spacing: 4) {
+                    Text("SPEED").font(.system(size: 11, weight: .bold, design: .monospaced)).foregroundColor(GREY)
+                    Image(systemName: "minus").font(.system(size: 13, weight: .bold)).foregroundColor(.white)
+                        .frame(width: 26, height: 22).background(CARD).cornerRadius(4).onTapGesture { p.slower() }
+                    Text(String(format: "%.2g×", p.rate)).font(.system(size: 14, weight: .bold, design: .monospaced))
+                        .foregroundColor(p.rate == 1 ? .white : AMBER).frame(width: 52)
+                    Image(systemName: "plus").font(.system(size: 13, weight: .bold)).foregroundColor(.white)
+                        .frame(width: 26, height: 22).background(CARD).cornerRadius(4).onTapGesture { p.faster() }
+                }.padding(.trailing, 18)
                 status
                 Text("v\(VERSION)").font(.system(size: 11, design: .monospaced)).foregroundColor(GREY).padding(.horizontal, 8)
                 CloseX()

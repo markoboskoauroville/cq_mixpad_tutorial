@@ -22,6 +22,14 @@ final class Player: NSObject, ObservableObject, AVAudioPlayerDelegate {
     private var follow: Timer?
     @Published var problem = ""
     @Published var autoNext = true          // go on to the next lesson at the end
+    // the speed of the voice (Marko, 24.10.2026: "at the top of the user interface, build in the speed of the talking"):
+    // AVAudioPlayer's rate keeps the pitch; the highlight follows the file's own time, so it stays on the word
+    static let SPEEDS: [Float] = [0.75, 0.85, 1.0, 1.1, 1.25, 1.4, 1.5]
+    @Published var rate: Float = {
+        let r = UserDefaults.standard.float(forKey: "speechRate"); return SPEEDS.contains(r) ? r : 1.0
+    }() { didSet { UserDefaults.standard.set(rate, forKey: "speechRate"); audio?.rate = rate } }
+    func faster() { if let i = Player.SPEEDS.firstIndex(of: rate), i + 1 < Player.SPEEDS.count { rate = Player.SPEEDS[i + 1] } }
+    func slower() { if let i = Player.SPEEDS.firstIndex(of: rate), i > 0 { rate = Player.SPEEDS[i - 1] } }
     private var audio: AVAudioPlayer?
     private var run = 0                     // a new run makes the old one stop at its next look
     private var audioDone: CheckedContinuation<Void, Never>?
@@ -116,7 +124,7 @@ final class Player: NSObject, ObservableObject, AVAudioPlayerDelegate {
         if let t = s.say {
             subtitle = t; marks = s.marks; speakTime = 0
             if let u = s.audio, let a = try? AVAudioPlayer(contentsOf: u) {
-                audio = a; a.delegate = self; a.prepareToPlay(); a.play()
+                audio = a; a.delegate = self; a.enableRate = true; a.prepareToPlay(); a.rate = rate; a.play()
                 // the highlight follows the voice, every 60 ms (word-timing.md §4)
                 follow?.invalidate()
                 follow = Timer.scheduledTimer(withTimeInterval: 0.06, repeats: true) { [weak self] _ in
