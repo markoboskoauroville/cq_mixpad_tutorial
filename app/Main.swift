@@ -6,7 +6,7 @@
 import SwiftUI
 import AppKit
 
-let VERSION = 9
+let VERSION = 11
 let GREEN = Color(red: 0x33/255, green: 0xD1/255, blue: 0x7A/255)
 let GREY = Color(red: 0x7A/255, green: 0x80/255, blue: 0x87/255)
 let AMBER = Color(red: 0xE8/255, green: 0xA3/255, blue: 0x3D/255)
@@ -58,17 +58,21 @@ struct MainView: View {
                 Text("CQ MIXPAD TUTORIAL").font(.system(size: 12, weight: .bold, design: .monospaced)).foregroundColor(.white).padding(.trailing, 6)
                 Word(text: "ON", on: true) {}
                 Word(text: "OFF", on: false) { NSApp.terminate(nil) }
-                Spacer()
-                // the speed of the voice, at the top (Marko, 24.10.2026)
-                HStack(spacing: 4) {
+                // the speed of the voice, next to ON / OFF (Marko, 24.10.2026: "speed arrows and a display of the speed in a
+                // small box with the number inside ... Shortcut ... Apple and arrows up and down"): ⌘↓ slower, ⌘↑ faster
+                HStack(spacing: 6) {
                     Text("SPEED").font(.system(size: 11, weight: .bold, design: .monospaced)).foregroundColor(GREY)
-                    Image(systemName: "minus").font(.system(size: 13, weight: .bold)).foregroundColor(.white)
-                        .frame(width: 26, height: 22).background(CARD).cornerRadius(4).onTapGesture { p.slower() }
-                    Text(String(format: "%.2g×", p.rate)).font(.system(size: 14, weight: .bold, design: .monospaced))
-                        .foregroundColor(p.rate == 1 ? .white : AMBER).frame(width: 52)
-                    Image(systemName: "plus").font(.system(size: 13, weight: .bold)).foregroundColor(.white)
-                        .frame(width: 26, height: 22).background(CARD).cornerRadius(4).onTapGesture { p.faster() }
-                }.padding(.trailing, 18)
+                    Image(systemName: "arrow.down").font(.system(size: 12, weight: .bold)).foregroundColor(.white)
+                        .frame(width: 24, height: 22).background(CARD).cornerRadius(4).contentShape(Rectangle()).onTapGesture { p.slower() }
+                        .help("slower (⌘↓)")
+                    Text(String(format: "%.2f", p.rate)).font(.system(size: 13, weight: .bold, design: .monospaced))
+                        .foregroundColor(p.rate == 1 ? .white : AMBER)
+                        .frame(width: 48, height: 22).overlay(RoundedRectangle(cornerRadius: 4).stroke(GREY, lineWidth: 1))
+                    Image(systemName: "arrow.up").font(.system(size: 12, weight: .bold)).foregroundColor(.white)
+                        .frame(width: 24, height: 22).background(CARD).cornerRadius(4).contentShape(Rectangle()).onTapGesture { p.faster() }
+                        .help("faster (⌘↑)")
+                }.padding(.leading, 18)
+                Spacer()
                 status
                 Text("v\(VERSION)").font(.system(size: 11, design: .monospaced)).foregroundColor(GREY).padding(.horizontal, 8)
                 CloseX()
@@ -172,6 +176,7 @@ struct MainView: View {
                 Key(symbol: "forward.fill", label: "SKIP") { p.next() }
                 Key(symbol: "stop.fill", label: "STOP") { p.stop() }
                 Spacer()
+                Text("SPACE play/pause · ←/→ step · ↑/↓ lesson · ⌘↑/⌘↓ speed").font(.system(size: 11, design: .monospaced)).foregroundColor(GREY).padding(.trailing, 12)
                 Text(p.autoNext ? "NEXT LESSON: ON" : "NEXT LESSON: OFF").font(.system(size: 11, weight: .bold, design: .monospaced))
                     .foregroundColor(p.autoNext ? GREEN : GREY).onTapGesture { p.autoNext.toggle() }
             }
@@ -218,6 +223,26 @@ let PLAYER = Player()
 
 final class Delegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ n: Notification) {
+        // THE HOT KEYS, in every tutorial (Marko, 24.10.2026; MANTRA_MANIFEST tutorials.md): Space play/pause, ← back
+        // (the sentence before, again), → forward (the next step), ↑ the next lesson, ↓ the lesson before
+        NSEvent.addLocalMonitorForEvents(matching: .keyDown) { e in
+            // ⌘↑ faster, ⌘↓ slower (the speed of the voice)
+            if e.modifierFlags.contains(.command), e.modifierFlags.intersection([.option, .control]).isEmpty {
+                if e.keyCode == 126 { PLAYER.faster(); return nil }
+                if e.keyCode == 125 { PLAYER.slower(); return nil }
+                return e
+            }
+            guard e.modifierFlags.intersection([.command, .option, .control]).isEmpty else { return e }
+            switch e.keyCode {
+            case 49: PLAYER.pauseResume()
+            case 123: PLAYER.previous()
+            case 124: PLAYER.next()
+            case 126: PLAYER.nextLesson()
+            case 125: PLAYER.previousLesson()
+            default: return e
+            }
+            return nil
+        }
         // started from outside, without the mouse (Marko, 24.10.2026: "When it comes to zero, the tutorial starts as a
         // demonstration"): the distributed notification community.auroville.cqtutorial.play starts lesson 1, or the
         // lesson number given as its object; tools/start.swift sends it

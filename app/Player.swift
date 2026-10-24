@@ -72,6 +72,8 @@ final class Player: NSObject, ObservableObject, AVAudioPlayerDelegate {
         if paused { audio?.pause() } else { audio?.play() }
     }
     func next() { jump(lesson, step + 1) }
+    func nextLesson() { if lesson + 1 < lessons.count { jump(lesson + 1, 0) } }
+    func previousLesson() { jump(step > 1 ? lesson : max(0, lesson - 1), 0) }   // ↓: this lesson's start, then the one before
     func previous() {
         // back to the spoken step before the current one
         var s = max(0, step - 1)
@@ -144,16 +146,23 @@ final class Player: NSObject, ObservableObject, AVAudioPlayerDelegate {
                 if run != me { return }            // skipped while speaking: the rest of this step is not done
             } else { problem = "no voice file for this step (run tools/build_audio.py)" }
         }
-        if let f = s.front { await off { Hand.front(f) } }
+        if let f = s.front { await off { Hand.front(f) }; backToFront() }
         if let p = s.point ?? s.click {
             let isClick = s.click != nil, app = s.app
             if let why = await offResult({ Hand.gesture(click: isClick, x: p[0], y: p[1], app: app) }) { problem = why }
+            backToFront()
         }
         if let l = s.live { if let why = await offResult({ Live.run(l, s.raw) }) { problem = why } }
         if let w = s.wait {
             var left = w
             while left > 0 && run == me { try? await Task.sleep(nanoseconds: 100_000_000); if !paused { left -= 0.1 } }
         }
+    }
+    // the tutorial's window back in front after the hand worked in another app, so his hot keys reach it
+    // (MixPad and Live stay where they are, on the other screen)
+    @MainActor private func backToFront() {
+        NSApp.activate(ignoringOtherApps: true)
+        NSApp.windows.first { $0.title.contains("CQ MixPad Tutorial") }?.makeKeyAndOrderFront(nil)
     }
     private func off(_ f: @escaping () -> Void) async { await withCheckedContinuation { c in DispatchQueue.global().async { f(); c.resume() } } }
     private func offResult(_ f: @escaping () -> String?) async -> String? {

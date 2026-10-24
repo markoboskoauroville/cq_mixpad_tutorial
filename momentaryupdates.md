@@ -66,3 +66,12 @@
 > all, all, all parts of the tutorials you learn from the manual of cq, you need to quote it so i know you quote from the manual
 
 **Status:** done, v5: 17 short quotes from the CQ User Guide (CONFIG, FADER, PROCESSING, HOME chapters, read in Chrome) as FROM THE CQ MANUAL cards, spoken "The manual says, in the … chapter: …"; every spoken sentence tagged MANUAL / MEASURED / SANTOSHI / MIXING KNOWLEDGE. Photos: 11 from Nano Banana (accounts u/0, u/1, u/3), one per lesson. **Status (images):** done.
+
+## 24.10.2026: the countdown, speed and hot keys
+
+> Please run the whole tutorial exactly in 5 minutes. Put the timer. ... When it comes to zero, the tutorial starts as a demonstration to master me, please.
+> I am ready now. Please show me everything. Let's go through the whole tutorial. And at the top of the user interface, build in the speed of the talking speech speed
+> This tutorial and in any other write into manifest, we need to have hot keys to control the playback: Spacebar: play/pause; Arrow keys: back, forward; Left/right arrows: go back and forward to play again; Up arrow: skip to the next lesson; Down arrow
+> The speed of the tutorial should be at the top. There is a CQ Mixer Pad tutorial On/Off, and next to that one will be speed arrows and a display of the speed in a small box with the number inside ... Shortcut for speeding up or slowing down is Apple and arrows up and down.
+
+**Status:** done: the Timer Stopwatch Clock counted 5:00 and the tutorial started itself at 08:37:11 (tools/start.swift, v8); v9 SPEED; v10 hot keys (Space, ←, →, ↑, ↓ = previous lesson, assumed) and the window back in front after every gesture; v11 SPEED beside ON/OFF with ⌘↑/⌘↓. Rule: MANTRA_MANIFEST modules/tutorials.md.
