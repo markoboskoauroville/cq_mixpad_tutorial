@@ -51,3 +51,12 @@
 - The hand works in CQ MixPad and in Live (v2: `app` on every gesture, /front). **Status:** done, Accessibility granted by Marko
 - Everything inside the Swift app: lessons, the made voice (mp3 in the bundle), diagrams drawn in SwiftUI, step list, play / pause / previous / next / replay, Live by OSC directly. No web page, no server, no internet while playing. **Status:** in progress
 - Normalizing every channel to −12 dB (typical peak) before every mix: the rule. **Status:** in progress (manifest)
+
+## 24.10.2026: images, and to the very end
+
+> You generate images for this tutorial in the Claude Open. Open all the accounts at the same time in different tabs and generate all the images at the same time, saving the time.
+> Please read the manifest from Elevate Media on how we create this kind of image. You can use Google Drive to run reference images and store them. They can also be stored here, but if you do multiple times of referencing images to save my SIM card, you need to use Drive.
+> Please continue building. Make the visualization in the Chrome. Bring the app to the very end without stopping.
+
+- A photo per lesson, Nano Banana in Gemini in Chrome, one tab per account, started ~30 s apart; no references needed (text prompts only); into content/images/<n>.jpg. **Status:** in progress
+- Every lesson played end to end (Live and MixPad), every fault fixed. **Status:** waiting
