@@ -25,11 +25,14 @@ struct ReadingText: View {
         guard time >= 0, !marks.isEmpty, let m = marks.last(where: { $0[2] <= time + 0.03 }) else { return a }
         let ch = Array(t)
         let w0 = min(Int(m[0]), ch.count), w1 = min(Int(m[1]), ch.count)
-        // the sentence around the word: after the previous . ! ? and a space, up to and with the next one
-        var s0 = w0; while s0 > 0 && !(".!?".contains(ch[s0 - 1]) && ch[s0] == " ") { s0 -= 1 }
-        while s0 < w0 && ch[s0] == " " { s0 += 1 }
-        var s1 = w1; while s1 < ch.count && !(".!?".contains(ch[s1]) && (s1 + 1 == ch.count || ch[s1 + 1] == " ")) { s1 += 1 }
-        s1 = min(ch.count, s1 + 1)
+        // the one sentence that holds the word (a word's mark may or may not include its full stop, so the sentences
+        // are cut once and the word is looked up in them: only one is ever lit; Marko, 24.10.2026: "Only one sentence
+        // at a time needs to be highlighted always")
+        var sents: [Range<Int>] = [], start = 0
+        for k in ch.indices where ".!?".contains(ch[k]) && (k + 1 == ch.count || ch[k + 1] == " ") { sents.append(start..<(k + 1)); start = k + 2 }
+        if start < ch.count { sents.append(start..<ch.count) }
+        let sent = sents.first { $0.contains(w0) } ?? (w0..<w1)
+        let s0 = sent.lowerBound, s1 = sent.upperBound
         func range(_ x: Int, _ y: Int) -> Range<AttributedString.Index>? {
             guard x < y else { return nil }
             return a.index(a.startIndex, offsetByCharacters: x)..<a.index(a.startIndex, offsetByCharacters: y)
