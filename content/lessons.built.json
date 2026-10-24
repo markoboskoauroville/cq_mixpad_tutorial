@@ -51,6 +51,11 @@
    "when": "24.10.2026 09:10",
    "where": "CQ MixPad",
    "what": "ST IN: Input Source SD/USB (was Analogue), renamed House. Venue Mix -> Ext. Out 11/12 -> House: the new default for the house mix (Marko)"
+  },
+  {
+   "when": "24.10.2026 09:30",
+   "where": "CQ MixPad",
+   "what": "Mute group 1 'MyMix' (inputs 1-10, FX1, FX2), mute group 2 'House' (House); soft key 1 = MyMix mute, 2 = House mute, 3 = Main LR compressor in/out; House fader 0 dB, muted"
   }
  ],
  "lessons": [
@@ -458,7 +463,122 @@
    "image": "4.jpg"
   },
   {
-   "title": "5. Preparing the concert in Live: names, markers, -12 dB",
+   "title": "5. Comparing on the speakers: two mute groups and three soft keys",
+   "image": "10.jpg",
+   "steps": [
+    {
+     "show": "d-ab"
+    },
+    {
+     "say": "The CQ has no solo in place, so we built one. Two mute groups. Mute group one, called MyMix, holds your ten channels and the two effect returns. Mute group two, called House, holds the House channel with the venue's mix.",
+     "src": "santoshi",
+     "audio": "audio/steps/8138cb036f4572ef.mp3"
+    },
+    {
+     "manual": {
+      "q": "mute or unmute multiple channels at once using a single mute button",
+      "from": "CQ User Guide › CONFIG screens › Control & Network › Mute Groups"
+     }
+    },
+    {
+     "say": "The manual says, in the CONFIG chapter: mute or unmute multiple channels at once using a single mute button.",
+     "src": "manual",
+     "audio": "audio/steps/5e7e33feb31f8e28.mp3"
+    },
+    {
+     "click": [
+      239,
+      49
+     ],
+     "label": "CONFIG"
+    },
+    {
+     "click": [
+      1306,
+      121
+     ],
+     "label": "CONTROL & NETWORK"
+    },
+    {
+     "click": [
+      527,
+      180
+     ],
+     "label": "Mute Groups"
+    },
+    {
+     "point": [
+      241,
+      344
+     ],
+     "label": "MyMix: 10 channels, FX1, FX2"
+    },
+    {
+     "say": "Here are the groups. MyMix has a small number one on every one of your channels and on both effects. House has a number two on the House channel only.",
+     "src": "santoshi",
+     "audio": "audio/steps/5ac0911969cc8f1a.mp3"
+    },
+    {
+     "click": [
+      268,
+      180
+     ],
+     "label": "Soft Controls"
+    },
+    {
+     "point": [
+      67,
+      125
+     ],
+     "label": "soft key 1: mute MyMix"
+    },
+    {
+     "say": "The three keys at the top left are now yours. Key one mutes MyMix. Key two mutes House. Key three switches the main compressor in and out.",
+     "src": "santoshi",
+     "audio": "audio/steps/957f869c15613300.mp3"
+    },
+    {
+     "show": "d-ab",
+     "light": [
+      "ab-swap"
+     ]
+    },
+    {
+     "say": "To compare on the speakers: House starts muted, at zero decibels. Press key one and key two together, so your mix goes silent and the house mix plays. Press both again to come back. Same level, same speakers, a fair comparison.",
+     "src": "santoshi",
+     "audio": "audio/steps/475f5a1ba2ca69e8.mp3"
+    },
+    {
+     "show": "d-ab",
+     "light": [
+      "ab-comp"
+     ]
+    },
+    {
+     "say": "Mute groups switch only channels, never processing. So the house mix, and later any reference track, also passes through the main glue compressor. Key three takes it out while you listen to a reference, and puts it back for your own mix.",
+     "src": "manual",
+     "audio": "audio/steps/209ac745212fbad0.mp3"
+    },
+    {
+     "show": "d-ab",
+     "light": [
+      "ab-sd"
+     ]
+    },
+    {
+     "say": "One warning. The SD card records the main mix. While House plays in the main, the recording takes the house mix too. For a clean recording of your mix, compare with the House listen key in the headphones instead.",
+     "src": "santoshi",
+     "audio": "audio/steps/88756687b95e1b8a.mp3"
+    },
+    {
+     "say": "Later you can put reference songs from the computer on thirteen fourteen, the USB channel, and add it to the House group. Then key two brings any reference in, in place of your mix.",
+     "src": "knowledge",
+     "audio": "audio/steps/8eec8f4c3a09b53f.mp3"
+    }
+   ]
+  },
+  {
+   "title": "6. Preparing the concert in Live: names, markers, -12 dB",
    "steps": [
     {
      "show": "d-prep"
@@ -535,7 +655,7 @@
    "image": "5.jpg"
   },
   {
-   "title": "6. Theory: gain staging, the level before the mix",
+   "title": "7. Theory: gain staging, the level before the mix",
    "steps": [
     {
      "show": "d-gain"
@@ -571,7 +691,7 @@
    "image": "6.jpg"
   },
   {
-   "title": "7. Theory: equaliser and the high pass filter",
+   "title": "8. Theory: equaliser and the high pass filter",
    "steps": [
     {
      "show": "d-eq"
@@ -666,7 +786,7 @@
    "image": "7.jpg"
   },
   {
-   "title": "8. Theory: the compressor on each channel",
+   "title": "9. Theory: the compressor on each channel",
    "steps": [
     {
      "show": "d-comp"
@@ -762,7 +882,7 @@
    "image": "8.jpg"
   },
   {
-   "title": "9. Theory: reverb on a send",
+   "title": "10. Theory: reverb on a send",
    "steps": [
     {
      "show": "d-send"
@@ -829,7 +949,7 @@
    "image": "9.jpg"
   },
   {
-   "title": "10. Theory: the glue compressor on the main",
+   "title": "11. Theory: the glue compressor on the main",
    "steps": [
     {
      "show": "d-glue"
@@ -880,7 +1000,7 @@
    "image": "10.jpg"
   },
   {
-   "title": "11. Balancing the Santoshi mix",
+   "title": "12. Balancing the Santoshi mix",
    "steps": [
     {
      "show": "d-balance"
@@ -969,7 +1089,7 @@
    "image": "11.jpg"
   },
   {
-   "title": "12. Book: Know the sound before you start",
+   "title": "13. Book: Know the sound before you start",
    "image": "10.jpg",
    "steps": [
     {
@@ -1044,7 +1164,7 @@
    ]
   },
   {
-   "title": "13. Book: Height, width and depth",
+   "title": "14. Book: Height, width and depth",
    "image": "9.jpg",
    "steps": [
     {
@@ -1143,7 +1263,7 @@
    ]
   },
   {
-   "title": "14. Book: Control the low end",
+   "title": "15. Book: Control the low end",
    "image": "8.jpg",
    "steps": [
     {
@@ -1219,7 +1339,7 @@
    ]
   },
   {
-   "title": "15. Book: Bright, but not too bright",
+   "title": "16. Book: Bright, but not too bright",
    "image": "7.jpg",
    "steps": [
     {
@@ -1298,7 +1418,7 @@
    ]
   },
   {
-   "title": "16. Book: Compression that keeps the music alive",
+   "title": "17. Book: Compression that keeps the music alive",
    "image": "6.jpg",
    "steps": [
     {
@@ -1403,7 +1523,7 @@
    ]
   },
   {
-   "title": "17. Book: How loud you listen, and how you compare",
+   "title": "18. Book: How loud you listen, and how you compare",
    "image": "4.jpg",
    "steps": [
     {
@@ -1518,7 +1638,7 @@
    ]
   },
   {
-   "title": "18. Book: Revise, rest, and know when it is done",
+   "title": "19. Book: Revise, rest, and know when it is done",
    "image": "11.jpg",
    "steps": [
     {
@@ -1592,7 +1712,7 @@
    ]
   },
   {
-   "title": "19. Book: Setting levels, and the order of building",
+   "title": "20. Book: Setting levels, and the order of building",
    "image": "11.jpg",
    "steps": [
     {
@@ -1679,7 +1799,7 @@
    ]
   },
   {
-   "title": "20. Book: Panning in detail",
+   "title": "21. Book: Panning in detail",
    "image": "3.jpg",
    "steps": [
     {
@@ -1762,7 +1882,7 @@
    ]
   },
   {
-   "title": "21. Book: EQ in detail",
+   "title": "22. Book: EQ in detail",
    "image": "6.jpg",
    "steps": [
     {
@@ -1861,7 +1981,7 @@
    ]
   },
   {
-   "title": "22. Book: Compressor and gate, by source",
+   "title": "23. Book: Compressor and gate, by source",
    "image": "8.jpg",
    "steps": [
     {
@@ -1940,7 +2060,7 @@
    ]
   },
   {
-   "title": "23. Book: Reverb and delay in detail",
+   "title": "24. Book: Reverb and delay in detail",
    "image": "9.jpg",
    "steps": [
     {
@@ -2032,7 +2152,7 @@
    ]
   },
   {
-   "title": "24. Book: The stereo buss, the last stage",
+   "title": "25. Book: The stereo buss, the last stage",
    "image": "6.jpg",
    "steps": [
     {
@@ -2126,7 +2246,7 @@
    ]
   },
   {
-   "title": "25. Book: Mridangam and djembe",
+   "title": "26. Book: Mridangam and djembe",
    "image": "8.jpg",
    "steps": [
     {
@@ -2231,7 +2351,7 @@
    ]
   },
   {
-   "title": "26. Book: Bass DI and the guitars",
+   "title": "27. Book: Bass DI and the guitars",
    "image": "2.jpg",
    "steps": [
     {
@@ -2309,7 +2429,7 @@
    ]
   },
   {
-   "title": "27. Book: Three lead voices",
+   "title": "28. Book: Three lead voices",
    "image": "7.jpg",
    "steps": [
     {

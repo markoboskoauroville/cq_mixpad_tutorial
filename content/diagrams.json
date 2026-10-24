@@ -2866,6 +2866,106 @@
      "text": "In front, but still part of the music"
     }
    ]
+  },
+  "d-ab": {
+   "title": "A / B ON THE SPEAKERS · two mute groups, three soft keys",
+   "els": [
+    {
+     "node": "ab-my",
+     "x": 30,
+     "y": 70,
+     "w": 280,
+     "h": 170,
+     "text": "MyMix · group 1",
+     "sub": "inputs 1–10, FX1, FX2\nsoft key 1"
+    },
+    {
+     "node": "ab-house",
+     "x": 30,
+     "y": 290,
+     "w": 280,
+     "h": 150,
+     "text": "House · group 2",
+     "sub": "the venue mix, 0 dB\nsoft key 2 (starts muted)"
+    },
+    {
+     "node": "ab-comp",
+     "x": 400,
+     "y": 150,
+     "w": 230,
+     "h": 200,
+     "text": "Main LR",
+     "sub": "glue compressor\nsoft key 3: in / out"
+    },
+    {
+     "node": "ab-out",
+     "x": 720,
+     "y": 90,
+     "w": 250,
+     "h": 110,
+     "text": "Speakers",
+     "sub": "what you compare"
+    },
+    {
+     "node": "ab-sd",
+     "x": 720,
+     "y": 260,
+     "w": 250,
+     "h": 130,
+     "text": "SD card",
+     "sub": "records Main LR:\nwhatever plays there"
+    },
+    {
+     "edge": "ab-e1",
+     "from": [
+      310,
+      155
+     ],
+     "to": [
+      400,
+      215
+     ]
+    },
+    {
+     "edge": "ab-e2",
+     "from": [
+      310,
+      365
+     ],
+     "to": [
+      400,
+      290
+     ]
+    },
+    {
+     "edge": "ab-e3",
+     "from": [
+      630,
+      215
+     ],
+     "to": [
+      720,
+      145
+     ]
+    },
+    {
+     "edge": "ab-e4",
+     "from": [
+      630,
+      290
+     ],
+     "to": [
+      720,
+      320
+     ]
+    },
+    {
+     "note": "ab-swap",
+     "x": 500,
+     "y": 490,
+     "text": "press keys 1 and 2 together: your mix ⇄ the house mix"
+    }
+   ]
   }
  }
 }
