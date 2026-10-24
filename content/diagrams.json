@@ -1,0 +1,159 @@
+{
+ "note": "The diagrams the app draws (Marko, 24.10.2026: 'Explanation needs to have some diagrams'). A 1000 x 560 board. Elements: node (a box: text, sub), edge (an arrow from-to, label, dashed), note (text), area (a shaded band, label), curve (a line through points). A lesson step lights elements whose id starts with one of its light ids. Every number here is measured or read from the CQ, the Santoshi README or MixPad.",
+ "diagrams": {
+  "d-to-computer": {
+   "title": "FROM THE CQ TO THE COMPUTER · 16 channels",
+   "els": [
+    {"node": "cq", "x": 30, "y": 70, "w": 210, "h": 410, "text": "CQ-12T", "sub": "the mixer"},
+    {"node": "mac", "x": 760, "y": 70, "w": 210, "h": 410, "text": "Mac", "sub": "Ableton Live\nAudio From: Ext. In 1–16"},
+    {"node": "tc-1-10", "x": 330, "y": 80, "w": 340, "h": 150, "text": "1 – 10", "sub": "your ten inputs, one channel each\nalways, fixed"},
+    {"node": "tc-11-16a", "x": 330, "y": 260, "w": 340, "h": 60, "text": "11 / 12  ·  ST IN", "sub": "chosen"},
+    {"node": "tc-11-16b", "x": 330, "y": 335, "w": 340, "h": 60, "text": "13 / 14  ·  Out5 / Out6", "sub": "chosen"},
+    {"node": "tc-11-16c", "x": 330, "y": 410, "w": 340, "h": 60, "text": "15 / 16  ·  Main LR", "sub": "chosen"},
+    {"edge": "tc-1-10e", "from": [240, 155], "to": [330, 155]},
+    {"edge": "tc-1-10f", "from": [670, 155], "to": [760, 155]},
+    {"edge": "tc-11-16e", "from": [240, 365], "to": [330, 365]},
+    {"edge": "tc-11-16f", "from": [670, 365], "to": [760, 365]},
+    {"note": "tc-11-16n", "x": 500, "y": 515, "text": "11–16: CONFIG › USB/SD › Channel Assignment chooses what is RECORDED on the computer"}
+   ]
+  },
+  "d-to-mixer": {
+   "title": "FROM THE COMPUTER TO THE CQ · 16 channels",
+   "els": [
+    {"node": "mac", "x": 30, "y": 70, "w": 210, "h": 410, "text": "Mac", "sub": "Ableton Live\nAudio To: Ext. Out 1–16"},
+    {"node": "cq", "x": 760, "y": 70, "w": 210, "h": 410, "text": "CQ-12T", "sub": "the mixer"},
+    {"node": "tm-1-10", "x": 330, "y": 80, "w": 340, "h": 150, "text": "Ext. Out 1 – 10", "sub": "play on inputs 1–10\nwhen the input's source is SD/USB"},
+    {"node": "tm-11-16a", "x": 330, "y": 260, "w": 340, "h": 60, "text": "11 / 12  →  ST IN channel", "sub": "measured on the meters"},
+    {"node": "tm-11-16b", "x": 330, "y": 335, "w": 340, "h": 60, "text": "13 / 14  →  USB channel", "sub": "measured: the venue mix is here"},
+    {"node": "tm-11-16c", "x": 330, "y": 410, "w": 340, "h": 60, "text": "15 / 16  →  no channel", "sub": "no meter moved"},
+    {"edge": "tm-1-10e", "from": [240, 155], "to": [330, 155]},
+    {"edge": "tm-1-10f", "from": [670, 155], "to": [760, 155]},
+    {"edge": "tm-11-16e", "from": [240, 365], "to": [330, 365]},
+    {"edge": "tm-11-16f", "from": [670, 365], "to": [760, 365]},
+    {"note": "tm-n", "x": 500, "y": 515, "text": "A stereo sound from the computer can go to ST IN (11/12) or to USB (13/14)"}
+   ]
+  },
+  "d-now": {
+   "title": "RIGHT NOW · the Santoshi concert into the CQ",
+   "els": [
+    {"node": "n-tracks", "x": 20, "y": 60, "w": 250, "h": 200, "text": "Live · 10 tracks", "sub": "svemir VOC, bas, Mridangam,\nMridangam Low, Djembe, Igor VOC,\nIgor DI, tajana, snoopy DI, Igor MIC\nExt. Out 1–10"},
+    {"node": "n-venue-a", "x": 20, "y": 300, "w": 250, "h": 70, "text": "Venue L  ·  pan −100 %", "sub": "Ext. Out 13"},
+    {"node": "n-venue-b", "x": 20, "y": 385, "w": 250, "h": 70, "text": "Venue R  ·  pan +100 %", "sub": "Ext. Out 14"},
+    {"node": "n-inputs", "x": 350, "y": 60, "w": 250, "h": 200, "text": "CQ inputs 1–10", "sub": "source SD/USB\nprocessing · faders"},
+    {"node": "n-venue-c", "x": 350, "y": 320, "w": 250, "h": 110, "text": "CQ USB channel", "sub": "stereo 13/14\nfader OFF: not in the mix"},
+    {"node": "n-main-a", "x": 680, "y": 60, "w": 140, "h": 200, "text": "Main LR", "sub": "glue\ncompressor"},
+    {"node": "n-main-b", "x": 860, "y": 60, "w": 125, "h": 90, "text": "Speakers", "sub": ""},
+    {"node": "n-main-c", "x": 860, "y": 170, "w": 125, "h": 90, "text": "SD card", "sub": "recording"},
+    {"node": "n-listen-a", "x": 790, "y": 330, "w": 195, "h": 100, "text": "Headphones", "sub": "Listen key pressed:\nthat channel alone"},
+    {"edge": "n-e1", "from": [270, 160], "to": [350, 160]},
+    {"edge": "n-venue-e1", "from": [270, 335], "to": [350, 360]},
+    {"edge": "n-venue-e2", "from": [270, 420], "to": [350, 395]},
+    {"edge": "n-main-e1", "from": [600, 160], "to": [680, 160]},
+    {"edge": "n-main-e2", "from": [820, 105], "to": [860, 105]},
+    {"edge": "n-main-e3", "from": [820, 215], "to": [860, 215]},
+    {"edge": "n-listen-e1", "from": [600, 375], "to": [790, 375], "label": "USB Listen"},
+    {"edge": "n-listen-e2", "from": [750, 260], "to": [860, 330], "label": "no Listen: Main", "dashed": true},
+    {"note": "n-note", "x": 500, "y": 510, "text": "Venue L and Venue R play the same clip in Live: always in sync, together a stereo pair"}
+   ]
+  },
+  "d-compare": {
+   "title": "TWO ROADS · recording and listening never touch",
+   "els": [
+    {"node": "c-mix", "x": 40, "y": 80, "w": 260, "h": 140, "text": "Your mix", "sub": "inputs 1–10 → Main LR"},
+    {"node": "c-venue", "x": 40, "y": 320, "w": 260, "h": 140, "text": "The venue's mix", "sub": "USB channel, fader OFF"},
+    {"node": "c-sd", "x": 700, "y": 80, "w": 260, "h": 140, "text": "SD card", "sub": "records Main LR: always your mix"},
+    {"node": "c-phones", "x": 700, "y": 320, "w": 260, "h": 140, "text": "Headphones", "sub": "USB Listen on: the venue\nUSB Listen off: your mix"},
+    {"edge": "c-e1", "from": [300, 150], "to": [700, 150], "label": "recording"},
+    {"edge": "c-e2", "from": [300, 390], "to": [700, 390], "label": "Listen key"},
+    {"edge": "c-e3", "from": [300, 190], "to": [700, 350], "label": "no Listen", "dashed": true}
+   ]
+  },
+  "d-prep": {
+   "title": "BEFORE EVERY MIX · prepare the multitrack in Live",
+   "els": [
+    {"node": "p-names", "x": 30, "y": 80, "w": 300, "h": 330, "text": "1 · Names", "sub": "1-Audio … 11-Audio\n↓\nsvemir VOC, bas, …\nfrom the recording mixer's\ninput labels (XR18)\nset over OSC\npercussion: by sound + Marko"},
+    {"node": "p-markers", "x": 350, "y": 80, "w": 300, "h": 330, "text": "2 · Markers", "sub": "8 locators, one per song\n7:54 Jai Ganesha\n…\n104:09 Asatoma\nfound in the venue mix's gaps,\nconfirmed by speech recognition"},
+    {"node": "p-levels", "x": 670, "y": 80, "w": 300, "h": 330, "text": "3 · Level −12 dB", "sub": "each clip's typical peak\n(99 % of 0.1 s peaks)\n→ −12 dBFS by clip gain\nevery Live fader 0 dB\n12 dB headroom for all"},
+    {"note": "p-note", "x": 500, "y": 470, "text": "Do these three before you touch a fader: every new multitrack, every time"}
+   ]
+  },
+  "d-gain": {
+   "title": "GAIN STAGING · the same level in, room above it",
+   "els": [
+    {"area": "g-clip", "x": 380, "y": 60, "w": 240, "h": 30, "label": "0 dBFS · the ceiling: above it is distortion"},
+    {"area": "g-headroom", "x": 380, "y": 90, "w": 240, "h": 150, "label": "12 dB headroom: room for the loud moments"},
+    {"area": "g-peak", "x": 380, "y": 236, "w": 240, "h": 8, "label": ""},
+    {"note": "g-peakl", "x": 780, "y": 240, "text": "−12 dBFS: the typical peak of every channel"},
+    {"area": "g-signal", "x": 380, "y": 244, "w": 240, "h": 250, "label": "the music lives here"},
+    {"note": "g-l1", "x": 200, "y": 75, "text": "0 dB"},
+    {"note": "g-l2", "x": 200, "y": 240, "text": "−12 dB"},
+    {"note": "g-l3", "x": 200, "y": 490, "text": "−60 dB"},
+    {"note": "g-why", "x": 500, "y": 530, "text": "Peak, not loudness: a drum made as loud as a voice would clip again"}
+   ]
+  },
+  "d-eq": {
+   "title": "THE EQUALISER · where each sound lives (20 Hz – 20 kHz)",
+   "els": [
+    {"area": "e-hpf", "x": 60, "y": 80, "w": 200, "h": 380, "label": "below 100 Hz\nrumble, handling, breath\nHPF on every voice"},
+    {"area": "e-mud", "x": 340, "y": 80, "w": 140, "h": 380, "label": "200–400 Hz\nthe mud"},
+    {"area": "e-presence", "x": 620, "y": 80, "w": 180, "h": 380, "label": "2–5 kHz\npresence: words"},
+    {"curve": "e-curve", "points": [[60, 460], [180, 300], [260, 270], [340, 270], [410, 285], [480, 270], [620, 255], [710, 245], [800, 255], [940, 270]]},
+    {"note": "e-f1", "x": 60, "y": 490, "text": "20 Hz"},
+    {"note": "e-f2", "x": 260, "y": 490, "text": "100 Hz"},
+    {"note": "e-f3", "x": 410, "y": 490, "text": "300 Hz"},
+    {"note": "e-f4", "x": 560, "y": 490, "text": "1 kHz"},
+    {"note": "e-f5", "x": 710, "y": 490, "text": "3 kHz"},
+    {"note": "e-f6", "x": 940, "y": 490, "text": "20 kHz"},
+    {"note": "e-pre", "x": 500, "y": 530, "text": "Santoshi: the CQ's Quick presets chosen by sound (vocal lo / hi pitch, clean bass, acoustic guitar, percussion)"}
+   ]
+  },
+  "d-comp": {
+   "title": "THE COMPRESSOR · loud moments turned down",
+   "els": [
+    {"curve": "c-line", "points": [[80, 480], [380, 220], [560, 160]]},
+    {"curve": "c-unity", "points": [[380, 220], [560, 64]], "dashed": true},
+    {"area": "c-threshold", "x": 376, "y": 60, "w": 8, "h": 420, "label": ""},
+    {"note": "c-thl", "x": 380, "y": 500, "text": "threshold: it starts here"},
+    {"note": "c-ratio", "x": 560, "y": 120, "text": "ratio 2:1 — 2 dB in, 1 dB out"},
+    {"note": "c-ax1", "x": 320, "y": 530, "text": "level coming in →"},
+    {"node": "c-attack", "x": 640, "y": 260, "w": 330, "h": 200, "text": "attack · release", "sub": "attack: how fast it reacts\nslow attack lets the first hit through\nrelease: how fast it lets go\nvoices steady, percussion quicker"}
+   ]
+  },
+  "d-send": {
+   "title": "REVERB ON A SEND · one room for all voices",
+   "els": [
+    {"node": "s-v1", "x": 30, "y": 60, "w": 200, "h": 70, "text": "SvmVOC", "sub": ""},
+    {"node": "s-v2", "x": 30, "y": 160, "w": 200, "h": 70, "text": "IgVOC", "sub": ""},
+    {"node": "s-v3", "x": 30, "y": 260, "w": 200, "h": 70, "text": "tajana", "sub": ""},
+    {"node": "s-dry", "x": 30, "y": 380, "w": 200, "h": 90, "text": "drums, bass, guitars", "sub": "no send: reverb would blur the rhythm"},
+    {"node": "s-fx", "x": 400, "y": 120, "w": 230, "h": 150, "text": "FX1 easyVERB", "sub": "Vocal Classic\nshared"},
+    {"node": "s-main", "x": 780, "y": 200, "w": 190, "h": 170, "text": "Main LR", "sub": ""},
+    {"edge": "s-send1", "from": [230, 95], "to": [400, 170], "label": "−13.3 dB"},
+    {"edge": "s-send2", "from": [230, 195], "to": [400, 195]},
+    {"edge": "s-send3", "from": [230, 295], "to": [400, 225]},
+    {"edge": "s-ret", "from": [630, 195], "to": [780, 250], "label": "the room"},
+    {"edge": "s-dir", "from": [230, 425], "to": [780, 330], "label": "dry", "dashed": true}
+   ]
+  },
+  "d-glue": {
+   "title": "THE GLUE · one gentle compressor on the whole mix",
+   "els": [
+    {"node": "gl-values", "x": 40, "y": 70, "w": 420, "h": 400, "text": "Main LR compressor (Santoshi)", "sub": "RMS · follows the average, not every spike\nSoft knee · starts gradually\nRatio 1.9 : 1 · gentle\nThreshold −14.4 dB · only the loud parts\nAttack 24.5 ms · the drum hits pass\nRelease 184 ms · lets go with the music\nGain 0 dB · nothing added"},
+    {"curve": "gl-line", "points": [[540, 470], [760, 250], [800, 222], [960, 140]]},
+    {"curve": "gl-unity", "points": [[760, 250], [960, 50]], "dashed": true},
+    {"note": "gl-n", "x": 750, "y": 520, "text": "a glue you cannot hear is a good glue"}
+   ]
+  },
+  "d-balance": {
+   "title": "THE BALANCE · voices first, then rhythm, then colour",
+   "els": [
+    {"node": "b-1", "x": 30, "y": 80, "w": 280, "h": 200, "text": "1 · Voices", "sub": "Svemir at about 0 dB\nIgor and Tajana with him\nnone under, none over"},
+    {"node": "b-2", "x": 360, "y": 80, "w": 280, "h": 200, "text": "2 · Rhythm", "sub": "Mridangam, Mridangam Low,\nDjembe: carry the voices,\nnever cover them"},
+    {"node": "b-3", "x": 690, "y": 80, "w": 280, "h": 200, "text": "3 · Colour", "sub": "bass and guitars:\nfelt more than heard;\nmuddy voices = too loud"},
+    {"edge": "b-e1", "from": [310, 180], "to": [360, 180]},
+    {"edge": "b-e2", "from": [640, 180], "to": [690, 180]},
+    {"node": "b-meter", "x": 200, "y": 330, "w": 600, "h": 130, "text": "Main meter", "sub": "loudest moments near 0, never red\ntoo loud: all faders down together, never the main above 0\nthen compare with the venue (USB Listen) · store the scene"}
+   ]
+  }
+ }
+}

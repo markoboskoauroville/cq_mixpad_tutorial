@@ -1,31 +1,32 @@
 #!/usr/bin/env python3
-"""build_audio.py: every "say" of lessons.json becomes a finished mp3 BEFORE the tutorial plays (no live speech, no
-drops; Marko, 24.10.2026: "Avoid sound drops on any cost"). A step's file is named after the hash of its text, so an
-edited sentence is made again and the others are kept. Each lesson's whole narration is also joined into one file,
-audio/lessons/<n>.mp3: the recording to replay without the app.
+"""build_audio.py: every "say" of content/lessons.json becomes a finished mp3 BEFORE the tutorial plays (no live
+speech, no drops; Marko, 24.10.2026: "Avoid sound drops on any cost"). A step's file is named after the hash of its
+text, so an edited sentence is made again and the others are kept. content/lessons.built.json is what the app plays
+(each step with its audio file); build.sh copies content/ into the app, so the tutorial plays offline. Each lesson's
+whole narration is also joined into content/audio/lessons/<n>.mp3, the recording to replay without the app.
 
-    python3 tools/build_audio.py
+    python3 tools/build_audio.py        (needs the internet once, for Speechify; never while playing)
 """
 import hashlib, json, os, subprocess, sys
 sys.path.insert(0, os.path.dirname(__file__))
 import render
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-WEB = os.path.join(ROOT, 'web')
-STEPS = os.path.join(WEB, 'audio', 'steps'); LESSONS = os.path.join(WEB, 'audio', 'lessons')
+CONTENT = os.path.join(ROOT, 'content')
+STEPS = os.path.join(CONTENT, 'audio', 'steps'); LESSONS = os.path.join(CONTENT, 'audio', 'lessons')
 
 def name(text): return hashlib.sha1(text.encode()).hexdigest()[:16] + '.mp3'
 
 def main():
     os.makedirs(STEPS, exist_ok=True); os.makedirs(LESSONS, exist_ok=True)
-    data = json.load(open(os.path.join(WEB, 'lessons.json')))
+    data = json.load(open(os.path.join(CONTENT, 'lessons.json')))
     made = kept = 0
     for n, lesson in enumerate(data['lessons'], 1):
         files = []
         for st in lesson['steps']:
             if 'say' not in st: continue
             f = os.path.join(STEPS, name(st['say']))
-            if os.path.exists(f) and os.path.getsize(f) > 1000: kept += 1
+            if os.path.exists(f) and os.path.getsize(f) > 1000 and os.path.exists(f[:-4] + '.json'): kept += 1
             else: render.render(st['say'], f); made += 1
             files.append(f); st['audio'] = 'audio/steps/' + name(st['say'])
         lst = os.path.join(LESSONS, f'{n}.txt')
@@ -37,11 +38,11 @@ def main():
         os.remove(lst)
         d = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', out],
                                  capture_output=True, text=True).stdout)
-        print(f'lesson {n}: {len(files)} sentences, {d/60:.1f} min -> web/audio/lessons/{n}.mp3')
-    json.dump(data, open(os.path.join(WEB, 'lessons.built.json'), 'w'), indent=1, ensure_ascii=False)   # what the page plays
-    used = sorted(name(st['say']) for l in data['lessons'] for st in l['steps'] if 'say' in st)
+        print(f'lesson {n}: {len(files)} sentences, {d/60:.1f} min -> content/audio/lessons/{n}.mp3')
+    json.dump(data, open(os.path.join(CONTENT, 'lessons.built.json'), 'w'), indent=1, ensure_ascii=False)
+    used = {name(st['say']) for l in data['lessons'] for st in l['steps'] if 'say' in st}
     for f in os.listdir(STEPS):
-        if f not in used: os.remove(os.path.join(STEPS, f))     # a sentence no longer in the lessons
+        if f.replace('.json', '.mp3') not in used: os.remove(os.path.join(STEPS, f))     # a sentence no longer in the lessons
     print(f'made {made}, kept {kept}; Speechify API pieces {render.used["key"]}, voice server {render.used["server"]}')
 
 main()

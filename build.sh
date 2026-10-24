@@ -31,6 +31,8 @@ cat > "$APP/Contents/Info.plist" <<PL
 <key>NSHighResolutionCapable</key><true/>
 </dict></plist>
 PL
+# everything the tutorial plays travels inside the app: it runs offline (lessons, the made voice, diagrams, pictures)
+rm -rf "$APP/Contents/Resources/content"; cp -R content "$APP/Contents/Resources/content"
 codesign --force -s "Mantra Apps" "$APP"
 rm -rf "/Applications/$NAME.app"; cp -R "$APP" /Applications/
 echo "built $APP (v$V) and installed it in /Applications"
