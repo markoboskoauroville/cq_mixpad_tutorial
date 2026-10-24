@@ -11,13 +11,14 @@ sys.path.insert(0, os.path.dirname(__file__))
 import render
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-STEPS = os.path.join(ROOT, 'audio', 'steps'); LESSONS = os.path.join(ROOT, 'audio', 'lessons')
+WEB = os.path.join(ROOT, 'web')
+STEPS = os.path.join(WEB, 'audio', 'steps'); LESSONS = os.path.join(WEB, 'audio', 'lessons')
 
 def name(text): return hashlib.sha1(text.encode()).hexdigest()[:16] + '.mp3'
 
 def main():
     os.makedirs(STEPS, exist_ok=True); os.makedirs(LESSONS, exist_ok=True)
-    data = json.load(open(os.path.join(ROOT, 'lessons.json')))
+    data = json.load(open(os.path.join(WEB, 'lessons.json')))
     made = kept = 0
     for n, lesson in enumerate(data['lessons'], 1):
         files = []
@@ -26,7 +27,7 @@ def main():
             f = os.path.join(STEPS, name(st['say']))
             if os.path.exists(f) and os.path.getsize(f) > 1000: kept += 1
             else: render.render(st['say'], f); made += 1
-            files.append(f)
+            files.append(f); st['audio'] = 'audio/steps/' + name(st['say'])
         lst = os.path.join(LESSONS, f'{n}.txt')
         with open(lst, 'w') as fh:
             for f in files: fh.write(f"file '{f}'\n")
@@ -36,7 +37,8 @@ def main():
         os.remove(lst)
         d = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', out],
                                  capture_output=True, text=True).stdout)
-        print(f'lesson {n}: {len(files)} sentences, {d/60:.1f} min -> audio/lessons/{n}.mp3')
+        print(f'lesson {n}: {len(files)} sentences, {d/60:.1f} min -> web/audio/lessons/{n}.mp3')
+    json.dump(data, open(os.path.join(WEB, 'lessons.built.json'), 'w'), indent=1, ensure_ascii=False)   # what the page plays
     used = sorted(name(st['say']) for l in data['lessons'] for st in l['steps'] if 'say' in st)
     for f in os.listdir(STEPS):
         if f not in used: os.remove(os.path.join(STEPS, f))     # a sentence no longer in the lessons

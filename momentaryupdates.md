@@ -36,3 +36,18 @@
 - Stereo venue mix on the USB channel: Venue L (pan −100%) → Ext. Out 13, Venue R (pan +100%) → Ext. Out 14, the same clip duplicated in Live so both play in sync. **Status:** done 24.10.2026, read back over OSC; the USB meter moves
 - One fixed local web server, MANTRA_PAGES, http://127.0.0.1:8800/, a LaunchAgent (starts at login, restarts on crash), a folder per project. **Status:** in progress
 - The two-screen tutorial: the page (MacBook) with diagrams and the made voice, synchronized with CQ MixPad (BenQ), the mouse with a big ring; first lesson: the USB preview of the venue mix while recording. **Status:** in progress
+
+## 24.10.2026: professor mode, Live in the lessons, and all of it offline in Swift
+
+> Basically, this Ableton project is a case study to learn the mixer. The Santoshi mix is the example of how to mix and explain. Even I want you to explain me the theory of mixing: why you use a compressor, how you did EQ, how you adjusted the gluing compressor, etc. All the details. Learn me to mix. Learn me the mixer.In Teach.
+
+> You can also switch live and CQ MixPad, the actual application. You can control them both in lessons and be like a professor demonstrating how to mix, explaining with the circle with mouse the mixing principles and guides.
+
+> Also, everything you did in the live. How did you put markers? How did you rename things? And most importantly, how did you normalize the sound? This normalization of the sound should be before every mix. When I bring in a mix, you need to put all the channels to -12 dB.
+
+> The goal is to rerun and skip steps of this tutorial without being connected to the internet or being connected to the cloud itself. You need to break in the whole tutorial as a software-only Swift.
+
+- Eleven lessons: the cable both ways, the return channels, the routing now, the USB preview while recording, preparing the concert in Live (names, markers, −12 dB), gain staging, EQ and HPF, channel compressor, reverb on a send, the glue compressor on the main, balancing. **Status:** written (content/lessons.json)
+- The hand works in CQ MixPad and in Live (v2: `app` on every gesture, /front). **Status:** done, Accessibility granted by Marko
+- Everything inside the Swift app: lessons, the made voice (mp3 in the bundle), diagrams drawn in SwiftUI, step list, play / pause / previous / next / replay, Live by OSC directly. No web page, no server, no internet while playing. **Status:** in progress
+- Normalizing every channel to −12 dB (typical peak) before every mix: the rule. **Status:** in progress (manifest)
