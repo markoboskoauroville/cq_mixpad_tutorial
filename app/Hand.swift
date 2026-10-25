@@ -97,9 +97,34 @@ enum Hand {
     }
     static var allowed: Bool { AXIsProcessTrusted() }
 
+    // LIVE AND MIXPAD EACH IN ITS OWN FULL-SCREEN SPACE on the BenQ (Marko, 25.10.2026: "make them actually both full
+    // screen when you run, and just swipe between workspaces"): the app is found among the running ones (its window is
+    // not on screen while its space is away), made frontmost, and macOS slides to its space as a three-finger swipe does
+    static func runningApp(_ app: String) -> NSRunningApplication? {
+        NSWorkspace.shared.runningApplications.first { a in
+            let n = a.localizedName ?? ""
+            return app == "live" ? (n == "Live" || n.hasPrefix("Ableton Live")) : n.contains("MixPad") && !n.contains("Tutorial")
+        }
+    }
     static func front(_ app: String) {
-        guard let m = window(app), let a = NSRunningApplication(processIdentifier: m.pid) else { return }
-        if !a.isActive { a.activate(); usleep(400_000) }
+        guard let a = runningApp(app) else { return }
+        if !a.isActive { a.activate(options: [.activateIgnoringOtherApps]); usleep(400_000) }
+        // macOS 14 may refuse an activate from an app in the background (measured 25.10.2026: Live stayed over MixPad);
+        // the hand is trusted, so Accessibility makes it frontmost and raises its window
+        if !a.isActive {
+            let ax = AXUIElementCreateApplication(a.processIdentifier)
+            AXUIElementSetAttributeValue(ax, kAXFrontmostAttribute as CFString, kCFBooleanTrue)
+            var w: CFTypeRef?
+            if AXUIElementCopyAttributeValue(ax, kAXMainWindowAttribute as CFString, &w) == .success, let w = w {
+                AXUIElementPerformAction(w as! AXUIElement, kAXRaiseAction as CFString)
+            }
+        }
+        // the slide between spaces takes about a second: wait until the window is on the screen, at most 2.5 s
+        for _ in 0..<25 {
+            if a.isActive, let m = window(app), m.pid == a.processIdentifier, ownerAt(CGPoint(x: m.frame.midX, y: m.frame.midY)).map({ app == "live" ? $0 == "Live" : $0.contains("MixPad") }) == true { break }
+            usleep(100_000)
+        }
+        usleep(300_000)
     }
     // the mouse glides, so the eye can follow it from where it was
     static func glide(to p: CGPoint, seconds: Double = 0.8) {

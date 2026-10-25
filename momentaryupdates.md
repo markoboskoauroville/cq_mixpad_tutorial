@@ -87,3 +87,12 @@
 > Our testing and showing of the Ableton Live tutorial should stop until I fill in that password, and then we continue. Please help me with filling in those passwords so I don't stop the processing. As soon as I fill in the password, you continue with the demonstration of this tutorial. Please continue from the point where we stop.
 
 **Status:** in progress: v16, pause / resume / play-from-step by distributed notification; a guard pauses the demo while a permission dialog is up and resumes it when it is gone.
+
+## 25.10.2026, 07:10, session "ableton tutorials"
+
+> Yes, that is mandatory to be able to automatically put both programs in the or ground. But even better, make them actually both full screen when you run, and just swipe between workspaces: swipe left, swipe right, as we do it with three fingers.
+
+> If some dialogue pops up so I can fill up passwords, then you need to go to that workspace where dialogues are appearing. We have three workspaces. One is the current workspace in the background, where you need to jump to. Swipe there, do my thing, and then swipe back to the tutorial. I press play, and then we continue.
+> Or even better, if you can, the tech I make closes the dialogue. Basically, if something needs my urgent attention, you're switching to that desktop and then back to the tutorial. That's how we work.
+
+**Status:** v17: Live and CQ MixPad each full screen in its own space on the BenQ; the hand makes the app frontmost (Accessibility when activate is refused) and waits for the slide; the guard goes to a dialog, then back to the tutorial and resumes.
