@@ -109,3 +109,11 @@
 > Can you please build detection of whether Ableton Live is running or not? It's running, and you need to find where it is on the desktop.
 
 **Status:** v20: the hand asks "running?" first (not running is the only "not open"), slides to the app's space, and only then measures where to click.
+
+## 25.10.2026, 07:35, session "ableton tutorials"
+
+> Please make a robust detection and swiping algorithm to the desktop where Ableton Live is and when CQ Mix Pad is.
+
+> Another detection: if I need to approve some editing in the chat of Claude Code, please stop the tutorial and switch me back, so it doesn't stay on the screen and wait for me to press. ... Once I would like to allow it forever, but what to do?
+
+**Status:** v21: the swipe tries up to three times (`open -a`, then up to 4 s of looking), each try in the log. Claude Code: edits anywhere in ~/Developer allowed (additionalDirectories); a Notification hook (permission_prompt) pauses the tutorial and brings the terminal forward, a PostToolUse hook brings the tutorial back and resumes (claude-code/tools/tutorial_attention.sh).

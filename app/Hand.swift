@@ -119,19 +119,28 @@ enum Hand {
                 AXUIElementPerformAction(w as! AXUIElement, kAXRaiseAction as CFString)
             }
         }
-        // a full-screen app in another space: activate and Accessibility make it frontmost but may not slide to its space
-        // (measured 25.10.2026: Live stayed away, "not open"); LaunchServices, as `open -a` does, always slides there
-        // (NSWorkspace.openApplication from here did not slide either, measured with v18; /usr/bin/open does)
-        if window(app)?.pid != a.processIdentifier, let url = a.bundleURL {
-            let o = Process(); o.executableURL = URL(fileURLWithPath: "/usr/bin/open"); o.arguments = ["-a", url.path]
-            try? o.run(); o.waitUntilExit()
-        }
-        // the slide between spaces takes about a second: wait until the window is on the screen, at most 2.5 s
-        for _ in 0..<25 {
-            if a.isActive, let m = window(app), m.pid == a.processIdentifier, ownerAt(CGPoint(x: m.frame.midX, y: m.frame.midY)).map({ app == "live" ? $0 == "Live" : $0.contains("MixPad") }) == true { break }
-            usleep(100_000)
+        // THE SWIPE, ROBUST (Marko, 25.10.2026: "make a robust detection and swiping algorithm to the desktop where Ableton
+        // Live is and when CQ Mix Pad is"). A full-screen app in another space: activate and Accessibility make it
+        // frontmost but may not slide to its space (measured 25.10.2026: Live stayed away, "not open"); /usr/bin/open -a
+        // always slides there (NSWorkspace.openApplication from here did not, measured with v18), but the slide may take
+        // longer than 2.5 s. So: up to three tries, each `open -a` then up to 4 s of looking; every try is in the log.
+        let name = appName(app)
+        for attempt in 1...3 {
+            if onScreen(app, a) { if attempt > 1 { PLAYER.log("SWIPE: \(name) on the screen after try \(attempt - 1)") }; break }
+            if let url = a.bundleURL {
+                let o = Process(); o.executableURL = URL(fileURLWithPath: "/usr/bin/open"); o.arguments = ["-a", url.path]
+                try? o.run(); o.waitUntilExit()
+            }
+            PLAYER.log("SWIPE: \(name) is running in another space, try \(attempt): open -a")
+            for _ in 0..<40 { if onScreen(app, a) { break }; usleep(100_000) }
+            if attempt == 3 && !onScreen(app, a) { PLAYER.log("SWIPE: \(name) did not come onto the screen after 3 tries") }
         }
         usleep(300_000)
+    }
+    // its window on the screen, and its window is what lies at the window's middle (nothing covers it)
+    static func onScreen(_ app: String, _ a: NSRunningApplication) -> Bool {
+        guard let m = window(app), m.pid == a.processIdentifier else { return false }
+        return ownerAt(CGPoint(x: m.frame.midX, y: m.frame.midY)).map { app == "live" ? $0 == "Live" : $0.contains("MixPad") } == true
     }
     // the mouse glides, so the eye can follow it from where it was
     static func glide(to p: CGPoint, seconds: Double = 0.8) {
