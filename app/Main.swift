@@ -6,7 +6,7 @@
 import SwiftUI
 import AppKit
 
-let VERSION = 18
+let VERSION = 20
 let GREEN = Color(red: 0x33/255, green: 0xD1/255, blue: 0x7A/255)
 let GREY = Color(red: 0x7A/255, green: 0x80/255, blue: 0x87/255)
 let AMBER = Color(red: 0xE8/255, green: 0xA3/255, blue: 0x3D/255)

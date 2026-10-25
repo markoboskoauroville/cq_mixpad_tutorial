@@ -121,9 +121,10 @@ enum Hand {
         }
         // a full-screen app in another space: activate and Accessibility make it frontmost but may not slide to its space
         // (measured 25.10.2026: Live stayed away, "not open"); LaunchServices, as `open -a` does, always slides there
+        // (NSWorkspace.openApplication from here did not slide either, measured with v18; /usr/bin/open does)
         if window(app)?.pid != a.processIdentifier, let url = a.bundleURL {
-            let cfg = NSWorkspace.OpenConfiguration(); cfg.activates = true
-            NSWorkspace.shared.openApplication(at: url, configuration: cfg)
+            let o = Process(); o.executableURL = URL(fileURLWithPath: "/usr/bin/open"); o.arguments = ["-a", url.path]
+            try? o.run(); o.waitUntilExit()
         }
         // the slide between spaces takes about a second: wait until the window is on the screen, at most 2.5 s
         for _ in 0..<25 {
@@ -202,7 +203,7 @@ enum Hand {
         return px
     }
     static func check(_ app: String, _ x: Double, _ y: Double, _ p: CGPoint, _ label: String) -> String? {
-        guard let m = window(app) else { return "CHECK: \(appName(app)) is not open. Please open it, full screen on the BenQ, and press PLAY." }
+        guard let m = window(app) else { return "CHECK: \(appName(app)) is running, but its window did not come onto the screen. Please swipe to it on the BenQ and press PLAY." }
         let aspect = m.frame.width / max(1, m.frame.height)
         if m.frame.width < 1400 || abs(aspect - 16.0 / 9.0) > 0.06 {
             return "CHECK: \(appName(app)) is not at the size the lessons were measured at (\(Int(m.frame.width)) x \(Int(m.frame.height))). Please make it full screen on the BenQ and press PLAY."
@@ -229,8 +230,13 @@ enum Hand {
 
     static func gesture(click doClick: Bool, x: Double, y: Double, app: String, label: String = "") -> String? {
         guard allowed else { return "the hand needs Accessibility (System Settings › Privacy and Security)" }
-        guard let p = screenPoint(x, y, app) else { return "CHECK: \(appName(app)) is not open. Please open it, full screen on the BenQ, and press PLAY." }
+        // IS IT RUNNING, AND WHERE (Marko, 25.10.2026: "build detection of whether Ableton Live is running or not ... find
+        // where it is on the desktop"): not running is the only "not open"; running in another space, the hand slides
+        // there first, and only then measures where to click (measured 25.10.2026: measured before the slide, Live in its
+        // own full-screen space was wrongly "not open")
+        guard runningApp(app) != nil else { return "CHECK: \(appName(app)) is not running. Please open it, full screen on the BenQ, and press PLAY." }
         front(app)
+        guard let p = screenPoint(x, y, app) else { return "CHECK: \(appName(app)) is running, but its window did not come onto the screen. Please swipe to it on the BenQ and press PLAY." }
         if let why = check(app, x, y, p, label.isEmpty ? "\(Int(x)),\(Int(y))" : label) { return why }
         DispatchQueue.main.sync { Ring.shared.show() }
         glide(to: p)

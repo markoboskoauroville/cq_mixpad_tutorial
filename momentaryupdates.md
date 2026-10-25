@@ -102,3 +102,10 @@
 > I did press Play in my Ableton, as you asked me to do, and now everything stopped. Please bring me back to the tutorial, the screens, and let's continue.
 
 **Status:** v18: the hand slides to a full-screen app's space through LaunchServices (as `open -a`) when activate does not; Accessibility asked only when missing. "press PLAY" in a CHECK means the tutorial's PLAY.
+
+## 25.10.2026, 07:31, session "ableton tutorials"
+
+> Swipe again and then start tutorial. Let me know what you are editing.
+> Can you please build detection of whether Ableton Live is running or not? It's running, and you need to find where it is on the desktop.
+
+**Status:** v20: the hand asks "running?" first (not running is the only "not open"), slides to the app's space, and only then measures where to click.
