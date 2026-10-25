@@ -29,5 +29,5 @@ one PROBLEM in the log. What changed on the way:
 
 **Next**
 - Marko's verdict on the lessons themselves (what to cut, slow, explain differently).
-- CQ MixPad full screen: macOS hid its window from System Events; Marko presses its green button once.
+- CQ MixPad full screen: done by Marko with its green button (25.10.2026); Live and MixPad now each in its own space.
 - CQ MixPad Actions, the second app of the Audio Production folder.
