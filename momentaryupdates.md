@@ -75,3 +75,9 @@
 > The speed of the tutorial should be at the top. There is a CQ Mixer Pad tutorial On/Off, and next to that one will be speed arrows and a display of the speed in a small box with the number inside ... Shortcut for speeding up or slowing down is Apple and arrows up and down.
 
 **Status:** done: the Timer Stopwatch Clock counted 5:00 and the tutorial started itself at 08:37:11 (tools/start.swift, v8); v9 SPEED; v10 hot keys (Space, ←, →, ↑, ↓ = previous lesson, assumed) and the window back in front after every gesture; v11 SPEED beside ON/OFF with ⌘↑/⌘↓. Rule: MANTRA_MANIFEST modules/tutorials.md.
+
+## 25.10.2026, 06:58, session "ableton tutorials"
+
+> I was off the computer. Please you automatically play to the hole tutorial and take screenshot so it confirms it works, and also you are logging the steps so I'm from now on only the observer until we come to the end. You can click everywhere with hammer spoon, press space bar with hammer spoon, etc. Don't expect me to do this. Hammer spoon is your friend, and I'm just here to observe
+
+**Status:** in progress: whole run lessons 1–28 started by Claude (tools/start.swift), watched by a log follower with screenshots per lesson.
