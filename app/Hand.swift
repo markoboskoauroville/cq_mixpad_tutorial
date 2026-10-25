@@ -119,6 +119,12 @@ enum Hand {
                 AXUIElementPerformAction(w as! AXUIElement, kAXRaiseAction as CFString)
             }
         }
+        // a full-screen app in another space: activate and Accessibility make it frontmost but may not slide to its space
+        // (measured 25.10.2026: Live stayed away, "not open"); LaunchServices, as `open -a` does, always slides there
+        if window(app)?.pid != a.processIdentifier, let url = a.bundleURL {
+            let cfg = NSWorkspace.OpenConfiguration(); cfg.activates = true
+            NSWorkspace.shared.openApplication(at: url, configuration: cfg)
+        }
         // the slide between spaces takes about a second: wait until the window is on the screen, at most 2.5 s
         for _ in 0..<25 {
             if a.isActive, let m = window(app), m.pid == a.processIdentifier, ownerAt(CGPoint(x: m.frame.midX, y: m.frame.midY)).map({ app == "live" ? $0 == "Live" : $0.contains("MixPad") }) == true { break }

@@ -6,7 +6,7 @@
 import SwiftUI
 import AppKit
 
-let VERSION = 17
+let VERSION = 18
 let GREEN = Color(red: 0x33/255, green: 0xD1/255, blue: 0x7A/255)
 let GREY = Color(red: 0x7A/255, green: 0x80/255, blue: 0x87/255)
 let AMBER = Color(red: 0xE8/255, green: 0xA3/255, blue: 0x3D/255)
@@ -264,8 +264,11 @@ final class Delegate: NSObject, NSApplicationDelegate {
         DistributedNotificationCenter.default().addObserver(forName: Notification.Name("community.auroville.cqtutorial.resume"), object: nil, queue: .main) { _ in
             if PLAYER.playing && PLAYER.paused { PLAYER.pauseResume(); PLAYER.log("RESUMED from outside") }
         }
-        // macOS asks once for the hand; Marko answers it (never answered for him)
-        _ = AXIsProcessTrustedWithOptions([kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String: true] as CFDictionary)
+        // macOS asks once for the hand; Marko answers it (never answered for him). Only when it is truly missing: a
+        // permission dialog interrupts him (25.10.2026), so a launch that is already trusted asks nothing
+        if !AXIsProcessTrusted() {
+            _ = AXIsProcessTrustedWithOptions([kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String: true] as CFDictionary)
+        }
         // the window on the MacBook's own screen (not the BenQ, where MixPad and Live are), filling it
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
             guard let w = NSApp.windows.first(where: { $0.title.contains("CQ MixPad Tutorial") }) else { return }

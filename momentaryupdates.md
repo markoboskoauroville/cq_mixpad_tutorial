@@ -96,3 +96,9 @@
 > Or even better, if you can, the tech I make closes the dialogue. Basically, if something needs my urgent attention, you're switching to that desktop and then back to the tutorial. That's how we work.
 
 **Status:** v17: Live and CQ MixPad each full screen in its own space on the BenQ; the hand makes the app frontmost (Accessibility when activate is refused) and waits for the slide; the guard goes to a dialog, then back to the tutorial and resumes.
+
+## 25.10.2026, 07:27, session "ableton tutorials"
+
+> I did press Play in my Ableton, as you asked me to do, and now everything stopped. Please bring me back to the tutorial, the screens, and let's continue.
+
+**Status:** v18: the hand slides to a full-screen app's space through LaunchServices (as `open -a`) when activate does not; Accessibility asked only when missing. "press PLAY" in a CHECK means the tutorial's PLAY.
