@@ -80,13 +80,13 @@
 
 > I was off the computer. Please you automatically play to the hole tutorial and take screenshot so it confirms it works, and also you are logging the steps so I'm from now on only the observer until we come to the end. You can click everywhere with hammer spoon, press space bar with hammer spoon, etc. Don't expect me to do this. Hammer spoon is your friend, and I'm just here to observe
 
-**Status:** in progress: whole run lessons 1–28 started by Claude (tools/start.swift), watched by a log follower with screenshots per lesson.
+**Status:** done: all 28 lessons played 06:19–08:23 on 25.10.2026, journal of 495 steps, a screenshot of both screens per lesson.
 
 ## 25.10.2026, 07:05, session "ableton tutorials"
 
 > Our testing and showing of the Ableton Live tutorial should stop until I fill in that password, and then we continue. Please help me with filling in those passwords so I don't stop the processing. As soon as I fill in the password, you continue with the demonstration of this tutorial. Please continue from the point where we stop.
 
-**Status:** in progress: v16, pause / resume / play-from-step by distributed notification; a guard pauses the demo while a permission dialog is up and resumes it when it is gone.
+**Status:** done: v16, pause / resume / play-from-step by distributed notification; a guard pauses the demo while a permission dialog is up and resumes it when it is gone.
 
 ## 25.10.2026, 07:10, session "ableton tutorials"
 

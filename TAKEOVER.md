@@ -14,3 +14,20 @@ Live (its points are measured on Live full screen on the BenQ: if Live's layout 
 Speechify. Tested: lessons 1–10 end to end with no fault in the log (~/Library/Logs/cqtutorial.log), lesson 12's book card.
 Lesson 11 ran once and exposed two faults, both fixed: Live played from beat 0 (start then move), and Marko's playhead
 was taken (now restored with his solos). Not yet re-run: lesson 11 with the fix, lessons 13–27 end to end.
+
+**25.10.2026, v21.** The whole course played end to end, lessons 1–28 (06:19–08:23), Claude driving with
+`build/start <lesson>[.<step>] | pause | resume` (distributed notifications), Marko observing. From v21 (lesson 6 on) not
+one PROBLEM in the log. What changed on the way:
+- v16: pause / resume / play-from-step from outside, for a permission dialog first (a guard pauses, brings the dialog
+  forward, Beatrice tells Marko; three seconds after it is gone the tutorial comes back and resumes).
+- v17–v21: Live and CQ MixPad each full screen in its own space on the BenQ. The hand asks "running?" first (not running is
+  the only "not open"), slides to the app's space with `/usr/bin/open -a` (activate, Accessibility and
+  NSWorkspace.openApplication did not slide; up to three tries of 4 s, each "SWIPE:" in the log), then measures the click.
+- v18: Accessibility asked only when missing (AXIsProcessTrusted first).
+- Claude Code side: ~/Developer/claude-code/tools/tutorial_attention.sh, called by the Notification (permission_prompt) and
+  PostToolUse hooks: an approval in the terminal pauses the tutorial and brings the terminal forward, then resumes.
+
+**Next**
+- Marko's verdict on the lessons themselves (what to cut, slow, explain differently).
+- CQ MixPad full screen: macOS hid its window from System Events; Marko presses its green button once.
+- CQ MixPad Actions, the second app of the Audio Production folder.
