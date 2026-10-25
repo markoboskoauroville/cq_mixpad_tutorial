@@ -4,6 +4,7 @@
 // Coordinates come in a 1600 x 900 picture of the app's window (title bar included) and are mapped onto the real one.
 import AppKit
 import ApplicationServices
+import ImageIO
 
 // The word being said pops up right above the ring (Marko, 24.10.2026: "when you're driving the mouse with the circle,
 // I want to see the popping up of the current red word right above the circle"): the ring's window is taller and wider
@@ -117,11 +118,90 @@ enum Hand {
         CGEvent(mouseEventSource: nil, mouseType: .leftMouseUp, mouseCursorPosition: p, mouseButton: .left)?.post(tap: .cghidEventTap)
     }
     // one gesture; runs off the main thread (it sleeps while gliding). Returns nil or why it could not.
-    static func gesture(click doClick: Bool, x: Double, y: Double, app: String) -> String? {
+    // LOOK BEFORE THE HAND MOVES (Marko, 24.10.2026: "Before you show anything on the screen or click on anything,
+    // take the screenshot and check. Will your clicks land in the right application and the right position? If it's not
+    // landing, you need to ask the user to adjust the user interface so it lands."). Three checks, after the app is
+    // brought to the front: (1) its window is as big and as wide as when the positions were measured (16:9, at least
+    // 1400 points wide); (2) the window at the spot is that app's, nothing covers it; (3) the spot looks as it did: the
+    // first time a target is used its picture is kept (~/Library/Application Support/CQMixPadTutorial/targets), every
+    // later time the picture is compared. A failed check returns "CHECK: ..." and the player pauses and asks.
+    static let TARGETS = NSHomeDirectory() + "/Library/Application Support/CQMixPadTutorial/targets"
+    static func appName(_ app: String) -> String { app == "live" ? "Ableton Live" : "CQ MixPad" }
+
+    static func windowID(_ app: String) -> CGWindowID? {
+        guard let list = CGWindowListCopyWindowInfo([.optionOnScreenOnly, .excludeDesktopElements], kCGNullWindowID) as? [[String: Any]] else { return nil }
+        var best: (CGWindowID, CGFloat)?
+        for w in list {
+            guard let o = w[kCGWindowOwnerName as String] as? String, app == "live" ? o == "Live" : o.contains("MixPad"),
+                  (w[kCGWindowLayer as String] as? Int) == 0, let b = w[kCGWindowBounds as String] as? [String: CGFloat],
+                  let n = w[kCGWindowNumber as String] as? CGWindowID else { continue }
+            let a = b["Width"]! * b["Height"]!
+            if best == nil || a > best!.1 { best = (n, a) }
+        }
+        return best?.0
+    }
+    // the app whose window is on top at a screen point (top-left coordinates)
+    static func ownerAt(_ p: CGPoint) -> String? {
+        guard let list = CGWindowListCopyWindowInfo([.optionOnScreenOnly, .excludeDesktopElements], kCGNullWindowID) as? [[String: Any]] else { return nil }
+        for w in list where (w[kCGWindowLayer as String] as? Int) == 0 {
+            guard let b = w[kCGWindowBounds as String] as? [String: CGFloat] else { continue }
+            if CGRect(x: b["X"]!, y: b["Y"]!, width: b["Width"]!, height: b["Height"]!).contains(p) { return w[kCGWindowOwnerName as String] as? String }
+        }
+        return nil
+    }
+    // a small grey picture (48 x 24) of the spot, from the target window alone (the ring never shows in it): the system's
+    // screencapture of that one window, then the spot cut out of it
+    static func patch(_ app: String, _ p: CGPoint) -> [UInt8]? {
+        guard let id = windowID(app), let m = window(app) else { return nil }
+        let file = NSTemporaryDirectory() + "cqtut-look.png"
+        let t = Process(); t.executableURL = URL(fileURLWithPath: "/usr/sbin/screencapture")
+        t.arguments = ["-x", "-o", "-l", String(id), file]
+        guard (try? t.run()) != nil else { return nil }
+        t.waitUntilExit()
+        guard let src = CGImageSourceCreateWithURL(URL(fileURLWithPath: file) as CFURL, nil),
+              let full = CGImageSourceCreateImageAtIndex(src, 0, nil) else { return nil }
+        let k = CGFloat(full.width) / m.frame.width
+        let r = CGRect(x: (p.x - m.frame.minX - 60) * k, y: (p.y - m.frame.minY - 30) * k, width: 120 * k, height: 60 * k)
+        guard let img = full.cropping(to: r) else { return nil }
+        let w = 48, h = 24
+        var px = [UInt8](repeating: 0, count: w * h)
+        guard let ctx = CGContext(data: &px, width: w, height: h, bitsPerComponent: 8, bytesPerRow: w, space: CGColorSpaceCreateDeviceGray(), bitmapInfo: CGImageAlphaInfo.none.rawValue) else { return nil }
+        ctx.interpolationQuality = .medium
+        ctx.draw(img, in: CGRect(x: 0, y: 0, width: w, height: h))
+        return px
+    }
+    static func check(_ app: String, _ x: Double, _ y: Double, _ p: CGPoint, _ label: String) -> String? {
+        guard let m = window(app) else { return "CHECK: \(appName(app)) is not open. Please open it, full screen on the BenQ, and press PLAY." }
+        let aspect = m.frame.width / max(1, m.frame.height)
+        if m.frame.width < 1400 || abs(aspect - 16.0 / 9.0) > 0.06 {
+            return "CHECK: \(appName(app)) is not at the size the lessons were measured at (\(Int(m.frame.width)) x \(Int(m.frame.height))). Please make it full screen on the BenQ and press PLAY."
+        }
+        if let o = ownerAt(p), !(app == "live" ? o == "Live" : o.contains("MixPad")) {
+            return "CHECK: at \"\(label)\" the hand would land on \(o), not on \(appName(app)). Please move \(o) away from the BenQ and press PLAY."
+        }
+        guard let now = patch(app, p) else { return nil }        // no picture possible: the first two checks must do
+        let key = "\(app)-\(Int(x))-\(Int(y))-" + label.filter { $0.isLetter || $0.isNumber }.prefix(24)
+        let file = TARGETS + "/" + key + ".gray"
+        let moving = label.lowercased().contains("meter")         // a meter moves with the music: not compared
+        if let ref = FileManager.default.contents(atPath: file), ref.count == now.count {
+            if moving { return nil }
+            let diff = zip(ref, now).reduce(0) { $0 + abs(Int($1.0) - Int($1.1)) } / now.count
+            if diff > 38 {
+                return "CHECK: \"\(label)\" does not look as it did when the lesson was made (difference \(diff)). Is \(appName(app)) on the right page, full screen on the BenQ? Please put it right and press PLAY; the step is done again."
+            }
+        } else {
+            try? FileManager.default.createDirectory(atPath: TARGETS, withIntermediateDirectories: true)
+            FileManager.default.createFile(atPath: file, contents: Data(now))       // learned now, compared from the next run on
+        }
+        return nil
+    }
+
+    static func gesture(click doClick: Bool, x: Double, y: Double, app: String, label: String = "") -> String? {
         guard allowed else { return "the hand needs Accessibility (System Settings › Privacy and Security)" }
-        guard let p = screenPoint(x, y, app) else { return app == "live" ? "Ableton Live is not open" : "CQ MixPad is not open" }
-        DispatchQueue.main.sync { Ring.shared.show() }
+        guard let p = screenPoint(x, y, app) else { return "CHECK: \(appName(app)) is not open. Please open it, full screen on the BenQ, and press PLAY." }
         front(app)
+        if let why = check(app, x, y, p, label.isEmpty ? "\(Int(x)),\(Int(y))" : label) { return why }
+        DispatchQueue.main.sync { Ring.shared.show() }
         glide(to: p)
         if doClick { click(at: p); DispatchQueue.main.sync { Ring.shared.pulse() }; usleep(700_000) }
         return nil

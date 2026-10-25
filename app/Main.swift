@@ -6,7 +6,7 @@
 import SwiftUI
 import AppKit
 
-let VERSION = 14
+let VERSION = 16
 let GREEN = Color(red: 0x33/255, green: 0xD1/255, blue: 0x7A/255)
 let GREY = Color(red: 0x7A/255, green: 0x80/255, blue: 0x87/255)
 let AMBER = Color(red: 0xE8/255, green: 0xA3/255, blue: 0x3D/255)
@@ -247,10 +247,22 @@ final class Delegate: NSObject, NSApplicationDelegate {
         // demonstration"): the distributed notification community.auroville.cqtutorial.play starts lesson 1, or the
         // lesson number given as its object; tools/start.swift sends it
         DistributedNotificationCenter.default().addObserver(forName: Notification.Name("community.auroville.cqtutorial.play"), object: nil, queue: .main) { n in
-            let l = max(0, (Int(n.object as? String ?? "1") ?? 1) - 1)
+            // "2" is lesson 2 from its start, "2.5" lesson 2 from its step 5 (both counted from 1, as the log writes them)
+            let p = (n.object as? String ?? "1").split(separator: ".").compactMap { Int($0) }
+            let l = min(max(0, (p.first ?? 1) - 1), PLAYER.lessons.count - 1)
+            let s = min(max(0, (p.count > 1 ? p[1] : 1) - 1), max(0, PLAYER.lessons[l].steps.count - 1))
             NSApp.activate(ignoringOtherApps: true)
             PLAYER.autoNext = true
-            PLAYER.play(from: min(l, PLAYER.lessons.count - 1), 0)
+            PLAYER.play(from: l, s)
+        }
+        // a permission dialog comes first (Marko, 25.10.2026: "Our testing and showing of the Ableton Live tutorial should
+        // stop until I fill in that password ... continue from the point where we stop"): pause and resume from outside,
+        // without a key press; tools/start.swift pause / resume sends them
+        DistributedNotificationCenter.default().addObserver(forName: Notification.Name("community.auroville.cqtutorial.pause"), object: nil, queue: .main) { _ in
+            if PLAYER.playing && !PLAYER.paused { PLAYER.pauseResume(); PLAYER.log("PAUSED from outside (a permission dialog)") }
+        }
+        DistributedNotificationCenter.default().addObserver(forName: Notification.Name("community.auroville.cqtutorial.resume"), object: nil, queue: .main) { _ in
+            if PLAYER.playing && PLAYER.paused { PLAYER.pauseResume(); PLAYER.log("RESUMED from outside") }
         }
         // macOS asks once for the hand; Marko answers it (never answered for him)
         _ = AXIsProcessTrustedWithOptions([kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String: true] as CFDictionary)

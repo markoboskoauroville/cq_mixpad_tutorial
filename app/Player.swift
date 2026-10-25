@@ -20,6 +20,14 @@ final class Player: NSObject, ObservableObject, AVAudioPlayerDelegate {
     @Published var marks: [[Double]] = []   // the words of the subtitle and when each is said
     @Published var speakTime: Double = -1   // where the voice is now (-1: not speaking)
     private var follow: Timer?
+    private var hold = false                // a hand check failed: pause and do the step again
+    // a question to Marko, said aloud by the Mac's voice server (it is a sentence of the moment, not a lesson; made there)
+    private func speak(_ text: String) {
+        var r = URLRequest(url: URL(string: "http://127.0.0.1:8837/speak")!); r.httpMethod = "POST"
+        r.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        r.httpBody = try? JSONSerialization.data(withJSONObject: ["text": "Marko, " + text])
+        URLSession.shared.dataTask(with: r).resume()
+    }
     @Published var problem = ""
     @Published var autoNext = true          // go on to the next lesson at the end
     // the speed of the voice (Marko, 24.10.2026: "at the top of the user interface, build in the speed of the talking"):
@@ -68,6 +76,7 @@ final class Player: NSObject, ObservableObject, AVAudioPlayerDelegate {
     }
     func pauseResume() {
         guard playing else { play(); return }
+        if paused && !problem.isEmpty { problem = "" }
         paused.toggle()
         if paused { audio?.pause() } else { audio?.play() }
     }
@@ -101,6 +110,14 @@ final class Player: NSObject, ObservableObject, AVAudioPlayerDelegate {
                 playing = false; Ring.shared.hide(); break
             }
             await doStep(steps[step], me)
+            if hold {
+                hold = false; paused = true; Ring.shared.hide()
+                log("PAUSED, asked Marko: " + problem)
+                speak(problem.replacingOccurrences(of: "CHECK: ", with: ""))
+                while paused && run == me { try? await Task.sleep(nanoseconds: 100_000_000) }
+                if run != me { return }
+                problem = ""; continue                              // the same step again
+            }
             while paused && run == me { try? await Task.sleep(nanoseconds: 100_000_000) }
             if run != me { return }
             step += 1
@@ -108,7 +125,7 @@ final class Player: NSObject, ObservableObject, AVAudioPlayerDelegate {
     }
 
     // every step and every fault into ~/Library/Logs/cqtutorial.log, so a whole run can be checked afterwards
-    private func log(_ line: String) {
+    func log(_ line: String) {
         let f = NSHomeDirectory() + "/Library/Logs/cqtutorial.log"
         let t = DateFormatter.localizedString(from: Date(), dateStyle: .none, timeStyle: .medium)
         let d = Data("\(t)  L\(lesson + 1) S\(step + 1)  \(line)\n".utf8)
@@ -149,7 +166,11 @@ final class Player: NSObject, ObservableObject, AVAudioPlayerDelegate {
         if let f = s.front { await off { Hand.front(f) }; backToFront() }
         if let p = s.point ?? s.click {
             let isClick = s.click != nil, app = s.app
-            if let why = await offResult({ Hand.gesture(click: isClick, x: p[0], y: p[1], app: app) }) { problem = why }
+            let label = s.label ?? ""
+            if let why = await offResult({ Hand.gesture(click: isClick, x: p[0], y: p[1], app: app, label: label) }) {
+                problem = why
+                if why.hasPrefix("CHECK:") { hold = true }          // the step is not done: pause, ask, do it again on PLAY
+            }
             backToFront()
         }
         if let l = s.live { if let why = await offResult({ Live.run(l, s.raw) }) { problem = why } }
