@@ -6,7 +6,9 @@
 import SwiftUI
 import AppKit
 
-let VERSION = 21
+// v22 (30.10.2026, Marko: "If permissions are not set, it needs to have text in the top right: Permissions"): PERMISSIONS
+// in amber on the first row while one is missing; a click opens that page in System Settings
+let VERSION = 22
 let GREEN = Color(red: 0x33/255, green: 0xD1/255, blue: 0x7A/255)
 let GREY = Color(red: 0x7A/255, green: 0x80/255, blue: 0x87/255)
 let AMBER = Color(red: 0xE8/255, green: 0xA3/255, blue: 0x3D/255)
@@ -49,6 +51,7 @@ struct Key: View {
 struct MainView: View {
     @ObservedObject var p: Player
     @State private var tick = 0
+    @State private var missing = Permissions.missing
     let timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
 
     var body: some View {
@@ -74,6 +77,12 @@ struct MainView: View {
                 }.padding(.leading, 18)
                 Spacer()
                 status
+                // v22: a permission the hand needs is missing, "PERMISSIONS" at the top right; a click opens its page
+                if !missing.isEmpty {
+                    Text("PERMISSIONS").font(.system(size: 13, weight: .bold, design: .monospaced)).foregroundColor(AMBER)
+                        .padding(.horizontal, 6).padding(.vertical, 4).contentShape(Rectangle()).onTapGesture { Permissions.openMissing() }
+                        .help("A permission is missing: this opens its page in System Settings")
+                }
                 Text("v\(VERSION)").font(.system(size: 11, design: .monospaced)).foregroundColor(GREY).padding(.horizontal, 8)
                 CloseX()
             }
@@ -88,7 +97,12 @@ struct MainView: View {
             }
         }
         .background(INK).preferredColorScheme(.dark)
-        .onReceive(timer) { _ in tick += 1 }
+        .onReceive(timer) { _ in
+            tick += 1
+            // the window notices a permission switched on in System Settings; the word changes only when the state does
+            let m = Permissions.missing
+            if m != missing { missing = m }
+        }
     }
 
     var status: some View {
@@ -219,6 +233,31 @@ struct MainView: View {
     }
 }
 
+// v22, THE PERMISSIONS the tutorial uses (MANTRA_MANIFEST swift-apps.md, last section): Accessibility for the hand
+// (it posts the clicks and raises Live and MixPad), Screen Recording for its look at a spot of their windows
+// (screencapture -l in Hand.patch)
+enum Permissions {
+    static let needed = ["Accessibility", "ScreenCapture"]
+    static func allowed(_ p: String) -> Bool {
+        switch p {
+        case "Accessibility": return AXIsProcessTrusted()
+        case "ScreenCapture": return CGPreflightScreenCaptureAccess()
+        default: return true
+        }
+    }
+    static var missing: [String] { needed.filter { !allowed($0) } }
+    // the system's own request once (it puts the app in the list), then the page of the first one still missing
+    static func openMissing() {
+        guard let p = missing.first else { return }
+        switch p {
+        case "Accessibility": _ = AXIsProcessTrustedWithOptions([kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String: true] as CFDictionary)
+        case "ScreenCapture": _ = CGRequestScreenCaptureAccess()
+        default: break
+        }
+        NSWorkspace.shared.open(URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_" + p)!)
+    }
+}
+
 let PLAYER = Player()
 
 final class Delegate: NSObject, NSApplicationDelegate {
@@ -266,7 +305,8 @@ final class Delegate: NSObject, NSApplicationDelegate {
         }
         // macOS asks once for the hand; Marko answers it (never answered for him). Only when it is truly missing: a
         // permission dialog interrupts him (25.10.2026), so a launch that is already trusted asks nothing
-        if !AXIsProcessTrusted() {
+        // v22: never at login (--login): the word PERMISSIONS waits in the window instead
+        if !AXIsProcessTrusted() && !CommandLine.arguments.contains("--login") {
             _ = AXIsProcessTrustedWithOptions([kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String: true] as CFDictionary)
         }
         // the window on the MacBook's own screen (not the BenQ, where MixPad and Live are), filling it
