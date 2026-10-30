@@ -117,3 +117,11 @@
 > Another detection: if I need to approve some editing in the chat of Claude Code, please stop the tutorial and switch me back, so it doesn't stay on the screen and wait for me to press. ... Once I would like to allow it forever, but what to do?
 
 **Status:** v21: the swipe tries up to three times (`open -a`, then up to 4 s of looking), each try in the log. Claude Code: edits anywhere in ~/Developer allowed (additionalDirectories); a Notification hook (permission_prompt) pauses the tutorial and brings the terminal forward, a PostToolUse hook brings the tutorial back and resumes (claude-code/tools/tutorial_attention.sh).
+
+## 30.10.2026: PERMISSIONS at the top right
+
+> "please make this in every application that needs some permission. If permissions are not set, it needs to have text in the top right: "Permissions." Then I click on it, and it opens me directly to my settings page where I need to set permissions." (Marko, 30.10.2026)
+
+The word PERMISSIONS (amber) on the ON / OFF row, right of the spacer and left of the ✕, only while a permission the app uses is missing; a click opens that page in System Settings (MANTRA_MANIFEST swift-apps.md, last section).
+
+**Status:** request saved before the code; being built.
