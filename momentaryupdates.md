@@ -125,3 +125,10 @@
 The word PERMISSIONS (amber) on the ON / OFF row, right of the spacer and left of the ✕, only while a permission the app uses is missing; a click opens that page in System Settings (MANTRA_MANIFEST swift-apps.md, last section).
 
 **Status:** built v22 30.10.2026: PERMISSIONS (amber) on the first row left of v22 and the ✕ while Accessibility (the hand) or Screen Recording (its look at a spot, screencapture -l) is missing; checked every 2 s, redrawn only on a change; a click asks once and opens that page. The launch no longer asks for Accessibility when started with --login. The app was not running, so not started and not seen by screenshot. Marko to try.
+
+## 31.10.2026: ON, OFF and TOP in every application
+
+Marko, 31.10.2026: *"Please go to all the interface of my applications. Each needs to have the same user interface
+elements. On, off and top. Please build it in every application."*
+
+Status: pending.
