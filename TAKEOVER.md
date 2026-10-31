@@ -31,3 +31,9 @@ one PROBLEM in the log. What changed on the way:
 - Marko's verdict on the lessons themselves (what to cut, slow, explain differently).
 - CQ MixPad full screen: done by Marko with its green button (25.10.2026); Live and MixPad now each in its own space.
 - CQ MixPad Actions, the second app of the Audio Production folder.
+
+## v24, 31.10.2026: TOP
+
+TOP beside the ✕ (UserDefaults "onTop", NSWindow.level .floating, applied at launch); the row's words are Accessibility
+buttons `on`, `off`, `top`, `permissions`, `close`. At the minimum width 1100 the lesson list's left edge is cut (not
+fixed in v24).

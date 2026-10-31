@@ -131,4 +131,10 @@ The word PERMISSIONS (amber) on the ON / OFF row, right of the spacer and left o
 Marko, 31.10.2026: *"Please go to all the interface of my applications. Each needs to have the same user interface
 elements. On, off and top. Please build it in every application."*
 
-Status: pending.
+Status, 31.10.2026: done as **v24**. The first row keeps its own order (CQ MIXPAD TUTORIAL ON OFF SPEED … MIXPAD LIVE
+HAND RING, PERMISSIONS while missing, v24 TOP ✕): TOP added beside the ✕ (green = the window floats above every other
+window, NSWindow.level = .floating; grey = normal; remembered in UserDefaults "onTop" and applied at launch after the
+window is placed on the MacBook screen). ON, OFF, TOP, PERMISSIONS and ✕ are now Accessibility buttons (`on`, `off`,
+`top`, `permissions`, `close`). Checked: built, installed, opened with `open -g --args --login`, window captured by id at
+its minimum width 1100 (the row fits, nothing cut), TOP pressed through Accessibility twice (layer 3 then 0).
+Seen, not changed: at 1100 the lesson list's left edge is cut by the fixed 250 + 360 columns (an older layout matter).

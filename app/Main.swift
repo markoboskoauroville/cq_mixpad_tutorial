@@ -8,7 +8,7 @@ import AppKit
 
 // v22 (30.10.2026, Marko: "If permissions are not set, it needs to have text in the top right: Permissions"): PERMISSIONS
 // in amber on the first row while one is missing; a click opens that page in System Settings
-let VERSION = 23
+let VERSION = 24
 let GREEN = Color(red: 0x33/255, green: 0xD1/255, blue: 0x7A/255)
 let GREY = Color(red: 0x7A/255, green: 0x80/255, blue: 0x87/255)
 let AMBER = Color(red: 0xE8/255, green: 0xA3/255, blue: 0x3D/255)
@@ -17,10 +17,28 @@ let CARD = Color(red: 0x14/255, green: 0x1A/255, blue: 0x21/255)
 
 struct Word: View {
     let text: String; let on: Bool; let action: () -> Void
+    // v24: every word an Accessibility button (MANTRA_MANIFEST swift-apps.md, 31.10.2026): identifier "on", "off", "top"
+    var value: String? = nil
     var body: some View {
         Text(text).font(.system(size: 13, weight: .bold, design: .monospaced)).foregroundColor(on ? GREEN : GREY)
             .padding(.horizontal, 6).padding(.vertical, 4).contentShape(Rectangle()).onTapGesture(perform: action)
+            .axButton(text.capitalized, id: text.lowercased(), value: value) { DispatchQueue.main.async(execute: action) }
     }
+}
+extension View {
+    func axButton(_ label: String, id: String, value: String? = nil, _ action: @escaping () -> Void) -> some View {
+        accessibilityElement(children: .ignore)
+            .accessibilityLabel(label)
+            .accessibilityIdentifier(id)
+            .accessibilityValue(value ?? "")
+            .accessibilityAddTraits(.isButton)
+            .accessibilityAction(.default, action)
+    }
+}
+// TOP (Marko, 31.10.2026: "Each needs to have the same user interface elements. On, off and top."): green = the
+// tutorial's window stays above every other window; remembered in UserDefaults "onTop" and applied at launch
+func floatWindows(_ on: Bool) {
+    for w in NSApp.windows where w.title.contains("CQ MixPad Tutorial") { w.level = on ? .floating : .normal }
 }
 struct CloseX: View {
     @State private var window: NSWindow?
@@ -29,6 +47,7 @@ struct CloseX: View {
             .frame(width: 28, height: 28).contentShape(Rectangle())
             .background(WindowReader { window = $0 })
             .onTapGesture { (window ?? NSApp.keyWindow)?.performClose(nil) }
+            .axButton("Close window", id: "close") { (window ?? NSApp.keyWindow)?.performClose(nil) }
             .help("close this window; the app stays on")
     }
 }
@@ -52,6 +71,7 @@ struct MainView: View {
     @ObservedObject var p: Player
     @State private var tick = 0
     @State private var missing = Permissions.missing
+    @AppStorage("onTop") private var onTop = false
     let timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
 
     var body: some View {
@@ -81,9 +101,12 @@ struct MainView: View {
                 if !missing.isEmpty {
                     Text("PERMISSIONS").font(.system(size: 13, weight: .bold, design: .monospaced)).foregroundColor(AMBER)
                         .padding(.horizontal, 6).padding(.vertical, 4).contentShape(Rectangle()).onTapGesture { Permissions.openMissing() }
+                        .axButton("Permissions", id: "permissions") { Permissions.openMissing() }
                         .help("A permission is missing: this opens its page in System Settings")
                 }
                 Text("v\(VERSION)").font(.system(size: 11, design: .monospaced)).foregroundColor(GREY).padding(.horizontal, 8)
+                Word(text: "TOP", on: onTop, action: { onTop.toggle(); floatWindows(onTop) }, value: onTop ? "on" : "off")
+                    .help("Always on top: green, the window stays above every other window")
                 CloseX()
             }
             .padding(.leading, 20).padding(.trailing, 10).padding(.vertical, 6)
@@ -314,6 +337,7 @@ final class Delegate: NSObject, NSApplicationDelegate {
             guard let w = NSApp.windows.first(where: { $0.title.contains("CQ MixPad Tutorial") }) else { return }
             let screen = NSScreen.screens.first { $0.localizedName.contains("Built-in") } ?? NSScreen.screens.last ?? NSScreen.main!
             w.setFrame(screen.visibleFrame, display: true)
+            floatWindows(UserDefaults.standard.bool(forKey: "onTop"))   // v24: TOP applied at launch
         }
     }
     func applicationShouldTerminateAfterLastWindowClosed(_ s: NSApplication) -> Bool { false }
