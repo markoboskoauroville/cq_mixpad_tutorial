@@ -1,7 +1,6 @@
-// LIVE: orders to Ableton Live over OSC, offline and local. AbletonOSC answers only to UDP 11001, which Ableton Live
-// Actions holds; its router on 127.0.0.1:11002 passes our messages on and copies the answers back to us
-// (ABLETON_LIVE_ACTIONS v4). Without the router the orders go straight to 11000 and the track numbers come from the
-// Santoshi set as it is (svemir VOC 0 … Venue L 10, Venue R 11).
+// LIVE: orders to Ableton Live over OSC, offline and local. AbletonOSC answers only to UDP 11001: a question takes the
+// shared turn on it and lets it go (USE, LET GO, 31.10.2026, LiveTurn.swift). Without an answer the track numbers come
+// from the Santoshi set as it is (svemir VOC 0 … Venue L 10, Venue R 11).
 import Foundation
 import Darwin
 
@@ -23,60 +22,29 @@ enum Live {
         }
         return out
     }
-    static func udp(_ d: Data, port: UInt16) -> Int32 {
-        let s = socket(AF_INET, SOCK_DGRAM, 0)
-        var to = sockaddr_in(); to.sin_family = sa_family_t(AF_INET); to.sin_port = port.bigEndian; to.sin_addr.s_addr = inet_addr("127.0.0.1")
-        _ = d.withUnsafeBytes { p in withUnsafePointer(to: &to) { $0.withMemoryRebound(to: sockaddr.self, capacity: 1) { sendto(s, p.baseAddress, d.count, 0, $0, socklen_t(MemoryLayout<sockaddr_in>.size)) } } }
-        return s
-    }
-    static var routerUp: Bool {
-        let s = socket(AF_INET, SOCK_DGRAM, 0); defer { close(s) }
-        var a = sockaddr_in(); a.sin_family = sa_family_t(AF_INET); a.sin_port = UInt16(11002).bigEndian; a.sin_addr.s_addr = inet_addr("127.0.0.1")
-        return withUnsafePointer(to: &a) { $0.withMemoryRebound(to: sockaddr.self, capacity: 1) { bind(s, $0, socklen_t(MemoryLayout<sockaddr_in>.size)) } } != 0
-    }
+    // USE, LET GO (Marko, 31.10.2026): questions take the shared turn on Live's answer port 11001 and let it go
+    // (LiveTurn.swift, the same rule as ABLETON_LIVE_ACTIONS helpers/liveosc.py); orders go straight to 11000. No router:
+    // the answers come whether Ableton Live Actions runs or not.
     static func send(_ addr: String, _ args: [Any] = []) {
-        close(udp(message(addr, args), port: routerUp ? 11002 : 11000))
+        let s = socket(AF_INET, SOCK_DGRAM, 0); guard s >= 0 else { return }
+        defer { close(s) }
+        var to = sockaddr_in(); to.sin_family = sa_family_t(AF_INET); to.sin_port = UInt16(11000).bigEndian; to.sin_addr.s_addr = inet_addr("127.0.0.1")
+        let d = message(addr, args)
+        _ = d.withUnsafeBytes { p in withUnsafePointer(to: &to) { $0.withMemoryRebound(to: sockaddr.self, capacity: 1) { sendto(s, p.baseAddress, d.count, 0, $0, socklen_t(MemoryLayout<sockaddr_in>.size)) } } }
     }
-    // the names of Live's tracks, asked through the router; nil without an answer
+    // the names of Live's tracks; nil without an answer
     static func trackNames() -> [String]? {
-        guard routerUp else { return nil }
-        let s = udp(message("/live/song/get/track_names", []), port: 11002); defer { close(s) }
-        var tv = timeval(tv_sec: 1, tv_usec: 500_000); setsockopt(s, SOL_SOCKET, SO_RCVTIMEO, &tv, socklen_t(MemoryLayout<timeval>.size))
-        var buf = [UInt8](repeating: 0, count: 65536)
-        for _ in 0..<20 {
-            let n = recv(s, &buf, buf.count, 0); if n <= 0 { return nil }
-            let d = Array(buf[0..<n])
-            func str(_ i: Int) -> (String, Int) { var j = i; while j < d.count && d[j] != 0 { j += 1 }; return (String(decoding: d[i..<j], as: UTF8.self), (j / 4 + 1) * 4) }
-            let (addr, i1) = str(0); guard addr == "/live/song/get/track_names" else { continue }
-            let (tags, i2) = str(i1); var pos = i2, names: [String] = []
-            for _ in tags.dropFirst() { let (s, p) = str(pos); names.append(s); pos = p }
-            return names
-        }
-        return nil
+        guard let r = LiveTurn.ask("/live/song/get/track_names", [], wait: 1.5) else { return nil }
+        return r.compactMap { $0 as? String }
     }
     static func track(_ name: String) -> Int? { trackNames()?.firstIndex(of: name) ?? knownTracks[name] }
 
-    // one number from Live (a float or an int answer), through the router; nil without an answer
+    // one number from Live (a float, an int or a true/false answer); nil without an answer
     static func number(_ addr: String) -> Double? {
-        guard routerUp else { return nil }
-        let s = udp(message(addr, []), port: 11002); defer { close(s) }
-        var tv = timeval(tv_sec: 1, tv_usec: 500_000); setsockopt(s, SOL_SOCKET, SO_RCVTIMEO, &tv, socklen_t(MemoryLayout<timeval>.size))
-        var buf = [UInt8](repeating: 0, count: 4096)
-        for _ in 0..<20 {
-            let n = recv(s, &buf, buf.count, 0); if n <= 0 { return nil }
-            let d = Array(buf[0..<n])
-            var j = 0; while j < d.count && d[j] != 0 { j += 1 }
-            guard String(decoding: d[0..<j], as: UTF8.self) == addr else { continue }
-            let t = (j / 4 + 1) * 4; let tag = d[t + 1]; let v = ((t + 4) / 4) * 4
-            if tag == UInt8(ascii: "T") { return 1 }        // a true or false carries no bytes after the tags
-            if tag == UInt8(ascii: "F") { return 0 }
-            guard v + 4 <= d.count else { return nil }
-            let raw = UInt32(d[v]) << 24 | UInt32(d[v + 1]) << 16 | UInt32(d[v + 2]) << 8 | UInt32(d[v + 3])
-            if tag == UInt8(ascii: "f") { return Double(Float(bitPattern: raw)) }
-            if tag == UInt8(ascii: "i") || tag == UInt8(ascii: "T") || tag == UInt8(ascii: "F") { return tag == UInt8(ascii: "T") ? 1 : tag == UInt8(ascii: "F") ? 0 : Double(Int32(bitPattern: raw)) }
-            return nil
-        }
-        return nil
+        guard let v = LiveTurn.ask(addr, [], wait: 1.5)?.first else { return nil }
+        if let b = v as? Bool { return b ? 1 : 0 }
+        if let i = v as? Int { return Double(i) }
+        return v as? Double
     }
     // where Live was before a lesson moved it (Marko listens while he works: his place is given back)
     static var saved: (beat: Double, playing: Bool)?
