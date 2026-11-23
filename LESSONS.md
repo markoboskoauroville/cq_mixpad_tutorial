@@ -21,3 +21,7 @@
   pause, bring the dialog forward, voice once, resume three seconds after it is gone.
 - **"Press PLAY" is ambiguous** next to Live: Marko pressed Live's Play. A CHECK says "the tutorial's PLAY".
 - **Signed "Mantra Apps", the grants survive rebuilds** (designated requirement = certificate leaf): v16–v21 asked nothing.
+
+## 23.11.2026
+- v25: AbletonOSC moved to UDP 11010/11011 (23.11.2026), Suno Bridge owns 11000. Orders go to 11010, answers come on 11011 (Live.swift, LiveTurn.swift).
+- v25: first GitHub Actions workflow (.github/workflows/build.yml); build.sh honours SIGN and NO_INSTALL=1 (nothing compiles on the Mac).

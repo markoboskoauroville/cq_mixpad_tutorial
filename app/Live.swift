@@ -1,4 +1,4 @@
-// LIVE: orders to Ableton Live over OSC, offline and local. AbletonOSC answers only to UDP 11001: a question takes the
+// LIVE: orders to Ableton Live over OSC, offline and local. AbletonOSC answers only to UDP 11011: a question takes the
 // shared turn on it and lets it go (USE, LET GO, 31.10.2026, LiveTurn.swift). Without an answer the track numbers come
 // from the Santoshi set as it is (svemir VOC 0 … Venue L 10, Venue R 11).
 import Foundation
@@ -22,13 +22,13 @@ enum Live {
         }
         return out
     }
-    // USE, LET GO (Marko, 31.10.2026): questions take the shared turn on Live's answer port 11001 and let it go
-    // (LiveTurn.swift, the same rule as ABLETON_LIVE_ACTIONS helpers/liveosc.py); orders go straight to 11000. No router:
+    // USE, LET GO (Marko, 31.10.2026): questions take the shared turn on Live's answer port 11011 and let it go
+    // (LiveTurn.swift, the same rule as ABLETON_LIVE_ACTIONS helpers/liveosc.py); orders go straight to 11010. No router:
     // the answers come whether Ableton Live Actions runs or not.
     static func send(_ addr: String, _ args: [Any] = []) {
         let s = socket(AF_INET, SOCK_DGRAM, 0); guard s >= 0 else { return }
         defer { close(s) }
-        var to = sockaddr_in(); to.sin_family = sa_family_t(AF_INET); to.sin_port = UInt16(11000).bigEndian; to.sin_addr.s_addr = inet_addr("127.0.0.1")
+        var to = sockaddr_in(); to.sin_family = sa_family_t(AF_INET); to.sin_port = UInt16(11010).bigEndian; to.sin_addr.s_addr = inet_addr("127.0.0.1")
         let d = message(addr, args)
         _ = d.withUnsafeBytes { p in withUnsafePointer(to: &to) { $0.withMemoryRebound(to: sockaddr.self, capacity: 1) { sendto(s, p.baseAddress, d.count, 0, $0, socklen_t(MemoryLayout<sockaddr_in>.size)) } } }
     }

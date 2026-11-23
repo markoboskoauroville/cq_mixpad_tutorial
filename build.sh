@@ -33,6 +33,5 @@ cat > "$APP/Contents/Info.plist" <<PL
 PL
 # everything the tutorial plays travels inside the app: it runs offline (lessons, the made voice, diagrams, pictures)
 rm -rf "$APP/Contents/Resources/content"; cp -R content "$APP/Contents/Resources/content"
-codesign --force -s "Mantra Apps" "$APP"
-rm -rf "/Applications/$NAME.app"; cp -R "$APP" /Applications/
-echo "built $APP (v$V) and installed it in /Applications"
+codesign --force -s "${SIGN:-Mantra Apps}" "$APP"
+if [ -z "$NO_INSTALL" ]; then rm -rf "/Applications/$NAME.app"; cp -R "$APP" /Applications/; echo "built $APP (v$V) and installed it in /Applications"; else echo "built $APP (v$V), not installed"; fi
